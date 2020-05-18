@@ -121,7 +121,7 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
         // output the trajectories for evaluation
         SLAM.save_frame_trajectory("/home/mirellameelo/openvslam/ros2/maps/frame_trajectory.txt", "TUM");
         SLAM.save_keyframe_trajectory("/home/mirellameelo/openvslam/ros2/maps/keyframe_trajectory.txt", "TUM");
-        SLAM.save_landmarks_and_timestamp("/home/mirellameelo/openvslam/ros2/maps/landmarks_and_timestamp.json");
+        SLAM.save_json_file("/home/mirellameelo/openvslam/ros2/maps/landmarks_and_timestamp.json");
     }
 
     if (!map_db_path.empty()) {
