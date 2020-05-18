@@ -59,6 +59,9 @@ public:
     //! Save the keyframe trajectory in the specified format
     void save_keyframe_trajectory(const std::string& path, const std::string& format) const;
 
+    //! Save the map points and its respectivally keyframe
+    void save_json_file(const std::string& path) const;
+
     //! Load the map database from the MessagePack file
     void load_map_database(const std::string& path) const;
 

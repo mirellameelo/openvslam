@@ -1,7 +1,8 @@
 #ifdef USE_PANGOLIN_VIEWER
-#include <pangolin_viewer/viewer.h>
+    #include <pangolin_viewer/viewer.h>
+    #include <openvslam/publish/map_publisher.h>
 #elif USE_SOCKET_PUBLISHER
-#include <socket_publisher/publisher.h>
+    #include <socket_publisher/publisher.h>
 #endif
 
 #include <openvslam/system.h>
@@ -10,6 +11,9 @@
 #include <iostream>
 #include <chrono>
 #include <numeric>
+
+#include "openvslam/data/keyframe.h"
+#include "openvslam/data/landmark.h"
 
 #include <rclcpp/rclcpp.hpp>
 #include <image_transport/image_transport.h>
@@ -30,22 +34,23 @@
 #endif
 
 void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::string& vocab_file_path,
-                   const std::string& mask_img_path, const bool eval_log, const std::string& map_db_path) {
+                    const std::string& mask_img_path, const bool eval_log, const std::string& map_db_path){
     // load the mask image
     const cv::Mat mask = mask_img_path.empty() ? cv::Mat{} : cv::imread(mask_img_path, cv::IMREAD_GRAYSCALE);
 
     // build a SLAM system
     openvslam::system SLAM(cfg, vocab_file_path);
+
     // startup the SLAM process
     SLAM.startup();
 
     // create a viewer object
     // and pass the frame_publisher and the map_publisher
-#ifdef USE_PANGOLIN_VIEWER
-    pangolin_viewer::viewer viewer(cfg, &SLAM, SLAM.get_frame_publisher(), SLAM.get_map_publisher());
-#elif USE_SOCKET_PUBLISHER
-    socket_publisher::publisher publisher(cfg, &SLAM, SLAM.get_frame_publisher(), SLAM.get_map_publisher());
-#endif
+    #ifdef USE_PANGOLIN_VIEWER
+        pangolin_viewer::viewer viewer(cfg, &SLAM, SLAM.get_frame_publisher(), SLAM.get_map_publisher());
+    #elif USE_SOCKET_PUBLISHER
+        socket_publisher::publisher publisher(cfg, &SLAM, SLAM.get_frame_publisher(), SLAM.get_map_publisher());
+    #endif
 
     std::vector<double> track_times;
     const auto tp_0 = std::chrono::steady_clock::now();
@@ -79,50 +84,44 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
         exec.spin();
     });
 
-#ifdef USE_PANGOLIN_VIEWER
-    viewer.run();
-    if (SLAM.terminate_is_requested()) {
-        // wait until the loop BA is finished
-        while (SLAM.loop_BA_is_running()) {
-            std::this_thread::sleep_for(std::chrono::microseconds(5000));
+    #ifdef USE_PANGOLIN_VIEWER
+        viewer.run();
+        if (SLAM.terminate_is_requested()) {
+            // wait until the loop BA is finished
+            while (SLAM.loop_BA_is_running()) {
+                std::this_thread::sleep_for(std::chrono::microseconds(5000));
+
+            }
+            rclcpp::shutdown();
         }
-        rclcpp::shutdown();
-    }
-#elif USE_SOCKET_PUBLISHER
-    publisher.run();
-    if (SLAM.terminate_is_requested()) {
-        // wait until the loop BA is finished
-        while (SLAM.loop_BA_is_running()) {
-            std::this_thread::sleep_for(std::chrono::microseconds(5000));
+    #elif USE_SOCKET_PUBLISHER
+        publisher.run();
+        if (SLAM.terminate_is_requested()) {
+            // wait until the loop BA is finished
+            while (SLAM.loop_BA_is_running()) {
+                std::this_thread::sleep_for(std::chrono::microseconds(5000));
+            }
+            rclcpp::shutdown();
         }
-        rclcpp::shutdown();
-    }
-#endif
+    #endif
 
     // automatically close the viewer
-#ifdef USE_PANGOLIN_VIEWER
-    viewer.request_terminate();
-    thread.join();
-#elif USE_SOCKET_PUBLISHER
-    publisher.request_terminate();
-    thread.join();
-#endif
+    #ifdef USE_PANGOLIN_VIEWER
+        viewer.request_terminate();
+        thread.join();
+    #elif USE_SOCKET_PUBLISHER
+        publisher.request_terminate();
+        thread.join();
+    #endif
 
     // shutdown the SLAM process
     SLAM.shutdown();
 
     if (eval_log) {
         // output the trajectories for evaluation
-        SLAM.save_frame_trajectory("frame_trajectory.txt", "TUM");
-        SLAM.save_keyframe_trajectory("keyframe_trajectory.txt", "TUM");
-        // output the tracking times for evaluation
-        std::ofstream ofs("track_times.txt", std::ios::out);
-        if (ofs.is_open()) {
-            for (const auto track_time : track_times) {
-                ofs << track_time << std::endl;
-            }
-            ofs.close();
-        }
+        SLAM.save_frame_trajectory("/home/mirellameelo/openvslam/ros2/maps/frame_trajectory.txt", "TUM");
+        SLAM.save_keyframe_trajectory("/home/mirellameelo/openvslam/ros2/maps/keyframe_trajectory.txt", "TUM");
+        SLAM.save_landmarks_and_timestamp("/home/mirellameelo/openvslam/ros2/maps/landmarks_and_timestamp.json");
     }
 
     if (!map_db_path.empty()) {
@@ -139,11 +138,12 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
 }
 
 int main(int argc, char* argv[]) {
-#ifdef USE_STACK_TRACE_LOGGER
-    google::InitGoogleLogging(argv[0]);
-    google::InstallFailureSignalHandler();
-#endif
-    rclcpp::init(argc, argv);
+
+    #ifdef USE_STACK_TRACE_LOGGER
+        google::InitGoogleLogging(argv[0]);
+        google::InstallFailureSignalHandler();
+    #endif
+        rclcpp::init(argc, argv);
 
     // create options
     popl::OptionParser op("Allowed options");
@@ -152,6 +152,8 @@ int main(int argc, char* argv[]) {
     auto setting_file_path = op.add<popl::Value<std::string>>("c", "config", "setting file path");
     auto mask_img_path = op.add<popl::Value<std::string>>("", "mask", "mask image path", "");
     auto debug_mode = op.add<popl::Switch>("", "debug", "debug mode");
+    //switch: por padrao eh false, se vc setar, fica true
+    //value: exige um valor apos usar a palavra na linha de comando, ex: --map-db "STRING"
     auto eval_log = op.add<popl::Switch>("", "eval-log", "store trajectory and tracking times for evaluation");
     auto map_db_path = op.add<popl::Value<std::string>>("", "map-db", "store a map database at this path after SLAM", "");
     try {
@@ -195,9 +197,9 @@ int main(int argc, char* argv[]) {
         return EXIT_FAILURE;
     }
 
-#ifdef USE_GOOGLE_PERFTOOLS
-    ProfilerStart("slam.prof");
-#endif
+    #ifdef USE_GOOGLE_PERFTOOLS
+        ProfilerStart("slam.prof");
+    #endif
 
     // run tracking
     if (cfg->camera_->setup_type_ == openvslam::camera::setup_type_t::Monocular) {
@@ -207,9 +209,9 @@ int main(int argc, char* argv[]) {
         throw std::runtime_error("Invalid setup type: " + cfg->camera_->get_setup_type_string());
     }
 
-#ifdef USE_GOOGLE_PERFTOOLS
-    ProfilerStop();
-#endif
+    #ifdef USE_GOOGLE_PERFTOOLS
+        ProfilerStop();
+    #endif
 
     return EXIT_SUCCESS;
 }

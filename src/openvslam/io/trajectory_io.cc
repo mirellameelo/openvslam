@@ -1,4 +1,5 @@
 #include "openvslam/data/keyframe.h"
+#include "openvslam/data/landmark.h"
 #include "openvslam/data/map_database.h"
 #include "openvslam/io/trajectory_io.h"
 
@@ -114,6 +115,7 @@ void trajectory_io::save_keyframe_trajectory(const std::string& path, const std:
 
     assert(map_db_);
     auto keyfrms = map_db_->get_all_keyframes();
+    auto points = map_db_->get_all_landmarks();
     std::sort(keyfrms.begin(), keyfrms.end(), [&](data::keyframe* keyfrm_1, data::keyframe* keyfrm_2) {
         return *keyfrm_1 < *keyfrm_2;
     });
@@ -149,11 +151,12 @@ void trajectory_io::save_keyframe_trajectory(const std::string& path, const std:
             const Mat33_t& rot_wc = cam_pose_wc.block<3, 3>(0, 0);
             const Vec3_t& trans_wc = cam_pose_wc.block<3, 1>(0, 3);
             const Quat_t quat_wc = Quat_t(rot_wc);
+            
             ofs << std::setprecision(15)
                 << timestamp << " "
                 << std::setprecision(9)
-                << trans_wc(0) << " " << trans_wc(1) << " " << trans_wc(2) << " "
-                << quat_wc.x() << " " << quat_wc.y() << " " << quat_wc.z() << " " << quat_wc.w() << std::endl;
+                << trans_wc(0) << " oi " << trans_wc(1) << " " << trans_wc(2) << " "
+                << quat_wc.x() << " oi " << quat_wc.y() << " " << quat_wc.z() << " " << quat_wc.w() << std::endl;
         }
         else {
             throw std::runtime_error("Not implemented: trajectory format \"" + format + "\"");
@@ -162,6 +165,34 @@ void trajectory_io::save_keyframe_trajectory(const std::string& path, const std:
 
     ofs.close();
 }
+
+void trajectory_io::save_json_file(const std::string& path) const {
+    std::lock_guard<std::mutex> lock(data::map_database::mtx_database_);
+
+
+    assert(map_db_);
+    auto points = map_db_->get_all_landmarks();
+
+
+    if (points.empty()) {
+        spdlog::warn("there are no valid points, cannot dump points position");
+        return;
+    }
+
+    std::ofstream ofs(path, std::ios::out);
+    if (!ofs.is_open()) {
+        spdlog::critical("cannot create a file at {}", path);
+        throw std::runtime_error("cannot create a file at " + path);
+    }
+
+    for (const auto points : points) {
+        openvslam::Vec3_t pos_w = points->get_pos_in_world();
+        nlohmann::json dict = points->to_json();
+        ofs << dict;
+    }
+
+    ofs.close();
+    }
 
 } // namespace io
 } // namespace openvslam

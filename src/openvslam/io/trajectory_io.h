@@ -33,6 +33,11 @@ public:
      */
     void save_keyframe_trajectory(const std::string& path, const std::string& format) const;
 
+    /**
+     * Save the map_points and keyframe
+     */
+    void save_json_file(const std::string& path) const;
+
 private:
     //! map_database
     data::map_database* const map_db_ = nullptr;
