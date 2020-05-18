@@ -3,7 +3,6 @@ void save_json_file(const std::string& path) const;
 
 
 system.cc
-
 void system::save_json_file(const std::string& path) const {
     pause_other_threads();
     io::trajectory_io trajectory_io(map_db_);
@@ -13,11 +12,11 @@ void system::save_json_file(const std::string& path) const {
 
 
 trajectory_io.h
-
 void save_json_file(const std::string& path) const;
 
 
 trajectory_io.cc
+#include "openvslam/data/landmark.h"
 
 void trajectory_io::save_json_file(const std::string& path) const {
     std::lock_guard<std::mutex> lock(data::map_database::mtx_database_);
@@ -47,5 +46,4 @@ void trajectory_io::save_json_file(const std::string& path) const {
 }
 
 run_slam.cc
-
-    SLAM.save_landmarks_and_timestamp("/home/mirellameelo/openvslam/ros2/maps/landmarks_and_timestamp.json");
+SLAM.save_landmarks_and_timestamp("/home/mirellameelo/openvslam/ros2/maps/landmarks_and_timestamp.json");
