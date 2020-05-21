@@ -115,7 +115,6 @@ void trajectory_io::save_keyframe_trajectory(const std::string& path, const std:
 
     assert(map_db_);
     auto keyfrms = map_db_->get_all_keyframes();
-    auto points = map_db_->get_all_landmarks();
     std::sort(keyfrms.begin(), keyfrms.end(), [&](data::keyframe* keyfrm_1, data::keyframe* keyfrm_2) {
         return *keyfrm_1 < *keyfrm_2;
     });
@@ -141,6 +140,8 @@ void trajectory_io::save_keyframe_trajectory(const std::string& path, const std:
         const Mat44_t cam_pose_wc = cam_pose_cw.inverse();
         const auto timestamp = keyfrm->timestamp_;
 
+        int ref = keyfrm->id_;
+
         if (format == "KITTI") {
             ofs << std::setprecision(9)
                 << cam_pose_wc(0, 0) << " " << cam_pose_wc(0, 1) << " " << cam_pose_wc(0, 2) << " " << cam_pose_wc(0, 3) << " "
@@ -152,11 +153,11 @@ void trajectory_io::save_keyframe_trajectory(const std::string& path, const std:
             const Vec3_t& trans_wc = cam_pose_wc.block<3, 1>(0, 3);
             const Quat_t quat_wc = Quat_t(rot_wc);
             
-            ofs << std::setprecision(15)
+            ofs << ref << " " << std::setprecision(15)
                 << timestamp << " "
                 << std::setprecision(9)
-                << trans_wc(0) << " oi " << trans_wc(1) << " " << trans_wc(2) << " "
-                << quat_wc.x() << " oi " << quat_wc.y() << " " << quat_wc.z() << " " << quat_wc.w() << std::endl;
+                << trans_wc(0) << " " << trans_wc(1) << " " << trans_wc(2) << " "
+                << quat_wc.x() << " " << quat_wc.y() << " " << quat_wc.z() << " " << quat_wc.w() << std::endl;
         }
         else {
             throw std::runtime_error("Not implemented: trajectory format \"" + format + "\"");
@@ -185,14 +186,17 @@ void trajectory_io::save_json_file(const std::string& path) const {
         throw std::runtime_error("cannot create a file at " + path);
     }
 
-    for (const auto points : points) {
-        openvslam::Vec3_t pos_w = points->get_pos_in_world();
-        nlohmann::json dict = points->to_json();
-        ofs << dict;
+    for (const auto point : points) {
+        openvslam::Vec3_t pos_w = point->get_pos_in_world();
+        auto ref_keyframe = point->first_keyfrm_id_;
+
+        ofs << ref_keyframe << " " << pos_w(0) << " " << pos_w(1) << " " <<pos_w(2) << std::endl;
+
+        //nlohmann::json dict = points->to_json();
     }
 
     ofs.close();
-    }
+}
 
 } // namespace io
 } // namespace openvslam
