@@ -1,0 +1,7 @@
+[0.402s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:18:10:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/Pose.h: No such file or directory
+[0.402s]  #include [01;31m[K<geometry_msgs/Pose.h>[m[K
+[0.402s]           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.402s] compilation terminated.
+[0.405s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[0.405s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[0.406s] make: *** [all] Error 2

@@ -16,6 +16,7 @@
 #include "openvslam/data/landmark.h"
 
 #include <rclcpp/rclcpp.hpp>
+#include <nav_msgs/msg/odometry.hpp>
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
 
@@ -59,6 +60,9 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
     auto node = std::make_shared<rclcpp::Node>("run_slam");
     rmw_qos_profile_t custom_qos = rmw_qos_profile_default;
     custom_qos.depth = 1;
+
+    // cria um topico, canal de envio de msg
+    auto odometry_pub_ = node->create_publisher<nav_msgs::msg::Odometry>("pose", 1);
 
     // run the SLAM as subscriber
     image_transport::Subscriber sub = image_transport::create_subscription(

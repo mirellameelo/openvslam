@@ -1,0 +1,74 @@
+[0.060s] [35m[1mScanning dependencies of target run_localization[0m
+[0.083s] [ 50%] Built target run_slam
+[0.106s] [ 75%] [32mBuilding CXX object src/CMakeFiles/run_localization.dir/run_localization.cc.o[0m
+[2.750s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In function ‘[01m[Kvoid mono_localization(const std::shared_ptr<openvslam::config>&, const string&, const string&, const string&, bool)[m[K’:
+[2.751s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:74:64:[m[K [01;31m[Kerror: [m[K‘[01m[KPoint[m[K’ is not a member of ‘[01m[Kgeometry_msgs[m[K’
+[2.751s]      auto pose_position = node->create_publisher<geometry_msgs::[01;31m[KPoint[m[K>("point", 1);
+[2.751s]                                                                 [01;31m[K^~~~~[m[K
+[2.751s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:74:64:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
+[2.752s] In file included from [01m[K/home/mirellameelo/openvslam/src/openvslam/type.h:12:0[m[K,
+[2.752s]                  from [01m[K/home/mirellameelo/openvslam/src/pangolin_viewer/viewer.h:6[m[K,
+[2.752s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:2[m[K:
+[2.752s] [01m[K/usr/local/include/opencv2/core/types.hpp:192:17:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Point[m[K’
+[2.752s]  typedef Point2i [01;36m[KPoint[m[K;
+[2.752s]                  [01;36m[K^~~~~[m[K
+[2.752s] In file included from [01m[K/opt/ros/dashing/include/geometry_msgs/msg/pose__struct.hpp:29:0[m[K,
+[2.752s]                  from [01m[K/opt/ros/dashing/include/geometry_msgs/msg/pose_with_covariance__struct.hpp:29[m[K,
+[2.752s]                  from [01m[K/opt/ros/dashing/include/nav_msgs/msg/odometry__struct.hpp:31[m[K,
+[2.752s]                  from [01m[K/opt/ros/dashing/include/nav_msgs/msg/odometry.hpp:7[m[K,
+[2.752s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:16[m[K:
+[2.752s] [01m[K/opt/ros/dashing/include/geometry_msgs/msg/point__struct.hpp:160:51:[m[K [01;36m[Knote: [m[K  ‘[01m[Kgeometry_msgs::msg::Point[m[K’
+[2.752s]    geometry_msgs::msg::Point_<std::allocator<void>>[01;36m[K;[m[K
+[2.752s]                                                    [01;36m[K^[m[K
+[2.752s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:74:81:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Krclcpp::Node::create_publisher<<expression error> >(const char [6], int)[m[K’
+[2.752s]   auto pose_position = node->create_publisher<geometry_msgs::Point>("point", 1[01;31m[K)[m[K;
+[2.752s]                                                                               [01;31m[K^[m[K
+[2.753s] In file included from [01m[K/opt/ros/dashing/include/rclcpp/executors/single_threaded_executor.hpp:28:0[m[K,
+[2.753s]                  from [01m[K/opt/ros/dashing/include/rclcpp/executors.hpp:22[m[K,
+[2.753s]                  from [01m[K/opt/ros/dashing/include/rclcpp/rclcpp.hpp:144[m[K,
+[2.753s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:14[m[K:
+[2.753s] [01m[K/opt/ros/dashing/include/rclcpp/node.hpp:177:3:[m[K [01;36m[Knote: [m[Kcandidate: template<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)
+[2.753s]    [01;36m[Kcreate_publisher[m[K(
+[2.753s]    [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[2.753s] [01m[K/opt/ros/dashing/include/rclcpp/node.hpp:177:3:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.753s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:74:81:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[2.753s]   auto pose_position = node->create_publisher<geometry_msgs::Point>("point", 1[01;31m[K)[m[K;
+[2.753s]                                                                               [01;31m[K^[m[K
+[2.753s] In file included from [01m[K/opt/ros/dashing/include/rclcpp/executors/single_threaded_executor.hpp:28:0[m[K,
+[2.753s]                  from [01m[K/opt/ros/dashing/include/rclcpp/executors.hpp:22[m[K,
+[2.753s]                  from [01m[K/opt/ros/dashing/include/rclcpp/rclcpp.hpp:144[m[K,
+[2.753s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:14[m[K:
+[2.753s] [01m[K/opt/ros/dashing/include/rclcpp/node.hpp:198:3:[m[K [01;36m[Knote: [m[Kcandidate: template<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const string&, size_t, std::shared_ptr<_Up>)
+[2.753s]    [01;36m[Kcreate_publisher[m[K(
+[2.754s]    [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[2.754s] [01m[K/opt/ros/dashing/include/rclcpp/node.hpp:198:3:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.754s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:74:81:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[2.754s]   auto pose_position = node->create_publisher<geometry_msgs::Point>("point", 1[01;31m[K)[m[K;
+[2.754s]                                                                               [01;31m[K^[m[K
+[2.754s] In file included from [01m[K/opt/ros/dashing/include/rclcpp/executors/single_threaded_executor.hpp:28:0[m[K,
+[2.754s]                  from [01m[K/opt/ros/dashing/include/rclcpp/executors.hpp:22[m[K,
+[2.754s]                  from [01m[K/opt/ros/dashing/include/rclcpp/rclcpp.hpp:144[m[K,
+[2.754s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:14[m[K:
+[2.754s] [01m[K/opt/ros/dashing/include/rclcpp/node.hpp:217:3:[m[K [01;36m[Knote: [m[Kcandidate: template<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const string&, const rmw_qos_profile_t&, std::shared_ptr<_Up>)
+[2.754s]    [01;36m[Kcreate_publisher[m[K(
+[2.754s]    [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[2.754s] [01m[K/opt/ros/dashing/include/rclcpp/node.hpp:217:3:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.754s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:74:81:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[2.754s]   auto pose_position = node->create_publisher<geometry_msgs::Point>("point", 1[01;31m[K)[m[K;
+[2.754s]                                                                               [01;31m[K^[m[K
+[2.755s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:84:5:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[Krmw_qos_profile_t[m[K’
+[2.755s]      [01;31m[Krmw_qos_profile_t[m[K custom_qos = rmw_qos_profile_default;
+[2.755s]      [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[2.755s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:85:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kcustom_qos[m[K’ was not declared in this scope
+[2.755s]      [01;31m[Kcustom_qos[m[K.depth = 1;
+[2.755s]      [01;31m[K^~~~~~~~~~[m[K
+[2.755s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:85:5:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kwcstombs[m[K’
+[2.755s]      [01;36m[Kcustom_qos[m[K.depth = 1;
+[2.755s]      [01;36m[K^~~~~~~~~~[m[K
+[2.755s]      [32m[Kwcstombs[m[K
+[4.381s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.382s] src/CMakeFiles/run_localization.dir/build.make:62: recipe for target 'src/CMakeFiles/run_localization.dir/run_localization.cc.o' failed
+[4.382s] CMakeFiles/Makefile2:156: recipe for target 'src/CMakeFiles/run_localization.dir/all' failed
+[4.382s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.382s] make: *** [all] Error 2
+[4.382s] Makefile:140: recipe for target 'all' failed

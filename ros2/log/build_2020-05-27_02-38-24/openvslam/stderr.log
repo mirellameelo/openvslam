@@ -1,0 +1,84 @@
+[2.982s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[2.982s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:90:41:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kcam_pose_[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[2.983s]              Eigen::Matrix<double, 4, 4> [01;35m[Kcam_pose_[m[K = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
+[2.983s]                                          [01;35m[K^~~~~~~~~[m[K
+[2.985s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In function ‘[01m[Kvoid mono_localization(const std::shared_ptr<openvslam::config>&, const string&, const string&, const string&, bool)[m[K’:
+[2.985s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:109:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kcam_pose_[m[K’ was not declared in this scope
+[2.985s]              [01;31m[Kcam_pose_[m[K = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
+[2.985s]              [01;31m[K^~~~~~~~~[m[K
+[2.989s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:109:72:[m[K [01;31m[Kerror: [m[K‘[01m[Kmsg[m[K’ was not declared in this scope
+[2.990s]              cam_pose_ = SLAM.feed_monocular_frame(cv_bridge::toCvShare([01;31m[Kmsg[m[K, "bgr8")->image, timestamp, mask);
+[2.990s]                                                                         [01;31m[K^~~[m[K
+[2.990s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:109:72:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
+[2.990s] In file included from [01m[K/opt/ros/dashing/include/rcl_interfaces/msg/intra_process_message.hpp:7:0[m[K,
+[2.990s]                  from [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:31[m[K,
+[2.990s]                  from [01m[K/opt/ros/dashing/include/rclcpp/callback_group.hpp:24[m[K,
+[2.991s]                  from [01m[K/opt/ros/dashing/include/rclcpp/any_executable.hpp:20[m[K,
+[2.991s]                  from [01m[K/opt/ros/dashing/include/rclcpp/memory_strategy.hpp:24[m[K,
+[2.991s]                  from [01m[K/opt/ros/dashing/include/rclcpp/memory_strategies.hpp:18[m[K,
+[2.991s]                  from [01m[K/opt/ros/dashing/include/rclcpp/executor.hpp:33[m[K,
+[2.991s]                  from [01m[K/opt/ros/dashing/include/rclcpp/executors/multi_threaded_executor.hpp:24[m[K,
+[2.991s]                  from [01m[K/opt/ros/dashing/include/rclcpp/executors.hpp:21[m[K,
+[2.991s]                  from [01m[K/opt/ros/dashing/include/rclcpp/rclcpp.hpp:144[m[K,
+[2.991s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:14[m[K:
+[2.991s] [01m[K/opt/ros/dashing/include/rcl_interfaces/msg/intra_process_message__struct.hpp:36:11:[m[K [01;36m[Knote: [m[K  ‘[01m[Krcl_interfaces::msg[m[K’
+[2.991s]  namespace [01;36m[Kmsg[m[K
+[2.991s]            [01;36m[K^~~[m[K
+[2.991s] In file included from [01m[K/opt/ros/dashing/include/builtin_interfaces/msg/time.hpp:7:0[m[K,
+[2.991s]                  from [01m[K/opt/ros/dashing/include/rclcpp/time.hpp:18[m[K,
+[2.991s]                  from [01m[K/opt/ros/dashing/include/rclcpp/clock.hpp:21[m[K,
+[2.991s]                  from [01m[K/opt/ros/dashing/include/rclcpp/timer.hpp:26[m[K,
+[2.991s]                  from [01m[K/opt/ros/dashing/include/rclcpp/callback_group.hpp:27[m[K,
+[2.991s]                  from [01m[K/opt/ros/dashing/include/rclcpp/any_executable.hpp:20[m[K,
+[2.992s]                  from [01m[K/opt/ros/dashing/include/rclcpp/memory_strategy.hpp:24[m[K,
+[2.992s]                  from [01m[K/opt/ros/dashing/include/rclcpp/memory_strategies.hpp:18[m[K,
+[2.992s]                  from [01m[K/opt/ros/dashing/include/rclcpp/executor.hpp:33[m[K,
+[2.992s]                  from [01m[K/opt/ros/dashing/include/rclcpp/executors/multi_threaded_executor.hpp:24[m[K,
+[2.992s]                  from [01m[K/opt/ros/dashing/include/rclcpp/executors.hpp:21[m[K,
+[2.992s]                  from [01m[K/opt/ros/dashing/include/rclcpp/rclcpp.hpp:144[m[K,
+[2.992s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:14[m[K:
+[2.992s] [01m[K/opt/ros/dashing/include/builtin_interfaces/msg/time__struct.hpp:36:11:[m[K [01;36m[Knote: [m[K  ‘[01m[Kbuiltin_interfaces::msg[m[K’
+[2.992s]  namespace [01;36m[Kmsg[m[K
+[2.992s]            [01;36m[K^~~[m[K
+[2.992s] In file included from [01m[K/opt/ros/dashing/include/nav_msgs/msg/odometry__struct.hpp:29:0[m[K,
+[2.992s]                  from [01m[K/opt/ros/dashing/include/nav_msgs/msg/odometry.hpp:7[m[K,
+[2.992s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:16[m[K:
+[2.992s] [01m[K/opt/ros/dashing/include/std_msgs/msg/header__struct.hpp:40:11:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd_msgs::msg[m[K’
+[2.992s]  namespace [01;36m[Kmsg[m[K
+[2.992s]            [01;36m[K^~~[m[K
+[2.992s] In file included from [01m[K/opt/ros/dashing/include/geometry_msgs/msg/pose__struct.hpp:29:0[m[K,
+[2.992s]                  from [01m[K/opt/ros/dashing/include/geometry_msgs/msg/pose_with_covariance__struct.hpp:29[m[K,
+[2.993s]                  from [01m[K/opt/ros/dashing/include/nav_msgs/msg/odometry__struct.hpp:31[m[K,
+[2.993s]                  from [01m[K/opt/ros/dashing/include/nav_msgs/msg/odometry.hpp:7[m[K,
+[2.993s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:16[m[K:
+[2.993s] [01m[K/opt/ros/dashing/include/geometry_msgs/msg/point__struct.hpp:36:11:[m[K [01;36m[Knote: [m[K  ‘[01m[Kgeometry_msgs::msg[m[K’
+[2.993s]  namespace [01;36m[Kmsg[m[K
+[2.993s]            [01;36m[K^~~[m[K
+[2.993s] In file included from [01m[K/opt/ros/dashing/include/nav_msgs/msg/odometry.hpp:7:0[m[K,
+[2.993s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:16[m[K:
+[2.993s] [01m[K/opt/ros/dashing/include/nav_msgs/msg/odometry__struct.hpp:44:11:[m[K [01;36m[Knote: [m[K  ‘[01m[Knav_msgs::msg[m[K’
+[2.993s]  namespace [01;36m[Kmsg[m[K
+[2.993s]            [01;36m[K^~~[m[K
+[2.993s] In file included from [01m[K/opt/ros/dashing/include/tf2_msgs/msg/tf_message.hpp:7:0[m[K,
+[2.993s]                  from [01m[K/opt/ros/dashing/include/tf2_ros/transform_listener.h:38[m[K,
+[2.993s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:19[m[K:
+[2.993s] [01m[K/opt/ros/dashing/include/tf2_msgs/msg/tf_message__struct.hpp:40:11:[m[K [01;36m[Knote: [m[K  ‘[01m[Ktf2_msgs::msg[m[K’
+[2.994s]  namespace [01;36m[Kmsg[m[K
+[2.994s]            [01;36m[K^~~[m[K
+[2.994s] In file included from [01m[K/opt/ros/dashing/include/sensor_msgs/msg/image.hpp:7:0[m[K,
+[2.994s]                  from [01m[K/opt/ros/dashing/include/image_transport/camera_publisher.h:41[m[K,
+[2.994s]                  from [01m[K/opt/ros/dashing/include/image_transport/image_transport.h:45[m[K,
+[2.994s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:21[m[K:
+[2.994s] [01m[K/opt/ros/dashing/include/sensor_msgs/msg/image__struct.hpp:40:11:[m[K [01;36m[Knote: [m[K  ‘[01m[Ksensor_msgs::msg[m[K’
+[2.994s]  namespace [01;36m[Kmsg[m[K
+[2.994s]            [01;36m[K^~~[m[K
+[2.994s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:109:93:[m[K [01;31m[Kerror: [m[K‘[01m[Ktimestamp[m[K’ was not declared in this scope
+[2.994s]              cam_pose_ = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, [01;31m[Ktimestamp[m[K, mask);
+[2.994s]                                                                                              [01;31m[K^~~~~~~~~[m[K
+[2.994s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:109:93:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kmkstemp[m[K’
+[2.995s]              cam_pose_ = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, [01;36m[Ktimestamp[m[K, mask);
+[2.995s]                                                                                              [01;36m[K^~~~~~~~~[m[K
+[2.995s]                                                                                              [32m[Kmkstemp[m[K
+[4.693s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.694s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.694s] make: *** [all] Error 2

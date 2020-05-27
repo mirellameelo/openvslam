@@ -1,0 +1,29 @@
+[0.060s] [35m[1mScanning dependencies of target run_localization[0m
+[0.095s] [ 50%] Built target run_slam
+[0.111s] [ 75%] [32mBuilding CXX object src/CMakeFiles/run_localization.dir/run_localization.cc.o[0m
+[2.889s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[2.889s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:89:51:[m[K [01;31m[Kerror: [m[Kwrong number of template arguments (1, should be at least 3)
+[2.889s]              Eigen::Matrix<geometry_msgs::msg::Pose[01;31m[K>[m[K pose = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
+[2.889s]                                                    [01;31m[K^[m[K
+[2.889s] In file included from [01m[K/usr/local/include/eigen3/Eigen/Core:346:0[m[K,
+[2.890s]                  from [01m[K/home/mirellameelo/openvslam/src/openvslam/type.h:10[m[K,
+[2.890s]                  from [01m[K/home/mirellameelo/openvslam/src/pangolin_viewer/viewer.h:6[m[K,
+[2.890s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:2[m[K:
+[2.890s] [01m[K/usr/local/include/eigen3/Eigen/src/Core/util/ForwardDeclarations.h:74:9:[m[K [01;36m[Knote: [m[Kprovided for ‘[01m[Ktemplate<class _Scalar, int _Rows, int _Cols, int _Options, int _MaxRows, int _MaxCols> class Eigen::Matrix[m[K’
+[2.890s]  > class [01;36m[KMatrix[m[K;
+[2.890s]          [01;36m[K^~~~~~[m[K
+[2.894s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:89:143:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kopenvslam::Mat44_t {aka Eigen::Matrix<double, 4, 4>}[m[K’ to ‘[01m[Kint[m[K’ in initialization
+[2.894s]              Eigen::Matrix<geometry_msgs::msg::Pose> pose = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask[01;31m[K)[m[K;
+[2.895s]                                                                                                                                                [01;31m[K^[m[K
+[2.895s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:90:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kpose[m[K’ cannot be used as a function
+[2.895s]              double a =  pose(0, 0[01;31m[K)[m[K; //<<std::endl;
+[2.895s]                                   [01;31m[K^[m[K
+[2.895s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:90:20:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ka[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[2.896s]              double [01;35m[Ka[m[K =  pose(0, 0); //<<std::endl;
+[2.896s]                     [01;35m[K^[m[K
+[4.654s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.654s] src/CMakeFiles/run_localization.dir/build.make:62: recipe for target 'src/CMakeFiles/run_localization.dir/run_localization.cc.o' failed
+[4.654s] CMakeFiles/Makefile2:156: recipe for target 'src/CMakeFiles/run_localization.dir/all' failed
+[4.654s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.654s] make: *** [all] Error 2
+[4.655s] Makefile:140: recipe for target 'all' failed

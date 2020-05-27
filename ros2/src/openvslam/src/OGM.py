@@ -146,10 +146,20 @@ def draw_2d_point_cloud(points_3d_data, keyframe_data):
         x_3d.append(points_3d_data[i][1])
         z_3d.append(points_3d_data[i][3])
 
+    # saving 2d keyframe position
+    for i in range(len(keyframe_data)):
+        x_keyframe.append(keyframe_data[i][2])
+        z_keyframe.append(keyframe_data[i][4])
+
     # OGM windown size taking into consideration the scale factor
+    a = int(max(x_keyframe))
+    b = int(max(z_keyframe))
+    c = int(max(x_3d))
+    d = int(max(z_3d))
+
     #tem q mudar isso, p ser o max entre KF e points
-    windown_size_x = int(max(x_3d)) + 10
-    windown_size_z = int(max(z_3d)) + 10
+    windown_size_x = max(a,c) + 10
+    windown_size_z = max(b,d) + 10
     img = [windown_size_x, windown_size_z]
     img = np.zeros((windown_size_x, windown_size_z, 3), np.uint8)
 
@@ -157,10 +167,6 @@ def draw_2d_point_cloud(points_3d_data, keyframe_data):
     for i in range(len(x_3d)):    
         img[int(x_3d[i]),int(z_3d[i])] = (0,0, 255)   
 
-    # saving vectors to 2d keyframe position
-    for i in range(len(keyframe_data)):
-        x_keyframe.append(keyframe_data[i][2])
-        z_keyframe.append(keyframe_data[i][4])
 
     # drawing 2d keyframe positon in light blue color
     for i in range(len(x_keyframe)):

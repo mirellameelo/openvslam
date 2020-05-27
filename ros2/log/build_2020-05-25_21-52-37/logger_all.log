@@ -1,0 +1,178 @@
+[0.118s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.118s] DEBUG:colcon:Parsed command line arguments: Namespace(ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f74b8cb9eb8>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, parallel_workers=12, paths=None, symlink_install=True, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f74b8cb9eb8>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f74b8cc72b0>)
+[0.149s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.149s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.149s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.149s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.149s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.149s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.149s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/mirellameelo/openvslam/ros2'
+[0.149s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.149s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.149s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.159s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.159s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.159s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extensions ['ignore', 'ignore_ament_install']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extension 'ignore'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extension 'ignore_ament_install'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extensions ['colcon_pkg']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extension 'colcon_pkg'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extensions ['colcon_meta']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extension 'colcon_meta'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extensions ['ros']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extension 'ros'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extensions ['cmake', 'python']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extension 'cmake'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extension 'python'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extensions ['python_setup_py']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(maps) by extension 'python_setup_py'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/openvslam) by extensions ['ignore', 'ignore_ament_install']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/openvslam) by extension 'ignore'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/openvslam) by extension 'ignore_ament_install'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/openvslam) by extensions ['colcon_pkg']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/openvslam) by extension 'colcon_pkg'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/openvslam) by extensions ['colcon_meta']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/openvslam) by extension 'colcon_meta'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/openvslam) by extensions ['ros']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/openvslam) by extension 'ros'
+[0.165s] DEBUG:colcon.colcon_core.package_identification:Package 'src/openvslam' with type 'ros.ament_cmake' and name 'openvslam'
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/publisher) by extensions ['ignore', 'ignore_ament_install']
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/publisher) by extension 'ignore'
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/publisher) by extension 'ignore_ament_install'
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/publisher) by extensions ['colcon_pkg']
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/publisher) by extension 'colcon_pkg'
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/publisher) by extensions ['colcon_meta']
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/publisher) by extension 'colcon_meta'
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/publisher) by extensions ['ros']
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/publisher) by extension 'ros'
+[0.166s] DEBUG:colcon.colcon_core.package_identification:Package 'src/publisher' with type 'ros.ament_cmake' and name 'publisher'
+[0.166s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.166s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.166s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.166s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.166s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.170s] Level 5:colcon.colcon_core.verb:set package 'openvslam' build argument 'cmake_args' from command line to 'None'
+[0.170s] Level 5:colcon.colcon_core.verb:set package 'openvslam' build argument 'cmake_target' from command line to 'None'
+[0.170s] Level 5:colcon.colcon_core.verb:set package 'openvslam' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.171s] Level 5:colcon.colcon_core.verb:set package 'openvslam' build argument 'cmake_clean_cache' from command line to 'False'
+[0.171s] Level 5:colcon.colcon_core.verb:set package 'openvslam' build argument 'cmake_clean_first' from command line to 'False'
+[0.171s] Level 5:colcon.colcon_core.verb:set package 'openvslam' build argument 'cmake_force_configure' from command line to 'False'
+[0.171s] Level 5:colcon.colcon_core.verb:set package 'openvslam' build argument 'ament_cmake_args' from command line to 'None'
+[0.171s] Level 5:colcon.colcon_core.verb:set package 'openvslam' build argument 'catkin_cmake_args' from command line to 'None'
+[0.171s] Level 5:colcon.colcon_core.verb:set package 'openvslam' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.171s] DEBUG:colcon.colcon_core.verb:Building package 'openvslam' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mirellameelo/openvslam/ros2/build/openvslam', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mirellameelo/openvslam/ros2/install/openvslam', 'merge_install': False, 'path': '/home/mirellameelo/openvslam/ros2/src/openvslam', 'symlink_install': True, 'test_result_base': None}
+[0.173s] Level 5:colcon.colcon_core.verb:set package 'publisher' build argument 'cmake_args' from command line to 'None'
+[0.173s] Level 5:colcon.colcon_core.verb:set package 'publisher' build argument 'cmake_target' from command line to 'None'
+[0.173s] Level 5:colcon.colcon_core.verb:set package 'publisher' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.173s] Level 5:colcon.colcon_core.verb:set package 'publisher' build argument 'cmake_clean_cache' from command line to 'False'
+[0.173s] Level 5:colcon.colcon_core.verb:set package 'publisher' build argument 'cmake_clean_first' from command line to 'False'
+[0.173s] Level 5:colcon.colcon_core.verb:set package 'publisher' build argument 'cmake_force_configure' from command line to 'False'
+[0.173s] Level 5:colcon.colcon_core.verb:set package 'publisher' build argument 'ament_cmake_args' from command line to 'None'
+[0.174s] Level 5:colcon.colcon_core.verb:set package 'publisher' build argument 'catkin_cmake_args' from command line to 'None'
+[0.174s] Level 5:colcon.colcon_core.verb:set package 'publisher' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.174s] DEBUG:colcon.colcon_core.verb:Building package 'publisher' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mirellameelo/openvslam/ros2/build/publisher', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mirellameelo/openvslam/ros2/install/publisher', 'merge_install': False, 'path': '/home/mirellameelo/openvslam/ros2/src/publisher', 'symlink_install': True, 'test_result_base': None}
+[0.174s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.176s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.176s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/mirellameelo/openvslam/ros2/src/openvslam' with build type 'ament_cmake'
+[0.179s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.179s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/mirellameelo/openvslam/ros2/src/openvslam'
+[0.180s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.180s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.182s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/dashing'
+[0.184s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/mirellameelo/openvslam/ros2/src/publisher' with build type 'ament_cmake'
+[0.186s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/mirellameelo/openvslam/ros2/src/publisher'
+[0.187s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.187s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.189s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/dashing'
+[0.198s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mirellameelo/openvslam/ros2/build/openvslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12
+[0.203s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mirellameelo/openvslam/ros2/build/publisher': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/publisher -- -j12 -l12
+[0.279s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mirellameelo/openvslam/ros2/build/publisher' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/publisher -- -j12 -l12
+[0.312s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mirellameelo/openvslam/ros2/build/publisher': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/publisher --target install -- -j12 -l12
+[0.410s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(publisher)
+[0.412s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mirellameelo/openvslam/ros2/build/publisher' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/publisher --target install -- -j12 -l12
+[0.414s] Level 1:colcon.colcon_core.environment:checking '/home/mirellameelo/openvslam/ros2/install/publisher' for CMake module files
+[0.415s] Level 1:colcon.colcon_core.environment:checking '/home/mirellameelo/openvslam/ros2/install/publisher' for CMake config files
+[0.415s] Level 1:colcon.colcon_core.shell:create_environment_hook('publisher', 'cmake_prefix_path')
+[0.415s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/hook/cmake_prefix_path.ps1'
+[0.416s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/hook/cmake_prefix_path.dsv'
+[0.417s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/hook/cmake_prefix_path.sh'
+[0.418s] Level 1:colcon.colcon_core.environment:checking '/home/mirellameelo/openvslam/ros2/install/publisher/lib'
+[0.418s] Level 1:colcon.colcon_core.environment:checking '/home/mirellameelo/openvslam/ros2/install/publisher/bin'
+[0.418s] Level 1:colcon.colcon_core.environment:checking '/home/mirellameelo/openvslam/ros2/install/publisher/lib/pkgconfig/publisher.pc'
+[0.418s] Level 1:colcon.colcon_core.environment:checking '/home/mirellameelo/openvslam/ros2/install/publisher/lib/python3.6/site-packages'
+[0.419s] INFO:colcon.colcon_core.shell:Creating package script '/home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/package.ps1'
+[0.420s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/package.dsv'
+[0.421s] INFO:colcon.colcon_core.shell:Creating package script '/home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/package.sh'
+[0.421s] INFO:colcon.colcon_core.shell:Creating package script '/home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/package.bash'
+[0.423s] INFO:colcon.colcon_core.shell:Creating package script '/home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/package.zsh'
+[0.423s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mirellameelo/openvslam/ros2/install/publisher/share/colcon-core/packages/publisher)
+[1.371s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mirellameelo/openvslam/ros2/build/openvslam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12
+[1.390s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mirellameelo/openvslam/ros2/build/openvslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam --target install -- -j12 -l12
+[1.480s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(openvslam)
+[1.482s] Level 1:colcon.colcon_core.environment:checking '/home/mirellameelo/openvslam/ros2/install/openvslam' for CMake module files
+[1.483s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mirellameelo/openvslam/ros2/build/openvslam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam --target install -- -j12 -l12
+[1.484s] Level 1:colcon.colcon_core.environment:checking '/home/mirellameelo/openvslam/ros2/install/openvslam' for CMake config files
+[1.484s] Level 1:colcon.colcon_core.shell:create_environment_hook('openvslam', 'cmake_prefix_path')
+[1.485s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/hook/cmake_prefix_path.ps1'
+[1.485s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/hook/cmake_prefix_path.dsv'
+[1.486s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/hook/cmake_prefix_path.sh'
+[1.487s] Level 1:colcon.colcon_core.environment:checking '/home/mirellameelo/openvslam/ros2/install/openvslam/lib'
+[1.487s] Level 1:colcon.colcon_core.environment:checking '/home/mirellameelo/openvslam/ros2/install/openvslam/bin'
+[1.487s] Level 1:colcon.colcon_core.environment:checking '/home/mirellameelo/openvslam/ros2/install/openvslam/lib/pkgconfig/openvslam.pc'
+[1.487s] Level 1:colcon.colcon_core.environment:checking '/home/mirellameelo/openvslam/ros2/install/openvslam/lib/python3.6/site-packages'
+[1.488s] INFO:colcon.colcon_core.shell:Creating package script '/home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/package.ps1'
+[1.489s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/package.dsv'
+[1.490s] INFO:colcon.colcon_core.shell:Creating package script '/home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/package.sh'
+[1.490s] INFO:colcon.colcon_core.shell:Creating package script '/home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/package.bash'
+[1.491s] INFO:colcon.colcon_core.shell:Creating package script '/home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/package.zsh'
+[1.491s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mirellameelo/openvslam/ros2/install/openvslam/share/colcon-core/packages/openvslam)
+[1.492s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.493s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.493s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.493s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.498s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.498s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.498s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.501s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.502s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mirellameelo/openvslam/ros2/install/local_setup.ps1'
+[1.503s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/mirellameelo/openvslam/ros2/install/_local_setup_util_ps1.py'
+[1.505s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mirellameelo/openvslam/ros2/install/setup.ps1'
+[1.509s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mirellameelo/openvslam/ros2/install/local_setup.sh'
+[1.509s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/mirellameelo/openvslam/ros2/install/_local_setup_util_sh.py'
+[1.510s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mirellameelo/openvslam/ros2/install/setup.sh'
+[1.513s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mirellameelo/openvslam/ros2/install/local_setup.bash'
+[1.514s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mirellameelo/openvslam/ros2/install/setup.bash'
+[1.517s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mirellameelo/openvslam/ros2/install/local_setup.zsh'
+[1.518s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mirellameelo/openvslam/ros2/install/setup.zsh'

@@ -1,0 +1,26 @@
+[0.068s] [35m[1mScanning dependencies of target run_slam[0m
+[0.092s] [ 25%] [32m[1mLinking CXX executable run_localization[0m
+[0.113s] [ 50%] [32mBuilding CXX object src/CMakeFiles/run_slam.dir/run_slam.cc.o[0m
+[0.598s] [ 75%] Built target run_localization
+[10.030s] [100%] [32m[1mLinking CXX executable run_slam[0m
+[10.442s] [100%] Built target run_slam
+[10.518s] [ 50%] Built target run_localization
+[10.518s] [100%] Built target run_slam
+[10.531s] [36mInstall the project...[0m
+[10.537s] -- Install configuration: "Release"
+[10.537s] -- Execute custom install script
+[10.538s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_slam
+[10.538s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_localization
+[10.539s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_slam
+[10.539s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_localization
+[10.539s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/package_run_dependencies/openvslam
+[10.539s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/parent_prefix_path/openvslam
+[10.539s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/environment/ament_prefix_path.sh
+[10.540s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/environment/path.sh
+[10.540s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.bash
+[10.540s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.sh
+[10.540s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.zsh
+[10.540s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/packages/openvslam
+[10.541s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/cmake/openvslamConfig.cmake
+[10.541s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/cmake/openvslamConfig-version.cmake
+[10.541s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/package.xml

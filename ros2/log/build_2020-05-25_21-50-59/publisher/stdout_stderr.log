@@ -1,0 +1,20 @@
+[0.075s] [ 60%] Built target image_publisher
+[0.079s] [100%] Built target video_publisher
+[0.180s] [ 40%] Built target video_publisher
+[0.181s] [100%] Built target image_publisher
+[0.198s] [36mInstall the project...[0m
+[0.206s] -- Install configuration: "Release"
+[0.206s] -- Execute custom install script
+[0.207s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/lib/publisher/video
+[0.207s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/lib/publisher/image
+[0.208s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/ament_index/resource_index/package_run_dependencies/publisher
+[0.208s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/ament_index/resource_index/parent_prefix_path/publisher
+[0.208s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/environment/ament_prefix_path.sh
+[0.209s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/environment/path.sh
+[0.209s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/local_setup.bash
+[0.209s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/local_setup.sh
+[0.209s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/local_setup.zsh
+[0.210s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/ament_index/resource_index/packages/publisher
+[0.210s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/cmake/publisherConfig.cmake
+[0.210s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/cmake/publisherConfig-version.cmake
+[0.211s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/package.xml

@@ -1,0 +1,17 @@
+[0.065s] [35m[1mScanning dependencies of target run_slam[0m
+[0.090s] [ 33%] Built target run_pose
+[0.097s] [ 66%] Built target run_localization
+[0.122s] [ 83%] [32mBuilding CXX object src/CMakeFiles/run_slam.dir/run_slam.cc.o[0m
+[3.698s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_slam.cc:[m[K In function ‘[01m[Kvoid mono_tracking(const std::shared_ptr<openvslam::config>&, const string&, const string&, bool, const string&)[m[K’:
+[3.698s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_slam.cc:60:10:[m[K [01;31m[Kerror: [m[Kconflicting declaration ‘[01m[Kauto node[m[K’
+[3.698s]      auto [01;31m[Knode[m[K = std::make_shared<rclcpp::Node>("pose");
+[3.698s]           [01;31m[K^~~~[m[K
+[3.698s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_slam.cc:59:10:[m[K [01;36m[Knote: [m[Kprevious declaration as ‘[01m[Kstd::shared_ptr<rclcpp::Node> node[m[K’
+[3.699s]      auto [01;36m[Knode[m[K = std::make_shared<rclcpp::Node>("run_slam");
+[3.699s]           [01;36m[K^~~~[m[K
+[7.192s] make[2]: *** [src/CMakeFiles/run_slam.dir/run_slam.cc.o] Error 1
+[7.192s] src/CMakeFiles/run_slam.dir/build.make:62: recipe for target 'src/CMakeFiles/run_slam.dir/run_slam.cc.o' failed
+[7.192s] make[1]: *** [src/CMakeFiles/run_slam.dir/all] Error 2
+[7.192s] CMakeFiles/Makefile2:121: recipe for target 'src/CMakeFiles/run_slam.dir/all' failed
+[7.192s] Makefile:140: recipe for target 'all' failed
+[7.193s] make: *** [all] Error 2

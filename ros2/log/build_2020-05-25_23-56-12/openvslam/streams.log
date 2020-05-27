@@ -1,0 +1,33 @@
+[0.019s] Invoking command in '/home/mirellameelo/openvslam/ros2/build/openvslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12
+[0.059s] [35m[1mScanning dependencies of target run_localization[0m
+[0.082s] [ 50%] Built target run_slam
+[0.101s] [ 75%] [32mBuilding CXX object src/CMakeFiles/run_localization.dir/run_localization.cc.o[0m
+[3.070s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[3.070s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:89:18:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kpose[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[3.070s]              auto [01;35m[Kpose[m[K = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
+[3.071s]                   [01;35m[K^~~~[m[K
+[8.265s] [100%] [32m[1mLinking CXX executable run_localization[0m
+[8.695s] [100%] Built target run_localization
+[8.706s] Invoked command in '/home/mirellameelo/openvslam/ros2/build/openvslam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12
+[8.725s] Invoking command in '/home/mirellameelo/openvslam/ros2/build/openvslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam --target install -- -j12 -l12
+[8.781s] [ 50%] Built target run_localization
+[8.781s] [100%] Built target run_slam
+[8.795s] [36mInstall the project...[0m
+[8.802s] -- Install configuration: "Release"
+[8.802s] -- Execute custom install script
+[8.803s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_slam
+[8.803s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_localization
+[8.804s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_slam
+[8.804s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_localization
+[8.804s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/package_run_dependencies/openvslam
+[8.804s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/parent_prefix_path/openvslam
+[8.804s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/environment/ament_prefix_path.sh
+[8.805s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/environment/path.sh
+[8.805s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.bash
+[8.805s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.sh
+[8.805s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.zsh
+[8.805s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/packages/openvslam
+[8.806s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/cmake/openvslamConfig.cmake
+[8.806s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/cmake/openvslamConfig-version.cmake
+[8.806s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/package.xml
+[8.809s] Invoked command in '/home/mirellameelo/openvslam/ros2/build/openvslam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam --target install -- -j12 -l12

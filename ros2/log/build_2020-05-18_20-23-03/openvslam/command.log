@@ -1,0 +1,4 @@
+[0.019s] Invoking command in '/home/mirellameelo/openvslam/ros2/build/openvslam': /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12
+[10.450s] Invoked command in '/home/mirellameelo/openvslam/ros2/build/openvslam' returned '0': /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12
+[10.466s] Invoking command in '/home/mirellameelo/openvslam/ros2/build/openvslam': /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam --target install -- -j12 -l12
+[10.544s] Invoked command in '/home/mirellameelo/openvslam/ros2/build/openvslam' returned '0': /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam --target install -- -j12 -l12

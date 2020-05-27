@@ -1,0 +1,13 @@
+[2.817s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[2.817s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:89:13:[m[K [01;31m[Kerror: [m[K‘[01m[Ksystem[m[K’ is not a class, namespace, or enumeration
+[2.817s]              [01;31m[Ksystem[m[K::Mat44_t pose = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
+[2.817s]              [01;31m[K^~~~~~[m[K
+[2.817s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:86:24:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ktimestamp[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[2.817s]              const auto [01;35m[Ktimestamp[m[K = std::chrono::duration_cast<std::chrono::duration<double>>(tp_1 - tp_0).count();
+[2.817s]                         [01;35m[K^~~~~~~~~[m[K
+[2.817s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:84:92:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[2.818s]          node.get(), "camera/image_raw", [&](const sensor_msgs::msg::Image::ConstSharedPtr& [01;35m[Kmsg[m[K) {
+[2.818s]                                                                                             [01;35m[K^~~[m[K
+[4.527s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.527s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.528s] make: *** [all] Error 2

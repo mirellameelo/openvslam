@@ -1,0 +1,44 @@
+[3.065s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[3.065s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:120:45:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Krclcpp::Publisher<geometry_msgs::msg::Pose_<std::allocator<void> >, std::allocator<void> >::publish(nav_msgs::msg::Odometry&)[m[K’
+[3.065s]              odometry_pub_->publish(odom_msg_[01;31m[K)[m[K;
+[3.065s]                                              [01;31m[K^[m[K
+[3.065s] In file included from [01m[K/opt/ros/dashing/include/rclcpp/callback_group.hpp:24:0[m[K,
+[3.065s]                  from [01m[K/opt/ros/dashing/include/rclcpp/any_executable.hpp:20[m[K,
+[3.065s]                  from [01m[K/opt/ros/dashing/include/rclcpp/memory_strategy.hpp:24[m[K,
+[3.065s]                  from [01m[K/opt/ros/dashing/include/rclcpp/memory_strategies.hpp:18[m[K,
+[3.066s]                  from [01m[K/opt/ros/dashing/include/rclcpp/executor.hpp:33[m[K,
+[3.066s]                  from [01m[K/opt/ros/dashing/include/rclcpp/executors/multi_threaded_executor.hpp:24[m[K,
+[3.066s]                  from [01m[K/opt/ros/dashing/include/rclcpp/executors.hpp:21[m[K,
+[3.066s]                  from [01m[K/opt/ros/dashing/include/rclcpp/rclcpp.hpp:144[m[K,
+[3.066s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:14[m[K:
+[3.066s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:100:3:[m[K [01;36m[Knote: [m[Kcandidate: void rclcpp::Publisher<MessageT, Alloc>::publish(std::unique_ptr<T, typename std::conditional<std::is_same<typename std::allocator_traits<typename std::allocator_traits<_NodeAlloc>::rebind_traits<T>::allocator_type>::rebind_alloc<T>, typename std::allocator<void>::rebind<_Tp1>::other>::value, std::default_delete<_Tp>, rclcpp::allocator::AllocatorDeleter<typename std::allocator_traits<_NodeAlloc>::rebind_traits<T>::allocator_type> >::type>) [with MessageT = geometry_msgs::msg::Pose_<std::allocator<void> >; Alloc = std::allocator<void>; typename std::conditional<std::is_same<typename std::allocator_traits<typename std::allocator_traits<_NodeAlloc>::rebind_traits<T>::allocator_type>::rebind_alloc<T>, typename std::allocator<void>::rebind<_Tp1>::other>::value, std::default_delete<_Tp>, rclcpp::allocator::AllocatorDeleter<typename std::allocator_traits<_NodeAlloc>::rebind_traits<T>::allocator_type> >::type = std::default_delete<geometry_msgs::msg::Pose_<std::allocator<void> > >]
+[3.066s]    [01;36m[Kpublish[m[K(std::unique_ptr<MessageT, MessageDeleter> msg)
+[3.066s]    [01;36m[K^~~~~~~[m[K
+[3.066s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:100:3:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Knav_msgs::msg::Odometry {aka nav_msgs::msg::Odometry_<std::allocator<void> >}[m[K’ to ‘[01m[Kstd::unique_ptr<geometry_msgs::msg::Pose_<std::allocator<void> >, std::default_delete<geometry_msgs::msg::Pose_<std::allocator<void> > > >[m[K’
+[3.066s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:137:3:[m[K [01;36m[Knote: [m[Kcandidate: void rclcpp::Publisher<MessageT, Alloc>::publish(const std::shared_ptr<const _Tp>&) [with MessageT = geometry_msgs::msg::Pose_<std::allocator<void> >; Alloc = std::allocator<void>]
+[3.066s]    [01;36m[Kpublish[m[K(const std::shared_ptr<const MessageT> & msg)
+[3.066s]    [01;36m[K^~~~~~~[m[K
+[3.066s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:137:3:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Knav_msgs::msg::Odometry {aka nav_msgs::msg::Odometry_<std::allocator<void> >}[m[K’ to ‘[01m[Kconst std::shared_ptr<const geometry_msgs::msg::Pose_<std::allocator<void> > >&[m[K’
+[3.066s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:143:3:[m[K [01;36m[Knote: [m[Kcandidate: void rclcpp::Publisher<MessageT, Alloc>::publish(const MessageT&) [with MessageT = geometry_msgs::msg::Pose_<std::allocator<void> >; Alloc = std::allocator<void>]
+[3.066s]    [01;36m[Kpublish[m[K(const MessageT & msg)
+[3.066s]    [01;36m[K^~~~~~~[m[K
+[3.066s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:143:3:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Knav_msgs::msg::Odometry {aka nav_msgs::msg::Odometry_<std::allocator<void> >}[m[K’ to ‘[01m[Kconst geometry_msgs::msg::Pose_<std::allocator<void> >&[m[K’
+[3.067s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:165:3:[m[K [01;36m[Knote: [m[Kcandidate: void rclcpp::Publisher<MessageT, Alloc>::publish(const MessageT*) [with MessageT = geometry_msgs::msg::Pose_<std::allocator<void> >; Alloc = std::allocator<void>]
+[3.067s]    [01;36m[Kpublish[m[K(const MessageT * msg)
+[3.067s]    [01;36m[K^~~~~~~[m[K
+[3.067s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:165:3:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Knav_msgs::msg::Odometry {aka nav_msgs::msg::Odometry_<std::allocator<void> >}[m[K’ to ‘[01m[Kconst geometry_msgs::msg::Pose_<std::allocator<void> >*[m[K’
+[3.067s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:174:3:[m[K [01;36m[Knote: [m[Kcandidate: void rclcpp::Publisher<MessageT, Alloc>::publish(const rcl_serialized_message_t&) [with MessageT = geometry_msgs::msg::Pose_<std::allocator<void> >; Alloc = std::allocator<void>; rcl_serialized_message_t = rcutils_uint8_array_t]
+[3.067s]    [01;36m[Kpublish[m[K(const rcl_serialized_message_t & serialized_msg)
+[3.067s]    [01;36m[K^~~~~~~[m[K
+[3.067s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:174:3:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Knav_msgs::msg::Odometry {aka nav_msgs::msg::Odometry_<std::allocator<void> >}[m[K’ to ‘[01m[Kconst rcl_serialized_message_t& {aka const rcutils_uint8_array_t&}[m[K’
+[3.067s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:185:3:[m[K [01;36m[Knote: [m[Kcandidate: void rclcpp::Publisher<MessageT, Alloc>::publish(const rcl_serialized_message_t*) [with MessageT = geometry_msgs::msg::Pose_<std::allocator<void> >; Alloc = std::allocator<void>; rcl_serialized_message_t = rcutils_uint8_array_t]
+[3.067s]    [01;36m[Kpublish[m[K(const rcl_serialized_message_t * serialized_msg)
+[3.067s]    [01;36m[K^~~~~~~[m[K
+[3.067s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:185:3:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Knav_msgs::msg::Odometry {aka nav_msgs::msg::Odometry_<std::allocator<void> >}[m[K’ to ‘[01m[Kconst rcl_serialized_message_t* {aka const rcutils_uint8_array_t*}[m[K’
+[3.067s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:196:3:[m[K [01;36m[Knote: [m[Kcandidate: void rclcpp::Publisher<MessageT, Alloc>::publish(std::shared_ptr<const rcutils_uint8_array_t>) [with MessageT = geometry_msgs::msg::Pose_<std::allocator<void> >; Alloc = std::allocator<void>]
+[3.067s]    [01;36m[Kpublish[m[K(std::shared_ptr<const rcl_serialized_message_t> serialized_msg)
+[3.067s]    [01;36m[K^~~~~~~[m[K
+[3.067s] [01m[K/opt/ros/dashing/include/rclcpp/publisher.hpp:196:3:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Knav_msgs::msg::Odometry {aka nav_msgs::msg::Odometry_<std::allocator<void> >}[m[K’ to ‘[01m[Kstd::shared_ptr<const rcutils_uint8_array_t>[m[K’
+[4.771s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.771s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.771s] make: *** [all] Error 2

@@ -1,0 +1,2 @@
+[0.018s] Invoking command in '/home/mirellameelo/openvslam/ros2/build/openvslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12
+[1.060s] Invoked command in '/home/mirellameelo/openvslam/ros2/build/openvslam' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12

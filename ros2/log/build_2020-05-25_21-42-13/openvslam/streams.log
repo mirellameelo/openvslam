@@ -1,0 +1,32 @@
+[0.020s] Invoking command in '/home/mirellameelo/openvslam/ros2/build/openvslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12
+[0.063s] [35m[1mScanning dependencies of target run_slam[0m
+[0.099s] [ 33%] Built target run_pose
+[0.107s] [ 66%] Built target run_localization
+[0.118s] [ 83%] [32mBuilding CXX object src/CMakeFiles/run_slam.dir/run_slam.cc.o[0m
+[10.689s] [100%] [32m[1mLinking CXX executable run_slam[0m
+[11.132s] [100%] Built target run_slam
+[11.141s] Invoked command in '/home/mirellameelo/openvslam/ros2/build/openvslam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12
+[11.160s] Invoking command in '/home/mirellameelo/openvslam/ros2/build/openvslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam --target install -- -j12 -l12
+[11.223s] [ 33%] Built target run_slam
+[11.231s] [ 66%] Built target run_pose
+[11.232s] [100%] Built target run_localization
+[11.248s] [36mInstall the project...[0m
+[11.255s] -- Install configuration: "Release"
+[11.255s] -- Execute custom install script
+[11.255s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_slam
+[11.256s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_localization
+[11.256s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_pose
+[11.256s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_slam
+[11.257s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_localization
+[11.257s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/package_run_dependencies/openvslam
+[11.257s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/parent_prefix_path/openvslam
+[11.258s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/environment/ament_prefix_path.sh
+[11.258s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/environment/path.sh
+[11.258s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.bash
+[11.258s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.sh
+[11.259s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.zsh
+[11.259s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/packages/openvslam
+[11.259s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/cmake/openvslamConfig.cmake
+[11.260s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/cmake/openvslamConfig-version.cmake
+[11.260s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/package.xml
+[11.264s] Invoked command in '/home/mirellameelo/openvslam/ros2/build/openvslam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam --target install -- -j12 -l12

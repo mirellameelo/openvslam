@@ -1,0 +1,32 @@
+[0.065s] [35m[1mScanning dependencies of target run_localization[0m
+[0.089s] [ 50%] Built target run_slam
+[0.112s] [ 75%] [32mBuilding CXX object src/CMakeFiles/run_localization.dir/run_localization.cc.o[0m
+[2.819s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[2.820s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:91:29:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Krotation_matrix[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[2.820s]              Eigen::Matrix3d [01;35m[Krotation_matrix[m[K = cam_pose_.block(0, 0, 3, 3);
+[2.820s]                              [01;35m[K^~~~~~~~~~~~~~~[m[K
+[2.820s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:93:29:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Ktranslation_vector[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[2.820s]              Eigen::Vector3d [01;35m[Ktranslation_vector[m[K = cam_pose_.block(0, 3, 3, 1);
+[2.820s]                              [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+[8.085s] [100%] [32m[1mLinking CXX executable run_localization[0m
+[8.583s] [100%] Built target run_localization
+[8.666s] [ 50%] Built target run_localization
+[8.667s] [100%] Built target run_slam
+[8.680s] [36mInstall the project...[0m
+[8.687s] -- Install configuration: "Release"
+[8.688s] -- Execute custom install script
+[8.688s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_slam
+[8.689s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_localization
+[8.689s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_slam
+[8.689s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_localization
+[8.690s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/package_run_dependencies/openvslam
+[8.690s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/parent_prefix_path/openvslam
+[8.690s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/environment/ament_prefix_path.sh
+[8.690s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/environment/path.sh
+[8.690s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.bash
+[8.691s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.sh
+[8.691s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.zsh
+[8.691s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/packages/openvslam
+[8.691s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/cmake/openvslamConfig.cmake
+[8.691s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/cmake/openvslamConfig-version.cmake
+[8.691s] -- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/package.xml

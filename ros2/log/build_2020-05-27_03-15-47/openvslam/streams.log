@@ -1,0 +1,15 @@
+[0.018s] Invoking command in '/home/mirellameelo/openvslam/ros2/build/openvslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12
+[0.057s] [35m[1mScanning dependencies of target run_localization[0m
+[0.081s] [ 50%] Built target run_slam
+[0.102s] [ 75%] [32mBuilding CXX object src/CMakeFiles/run_localization.dir/run_localization.cc.o[0m
+[3.075s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In function ‘[01m[Kvoid mono_localization(const std::shared_ptr<openvslam::config>&, const string&, const string&, const string&, bool)[m[K’:
+[3.075s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:102:37:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass std::shared_ptr<openvslam::publish::map_publisher>[m[K’ has no member named ‘[01m[Kget_current_cam_pose[m[K’
+[3.075s]      auto cam_pose_ = map_publisher_.[01;31m[Kget_current_cam_pose[m[K();
+[3.075s]                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[4.815s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.816s] src/CMakeFiles/run_localization.dir/build.make:62: recipe for target 'src/CMakeFiles/run_localization.dir/run_localization.cc.o' failed
+[4.816s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.816s] CMakeFiles/Makefile2:156: recipe for target 'src/CMakeFiles/run_localization.dir/all' failed
+[4.816s] Makefile:140: recipe for target 'all' failed
+[4.816s] make: *** [all] Error 2
+[4.818s] Invoked command in '/home/mirellameelo/openvslam/ros2/build/openvslam' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12

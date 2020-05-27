@@ -1,0 +1,6 @@
+[0.059s] [35m[1mScanning dependencies of target run_localization[0m
+[0.085s] [ 50%] Built target run_slam
+[0.099s] [ 75%] [32mBuilding CXX object src/CMakeFiles/run_localization.dir/run_localization.cc.o[0m
+[4.606s] src/CMakeFiles/run_localization.dir/build.make:62: recipe for target 'src/CMakeFiles/run_localization.dir/run_localization.cc.o' failed
+[4.606s] CMakeFiles/Makefile2:156: recipe for target 'src/CMakeFiles/run_localization.dir/all' failed
+[4.606s] Makefile:140: recipe for target 'all' failed

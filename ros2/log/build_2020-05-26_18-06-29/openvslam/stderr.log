@@ -1,0 +1,16 @@
+[2.868s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[2.868s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:90:35:[m[K [01;31m[Kerror: [m[Kinvalid types ‘[01m[KEigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 4>, 1>::Scalar {aka double}[int][m[K’ for array subscript
+[2.868s]              std::cout << pose[0][0[01;31m[K][m[K <<std::endl;
+[2.869s]                                    [01;31m[K^[m[K
+[3.050s] In file included from [01m[K/usr/local/include/eigen3/Eigen/Core:347:0[m[K,
+[3.050s]                  from [01m[K/home/mirellameelo/openvslam/src/openvslam/type.h:10[m[K,
+[3.050s]                  from [01m[K/home/mirellameelo/openvslam/src/pangolin_viewer/viewer.h:6[m[K,
+[3.050s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:2[m[K:
+[3.051s] /usr/local/include/eigen3/Eigen/src/Core/DenseCoeffsBase.h: In instantiation of ‘[01m[KEigen::DenseCoeffsBase<Derived, 1>::Scalar& Eigen::DenseCoeffsBase<Derived, 1>::operator[](Eigen::Index) [with Derived = Eigen::Matrix<double, 4, 4>; Eigen::DenseCoeffsBase<Derived, 1>::Scalar = double; Eigen::Index = long int][m[K’:
+[3.051s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:90:32:[m[K   required from here
+[3.051s] [01m[K/usr/local/include/eigen3/Eigen/src/Core/DenseCoeffsBase.h:406:7:[m[K [01;31m[Kerror: [m[Kstatic assertion failed: THE_BRACKET_OPERATOR_IS_ONLY_FOR_VECTORS__USE_THE_PARENTHESIS_OPERATOR_INSTEAD
+[3.051s]        [01;31m[KE[m[KIGEN_STATIC_ASSERT(Derived::IsVectorAtCompileTime,
+[3.051s]        [01;31m[K^[m[K
+[4.616s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.617s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.617s] make: *** [all] Error 2

@@ -1,0 +1,7 @@
+[0.400s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_pose.cc:11:10:[m[K [01;31m[Kfatal error: [m[Knav_msgs/msg/pose.hpp: No such file or directory
+[0.400s]  #include [01;31m[K<nav_msgs/msg/pose.hpp>[m[K
+[0.400s]           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.401s] compilation terminated.
+[0.403s] make[2]: *** [src/CMakeFiles/run_pose.dir/run_pose.cc.o] Error 1
+[0.404s] make[1]: *** [src/CMakeFiles/run_pose.dir/all] Error 2
+[0.404s] make: *** [all] Error 2

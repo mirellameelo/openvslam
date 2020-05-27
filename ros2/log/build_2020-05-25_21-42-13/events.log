@@ -1,0 +1,182 @@
+[0.000000] (-) TimerEvent: {}
+[0.000136] (openvslam) JobQueued: {'identifier': 'openvslam', 'dependencies': OrderedDict()}
+[0.000581] (publisher) JobQueued: {'identifier': 'publisher', 'dependencies': OrderedDict()}
+[0.000744] (openvslam) JobStarted: {'identifier': 'openvslam'}
+[0.012071] (publisher) JobStarted: {'identifier': 'publisher'}
+[0.016627] (openvslam) JobProgress: {'identifier': 'openvslam', 'progress': 'cmake'}
+[0.018152] (openvslam) JobProgress: {'identifier': 'openvslam', 'progress': 'build'}
+[0.018208] (openvslam) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mirellameelo/openvslam/ros2/build/openvslam', '--', '-j12', '-l12'], 'cwd': '/home/mirellameelo/openvslam/ros2/build/openvslam', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'mirellameelo'), ('LANGUAGE', 'en_US:en'), ('LC_TIME', 'en_US.UTF-8'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1309'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/home/mirellameelo/ws/vision_opencv/install/image_geometry/lib:/home/mirellameelo/ws/vision_opencv/install/cv_bridge/lib:/home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/lib:/home/mirellameelo/ws/image_common-dashing/install/image_transport/lib:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/lib:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins:/opt/ros/dashing/opt/yaml_cpp_vendor/lib:/opt/ros/dashing/opt/rviz_ogre_vendor/lib:/opt/ros/dashing/lib'), ('SHLVL', '1'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/mirellameelo'), ('OLDPWD', '/home/mirellameelo'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'en_US.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/mirellameelo/ws/image_common-dashing/install:/home/mirellameelo/ws/vision_opencv/install'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'dashing'), ('LOGNAME', 'mirellameelo'), ('GTK_IM_MODULE', 'ibus'), ('DESKTOP_AUTOSTART_ID', '10391ddb294b709880159043133851475300000012320007'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'mirellameelo'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/dashing/bin:/home/mirellameelo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('PAPERSIZE', 'letter'), ('SESSION_MANAGER', 'local/mirella:@/tmp/.ICE-unix/1232,unix/mirella:/tmp/.ICE-unix/1232'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e11d876c_fe65_4829_b959_e941c9917c6b'), ('LC_ADDRESS', 'en_US.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.75'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/home/mirellameelo/ws/vision_opencv/install/vision_opencv:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/home/mirellameelo/ws/vision_opencv/install/image_geometry:/home/mirellameelo/ws/vision_opencv/install/cv_bridge:/home/mirellameelo/ws/image_common-dashing/install/camera_info_manager:/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/opt/ros/dashing'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'en_US.UTF-8'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/mirellameelo/openvslam/ros2/build/openvslam'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('LC_NUMERIC', 'en_US.UTF-8'), ('PYTHONPATH', '/home/mirellameelo/ws/vision_opencv/build/opencv_tests:/home/mirellameelo/ws/vision_opencv/install/opencv_tests/lib/python3.6/site-packages:/home/mirellameelo/ws/vision_opencv/install/image_geometry/lib/python3.6/site-packages:/home/mirellameelo/ws/vision_opencv/install/cv_bridge/lib/python3.6/site-packages:/opt/ros/dashing/lib/python3.6/site-packages'), ('LC_PAPER', 'en_US.UTF-8'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/home/mirellameelo/ws/vision_opencv/install/vision_opencv:/home/mirellameelo/ws/vision_opencv/install/image_geometry:/home/mirellameelo/ws/vision_opencv/install/cv_bridge:/home/mirellameelo/ws/image_common-dashing/install/camera_info_manager:/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing')]), 'shell': False}
+[0.022556] (publisher) JobProgress: {'identifier': 'publisher', 'progress': 'cmake'}
+[0.023230] (publisher) JobProgress: {'identifier': 'publisher', 'progress': 'build'}
+[0.024462] (publisher) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mirellameelo/openvslam/ros2/build/publisher', '--', '-j12', '-l12'], 'cwd': '/home/mirellameelo/openvslam/ros2/build/publisher', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'mirellameelo'), ('LANGUAGE', 'en_US:en'), ('LC_TIME', 'en_US.UTF-8'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1309'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/home/mirellameelo/ws/vision_opencv/install/image_geometry/lib:/home/mirellameelo/ws/vision_opencv/install/cv_bridge/lib:/home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/lib:/home/mirellameelo/ws/image_common-dashing/install/image_transport/lib:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/lib:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins:/opt/ros/dashing/opt/yaml_cpp_vendor/lib:/opt/ros/dashing/opt/rviz_ogre_vendor/lib:/opt/ros/dashing/lib'), ('SHLVL', '1'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/mirellameelo'), ('OLDPWD', '/home/mirellameelo'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'en_US.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/mirellameelo/ws/image_common-dashing/install:/home/mirellameelo/ws/vision_opencv/install'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'dashing'), ('LOGNAME', 'mirellameelo'), ('GTK_IM_MODULE', 'ibus'), ('DESKTOP_AUTOSTART_ID', '10391ddb294b709880159043133851475300000012320007'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'mirellameelo'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/dashing/bin:/home/mirellameelo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('PAPERSIZE', 'letter'), ('SESSION_MANAGER', 'local/mirella:@/tmp/.ICE-unix/1232,unix/mirella:/tmp/.ICE-unix/1232'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e11d876c_fe65_4829_b959_e941c9917c6b'), ('LC_ADDRESS', 'en_US.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.75'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/home/mirellameelo/ws/vision_opencv/install/vision_opencv:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/home/mirellameelo/ws/vision_opencv/install/image_geometry:/home/mirellameelo/ws/vision_opencv/install/cv_bridge:/home/mirellameelo/ws/image_common-dashing/install/camera_info_manager:/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/opt/ros/dashing'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'en_US.UTF-8'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/mirellameelo/openvslam/ros2/build/publisher'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('LC_NUMERIC', 'en_US.UTF-8'), ('PYTHONPATH', '/home/mirellameelo/ws/vision_opencv/build/opencv_tests:/home/mirellameelo/ws/vision_opencv/install/opencv_tests/lib/python3.6/site-packages:/home/mirellameelo/ws/vision_opencv/install/image_geometry/lib/python3.6/site-packages:/home/mirellameelo/ws/vision_opencv/install/cv_bridge/lib/python3.6/site-packages:/opt/ros/dashing/lib/python3.6/site-packages'), ('LC_PAPER', 'en_US.UTF-8'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/home/mirellameelo/ws/vision_opencv/install/vision_opencv:/home/mirellameelo/ws/vision_opencv/install/image_geometry:/home/mirellameelo/ws/vision_opencv/install/cv_bridge:/home/mirellameelo/ws/image_common-dashing/install/camera_info_manager:/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing')]), 'shell': False}
+[0.064201] (openvslam) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target run_slam\x1b[0m\n'}
+[0.098640] (publisher) StdoutLine: {'line': b'[ 40%] Built target video_publisher\n'}
+[0.099010] (publisher) StdoutLine: {'line': b'[100%] Built target image_publisher\n'}
+[0.099343] (-) TimerEvent: {}
+[0.099737] (openvslam) StdoutLine: {'line': b'[ 33%] Built target run_pose\n'}
+[0.107535] (openvslam) StdoutLine: {'line': b'[ 66%] Built target run_localization\n'}
+[0.114445] (publisher) CommandEnded: {'returncode': 0}
+[0.118655] (openvslam) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object src/CMakeFiles/run_slam.dir/run_slam.cc.o\x1b[0m\n'}
+[0.136437] (publisher) JobProgress: {'identifier': 'publisher', 'progress': 'install'}
+[0.147488] (publisher) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mirellameelo/openvslam/ros2/build/publisher', '--target', 'install', '--', '-j12', '-l12'], 'cwd': '/home/mirellameelo/openvslam/ros2/build/publisher', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'mirellameelo'), ('LANGUAGE', 'en_US:en'), ('LC_TIME', 'en_US.UTF-8'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1309'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/home/mirellameelo/ws/vision_opencv/install/image_geometry/lib:/home/mirellameelo/ws/vision_opencv/install/cv_bridge/lib:/home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/lib:/home/mirellameelo/ws/image_common-dashing/install/image_transport/lib:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/lib:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins:/opt/ros/dashing/opt/yaml_cpp_vendor/lib:/opt/ros/dashing/opt/rviz_ogre_vendor/lib:/opt/ros/dashing/lib'), ('SHLVL', '1'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/mirellameelo'), ('OLDPWD', '/home/mirellameelo'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'en_US.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/mirellameelo/ws/image_common-dashing/install:/home/mirellameelo/ws/vision_opencv/install'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'dashing'), ('LOGNAME', 'mirellameelo'), ('GTK_IM_MODULE', 'ibus'), ('DESKTOP_AUTOSTART_ID', '10391ddb294b709880159043133851475300000012320007'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'mirellameelo'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/dashing/bin:/home/mirellameelo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('PAPERSIZE', 'letter'), ('SESSION_MANAGER', 'local/mirella:@/tmp/.ICE-unix/1232,unix/mirella:/tmp/.ICE-unix/1232'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e11d876c_fe65_4829_b959_e941c9917c6b'), ('LC_ADDRESS', 'en_US.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.75'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/home/mirellameelo/ws/vision_opencv/install/vision_opencv:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/home/mirellameelo/ws/vision_opencv/install/image_geometry:/home/mirellameelo/ws/vision_opencv/install/cv_bridge:/home/mirellameelo/ws/image_common-dashing/install/camera_info_manager:/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/opt/ros/dashing'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'en_US.UTF-8'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/mirellameelo/openvslam/ros2/build/publisher'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('LC_NUMERIC', 'en_US.UTF-8'), ('PYTHONPATH', '/home/mirellameelo/ws/vision_opencv/build/opencv_tests:/home/mirellameelo/ws/vision_opencv/install/opencv_tests/lib/python3.6/site-packages:/home/mirellameelo/ws/vision_opencv/install/image_geometry/lib/python3.6/site-packages:/home/mirellameelo/ws/vision_opencv/install/cv_bridge/lib/python3.6/site-packages:/opt/ros/dashing/lib/python3.6/site-packages'), ('LC_PAPER', 'en_US.UTF-8'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/home/mirellameelo/ws/vision_opencv/install/vision_opencv:/home/mirellameelo/ws/vision_opencv/install/image_geometry:/home/mirellameelo/ws/vision_opencv/install/cv_bridge:/home/mirellameelo/ws/image_common-dashing/install/camera_info_manager:/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing')]), 'shell': False}
+[0.199454] (-) TimerEvent: {}
+[0.212882] (publisher) StdoutLine: {'line': b'[ 40%] Built target video_publisher\n'}
+[0.217783] (publisher) StdoutLine: {'line': b'[100%] Built target image_publisher\n'}
+[0.236010] (publisher) StdoutLine: {'line': b'\x1b[36mInstall the project...\x1b[0m\n'}
+[0.244379] (publisher) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[0.244900] (publisher) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.245418] (publisher) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/lib/publisher/video\n'}
+[0.245890] (publisher) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/lib/publisher/image\n'}
+[0.246271] (publisher) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/ament_index/resource_index/package_run_dependencies/publisher\n'}
+[0.246609] (publisher) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/ament_index/resource_index/parent_prefix_path/publisher\n'}
+[0.246941] (publisher) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/environment/ament_prefix_path.sh\n'}
+[0.247295] (publisher) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/environment/path.sh\n'}
+[0.247650] (publisher) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/local_setup.bash\n'}
+[0.247998] (publisher) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/local_setup.sh\n'}
+[0.248345] (publisher) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/local_setup.zsh\n'}
+[0.248669] (publisher) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/ament_index/resource_index/packages/publisher\n'}
+[0.248965] (publisher) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/cmake/publisherConfig.cmake\n'}
+[0.249264] (publisher) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/cmake/publisherConfig-version.cmake\n'}
+[0.249613] (publisher) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/publisher/share/publisher/package.xml\n'}
+[0.252771] (publisher) CommandEnded: {'returncode': 0}
+[0.265790] (publisher) JobEnded: {'identifier': 'publisher', 'rc': 0}
+[0.299568] (-) TimerEvent: {}
+[0.399830] (-) TimerEvent: {}
+[0.500103] (-) TimerEvent: {}
+[0.600551] (-) TimerEvent: {}
+[0.700900] (-) TimerEvent: {}
+[0.801204] (-) TimerEvent: {}
+[0.901483] (-) TimerEvent: {}
+[1.001906] (-) TimerEvent: {}
+[1.102162] (-) TimerEvent: {}
+[1.202421] (-) TimerEvent: {}
+[1.302685] (-) TimerEvent: {}
+[1.402952] (-) TimerEvent: {}
+[1.503212] (-) TimerEvent: {}
+[1.603473] (-) TimerEvent: {}
+[1.703752] (-) TimerEvent: {}
+[1.804036] (-) TimerEvent: {}
+[1.904341] (-) TimerEvent: {}
+[2.004645] (-) TimerEvent: {}
+[2.104881] (-) TimerEvent: {}
+[2.205178] (-) TimerEvent: {}
+[2.305487] (-) TimerEvent: {}
+[2.405796] (-) TimerEvent: {}
+[2.506084] (-) TimerEvent: {}
+[2.606327] (-) TimerEvent: {}
+[2.706629] (-) TimerEvent: {}
+[2.806913] (-) TimerEvent: {}
+[2.907219] (-) TimerEvent: {}
+[3.007532] (-) TimerEvent: {}
+[3.107834] (-) TimerEvent: {}
+[3.208139] (-) TimerEvent: {}
+[3.308448] (-) TimerEvent: {}
+[3.408757] (-) TimerEvent: {}
+[3.509117] (-) TimerEvent: {}
+[3.609420] (-) TimerEvent: {}
+[3.709723] (-) TimerEvent: {}
+[3.810037] (-) TimerEvent: {}
+[3.910338] (-) TimerEvent: {}
+[4.010631] (-) TimerEvent: {}
+[4.110922] (-) TimerEvent: {}
+[4.211211] (-) TimerEvent: {}
+[4.311483] (-) TimerEvent: {}
+[4.411749] (-) TimerEvent: {}
+[4.512042] (-) TimerEvent: {}
+[4.612330] (-) TimerEvent: {}
+[4.712613] (-) TimerEvent: {}
+[4.812900] (-) TimerEvent: {}
+[4.913173] (-) TimerEvent: {}
+[5.013455] (-) TimerEvent: {}
+[5.113743] (-) TimerEvent: {}
+[5.214029] (-) TimerEvent: {}
+[5.314317] (-) TimerEvent: {}
+[5.414596] (-) TimerEvent: {}
+[5.514879] (-) TimerEvent: {}
+[5.615168] (-) TimerEvent: {}
+[5.715459] (-) TimerEvent: {}
+[5.815751] (-) TimerEvent: {}
+[5.916038] (-) TimerEvent: {}
+[6.016325] (-) TimerEvent: {}
+[6.116612] (-) TimerEvent: {}
+[6.216900] (-) TimerEvent: {}
+[6.317191] (-) TimerEvent: {}
+[6.417483] (-) TimerEvent: {}
+[6.517773] (-) TimerEvent: {}
+[6.618060] (-) TimerEvent: {}
+[6.718346] (-) TimerEvent: {}
+[6.818646] (-) TimerEvent: {}
+[6.918943] (-) TimerEvent: {}
+[7.019212] (-) TimerEvent: {}
+[7.119503] (-) TimerEvent: {}
+[7.219800] (-) TimerEvent: {}
+[7.320055] (-) TimerEvent: {}
+[7.420358] (-) TimerEvent: {}
+[7.520621] (-) TimerEvent: {}
+[7.620897] (-) TimerEvent: {}
+[7.721163] (-) TimerEvent: {}
+[7.821425] (-) TimerEvent: {}
+[7.921731] (-) TimerEvent: {}
+[8.021998] (-) TimerEvent: {}
+[8.122265] (-) TimerEvent: {}
+[8.222561] (-) TimerEvent: {}
+[8.322847] (-) TimerEvent: {}
+[8.423126] (-) TimerEvent: {}
+[8.523408] (-) TimerEvent: {}
+[8.623671] (-) TimerEvent: {}
+[8.723942] (-) TimerEvent: {}
+[8.824217] (-) TimerEvent: {}
+[8.924495] (-) TimerEvent: {}
+[9.024769] (-) TimerEvent: {}
+[9.125064] (-) TimerEvent: {}
+[9.225336] (-) TimerEvent: {}
+[9.325611] (-) TimerEvent: {}
+[9.425885] (-) TimerEvent: {}
+[9.526165] (-) TimerEvent: {}
+[9.626444] (-) TimerEvent: {}
+[9.726721] (-) TimerEvent: {}
+[9.826998] (-) TimerEvent: {}
+[9.927273] (-) TimerEvent: {}
+[10.027553] (-) TimerEvent: {}
+[10.127831] (-) TimerEvent: {}
+[10.228120] (-) TimerEvent: {}
+[10.328398] (-) TimerEvent: {}
+[10.428680] (-) TimerEvent: {}
+[10.528948] (-) TimerEvent: {}
+[10.629226] (-) TimerEvent: {}
+[10.690208] (openvslam) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable run_slam\x1b[0m\n'}
+[10.729351] (-) TimerEvent: {}
+[10.829623] (-) TimerEvent: {}
+[10.929896] (-) TimerEvent: {}
+[11.030198] (-) TimerEvent: {}
+[11.130439] (-) TimerEvent: {}
+[11.132465] (openvslam) StdoutLine: {'line': b'[100%] Built target run_slam\n'}
+[11.141442] (openvslam) CommandEnded: {'returncode': 0}
+[11.160495] (openvslam) JobProgress: {'identifier': 'openvslam', 'progress': 'install'}
+[11.160676] (openvslam) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mirellameelo/openvslam/ros2/build/openvslam', '--target', 'install', '--', '-j12', '-l12'], 'cwd': '/home/mirellameelo/openvslam/ros2/build/openvslam', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'mirellameelo'), ('LANGUAGE', 'en_US:en'), ('LC_TIME', 'en_US.UTF-8'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1309'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/home/mirellameelo/ws/vision_opencv/install/image_geometry/lib:/home/mirellameelo/ws/vision_opencv/install/cv_bridge/lib:/home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/lib:/home/mirellameelo/ws/image_common-dashing/install/image_transport/lib:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/lib:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins:/opt/ros/dashing/opt/yaml_cpp_vendor/lib:/opt/ros/dashing/opt/rviz_ogre_vendor/lib:/opt/ros/dashing/lib'), ('SHLVL', '1'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/mirellameelo'), ('OLDPWD', '/home/mirellameelo'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'en_US.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/mirellameelo/ws/image_common-dashing/install:/home/mirellameelo/ws/vision_opencv/install'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'dashing'), ('LOGNAME', 'mirellameelo'), ('GTK_IM_MODULE', 'ibus'), ('DESKTOP_AUTOSTART_ID', '10391ddb294b709880159043133851475300000012320007'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'mirellameelo'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/dashing/bin:/home/mirellameelo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('PAPERSIZE', 'letter'), ('SESSION_MANAGER', 'local/mirella:@/tmp/.ICE-unix/1232,unix/mirella:/tmp/.ICE-unix/1232'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e11d876c_fe65_4829_b959_e941c9917c6b'), ('LC_ADDRESS', 'en_US.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.75'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/home/mirellameelo/ws/vision_opencv/install/vision_opencv:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/home/mirellameelo/ws/vision_opencv/install/image_geometry:/home/mirellameelo/ws/vision_opencv/install/cv_bridge:/home/mirellameelo/ws/image_common-dashing/install/camera_info_manager:/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/opt/ros/dashing'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'en_US.UTF-8'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/mirellameelo/openvslam/ros2/build/openvslam'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('LC_NUMERIC', 'en_US.UTF-8'), ('PYTHONPATH', '/home/mirellameelo/ws/vision_opencv/build/opencv_tests:/home/mirellameelo/ws/vision_opencv/install/opencv_tests/lib/python3.6/site-packages:/home/mirellameelo/ws/vision_opencv/install/image_geometry/lib/python3.6/site-packages:/home/mirellameelo/ws/vision_opencv/install/cv_bridge/lib/python3.6/site-packages:/opt/ros/dashing/lib/python3.6/site-packages'), ('LC_PAPER', 'en_US.UTF-8'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/home/mirellameelo/ws/vision_opencv/install/vision_opencv:/home/mirellameelo/ws/vision_opencv/install/image_geometry:/home/mirellameelo/ws/vision_opencv/install/cv_bridge:/home/mirellameelo/ws/image_common-dashing/install/camera_info_manager:/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing')]), 'shell': False}
+[11.224217] (openvslam) StdoutLine: {'line': b'[ 33%] Built target run_slam\n'}
+[11.230558] (-) TimerEvent: {}
+[11.232130] (openvslam) StdoutLine: {'line': b'[ 66%] Built target run_pose\n'}
+[11.233092] (openvslam) StdoutLine: {'line': b'[100%] Built target run_localization\n'}
+[11.248428] (openvslam) StdoutLine: {'line': b'\x1b[36mInstall the project...\x1b[0m\n'}
+[11.255322] (openvslam) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[11.255724] (openvslam) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[11.256145] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_slam\n'}
+[11.256415] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_localization\n'}
+[11.256700] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_pose\n'}
+[11.257010] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_slam\n'}
+[11.257255] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/lib/openvslam/run_localization\n'}
+[11.257601] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/package_run_dependencies/openvslam\n'}
+[11.257996] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/parent_prefix_path/openvslam\n'}
+[11.258298] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/environment/ament_prefix_path.sh\n'}
+[11.258569] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/environment/path.sh\n'}
+[11.258864] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.bash\n'}
+[11.259220] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.sh\n'}
+[11.259536] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/local_setup.zsh\n'}
+[11.259838] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/ament_index/resource_index/packages/openvslam\n'}
+[11.260132] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/cmake/openvslamConfig.cmake\n'}
+[11.260302] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/cmake/openvslamConfig-version.cmake\n'}
+[11.260576] (openvslam) StdoutLine: {'line': b'-- Up-to-date symlink: /home/mirellameelo/openvslam/ros2/install/openvslam/share/openvslam/package.xml\n'}
+[11.263475] (openvslam) CommandEnded: {'returncode': 0}
+[11.272569] (openvslam) JobEnded: {'identifier': 'openvslam', 'rc': 0}
+[11.273778] (-) EventReactorShutdown: {}

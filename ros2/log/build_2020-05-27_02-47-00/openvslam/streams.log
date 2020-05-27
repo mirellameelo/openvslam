@@ -1,0 +1,22 @@
+[0.019s] Invoking command in '/home/mirellameelo/openvslam/ros2/build/openvslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12
+[0.061s] [35m[1mScanning dependencies of target run_localization[0m
+[0.085s] [ 50%] Built target run_slam
+[0.110s] [ 75%] [32mBuilding CXX object src/CMakeFiles/run_localization.dir/run_localization.cc.o[0m
+[3.016s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[3.016s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:91:41:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kcam_pose_[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[3.016s]              Eigen::Matrix<double, 4, 4> [01;35m[Kcam_pose_[m[K = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
+[3.017s]                                          [01;35m[K^~~~~~~~~[m[K
+[3.019s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In function ‘[01m[Kvoid mono_localization(const std::shared_ptr<openvslam::config>&, const string&, const string&, const string&, bool)[m[K’:
+[3.019s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:111:13:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[Kcam_pose_[m[K’
+[3.019s]              [01;31m[Kcam_pose_[m[K = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
+[3.019s]              [01;31m[K^~~~~~~~~[m[K
+[3.019s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:114:47:[m[K [01;31m[Kerror: [m[K‘[01m[Kcam_pose_[m[K’ was not declared in this scope
+[3.019s]              Eigen::Matrix3d rotation_matrix = [01;31m[Kcam_pose_[m[K.block(0, 0, 3, 3);
+[3.019s]                                                [01;31m[K^~~~~~~~~[m[K
+[4.884s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.885s] src/CMakeFiles/run_localization.dir/build.make:62: recipe for target 'src/CMakeFiles/run_localization.dir/run_localization.cc.o' failed
+[4.885s] CMakeFiles/Makefile2:156: recipe for target 'src/CMakeFiles/run_localization.dir/all' failed
+[4.885s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.885s] Makefile:140: recipe for target 'all' failed
+[4.885s] make: *** [all] Error 2
+[4.887s] Invoked command in '/home/mirellameelo/openvslam/ros2/build/openvslam' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12

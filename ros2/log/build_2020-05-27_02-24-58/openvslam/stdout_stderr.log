@@ -1,0 +1,54 @@
+[0.060s] [35m[1mScanning dependencies of target run_localization[0m
+[0.083s] [ 50%] Built target run_slam
+[0.104s] [ 75%] [32mBuilding CXX object src/CMakeFiles/run_localization.dir/run_localization.cc.o[0m
+[2.875s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In function ‘[01m[Kvoid mono_localization(const std::shared_ptr<openvslam::config>&, const string&, const string&, const string&, bool)[m[K’:
+[2.875s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:102:9:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[Kwhile[m[K’
+[2.875s]          [01;31m[Kwhile[m[K(){
+[2.875s]          [01;31m[K^~~~~[m[K
+[2.876s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:141:9:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+[2.876s]          [01;31m[K}[m[K,
+[2.876s]          [01;31m[K^[m[K
+[2.876s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K At global scope:
+[2.876s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:141:10:[m[K [01;31m[Kerror: [m[Kmixing declarations and function-definitions is forbidden
+[2.876s]          }[01;31m[K,[m[K
+[2.876s]           [01;31m[K^[m[K
+[2.876s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:142:9:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before string constant
+[2.876s]          [01;31m[K"raw"[m[K, custom_qos);
+[2.876s]          [01;31m[K^~~~~[m[K
+[2.876s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[2.876s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:150:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kexec[m[K’ was not declared in this scope
+[2.876s]          [01;31m[Kexec[m[K.spin();
+[2.876s]          [01;31m[K^~~~[m[K
+[2.878s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:150:9:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kexecl[m[K’
+[2.878s]          [01;36m[Kexec[m[K.spin();
+[2.878s]          [01;36m[K^~~~[m[K
+[2.878s]          [32m[Kexecl[m[K
+[2.881s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K At global scope:
+[2.881s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:160:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kviewer[m[K’ does not name a type
+[2.881s]      [01;31m[Kviewer[m[K.run();
+[2.881s]      [01;31m[K^~~~~~[m[K
+[2.881s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:161:5:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kif[m[K’
+[2.881s]      [01;31m[Kif[m[K (SLAM.terminate_is_requested()) {
+[2.881s]      [01;31m[K^~[m[K
+[2.883s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:181:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kviewer[m[K’ does not name a type
+[2.883s]      [01;31m[Kviewer[m[K.request_terminate();
+[2.883s]      [01;31m[K^~~~~~[m[K
+[2.885s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:182:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kthread[m[K’ does not name a type
+[2.885s]      [01;31m[Kthread[m[K.join();
+[2.885s]      [01;31m[K^~~~~~[m[K
+[2.887s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:189:5:[m[K [01;31m[Kerror: [m[K‘[01m[KSLAM[m[K’ does not name a type; did you mean ‘[01m[KSNAN[m[K’?
+[2.887s]      [01;31m[KSLAM[m[K.shutdown();
+[2.887s]      [01;31m[K^~~~[m[K
+[2.887s]      [32m[KSNAN[m[K
+[2.887s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:191:5:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kif[m[K’
+[2.887s]      [01;31m[Kif[m[K (track_times.size()) {
+[2.887s]      [01;31m[K^~[m[K
+[2.887s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:197:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+[2.888s]  [01;31m[K}[m[K
+[2.888s]  [01;31m[K^[m[K
+[4.497s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.498s] src/CMakeFiles/run_localization.dir/build.make:62: recipe for target 'src/CMakeFiles/run_localization.dir/run_localization.cc.o' failed
+[4.498s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.499s] CMakeFiles/Makefile2:156: recipe for target 'src/CMakeFiles/run_localization.dir/all' failed
+[4.499s] Makefile:140: recipe for target 'all' failed
+[4.499s] make: *** [all] Error 2
