@@ -1,0 +1,49 @@
+[0.058s] [35m[1mScanning dependencies of target run_localization[0m
+[0.085s] [ 50%] Built target run_slam
+[0.101s] [ 75%] [32mBuilding CXX object src/CMakeFiles/run_localization.dir/run_localization.cc.o[0m
+[3.199s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:37:13:[m[K [01;31m[Kerror: [m[Kvariable or field ‘[01m[Kmytime[m[K’ declared void
+[3.199s]  void mytime([01;31m[Kduration_cast[m[K<std::chrono::duration<double> tp_1, duration_cast<std::chrono::duration<double> tp_0){
+[3.199s]              [01;31m[K^~~~~~~~~~~~~[m[K
+[3.199s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:37:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kduration_cast[m[K’ was not declared in this scope
+[3.199s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:37:13:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
+[3.199s] In file included from [01m[K/usr/include/c++/7/mutex:39:0[m[K,
+[3.199s]                  from [01m[K/home/mirellameelo/openvslam/src/pangolin_viewer/viewer.h:9[m[K,
+[3.200s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:2[m[K:
+[3.200s] [01m[K/usr/include/c++/7/chrono:194:7:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::chrono::duration_cast[m[K’
+[3.200s]        [01;36m[Kduration_cast[m[K(const duration<_Rep, _Period>& __d)
+[3.200s]        [01;36m[K^~~~~~~~~~~~~[m[K
+[3.200s] [01m[K/usr/include/c++/7/chrono:194:7:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::chrono::duration_cast[m[K’
+[3.200s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:37:57:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[Ktp_1[m[K’
+[3.200s]  void mytime(duration_cast<std::chrono::duration<double> [01;31m[Ktp_1[m[K, duration_cast<std::chrono::duration<double> tp_0){
+[3.200s]                                                          [01;31m[K^~~~[m[K
+[3.200s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:37:63:[m[K [01;31m[Kerror: [m[K‘[01m[Kduration_cast[m[K’ was not declared in this scope
+[3.200s]  void mytime(duration_cast<std::chrono::duration<double> tp_1, [01;31m[Kduration_cast[m[K<std::chrono::duration<double> tp_0){
+[3.200s]                                                                [01;31m[K^~~~~~~~~~~~~[m[K
+[3.200s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:37:63:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
+[3.200s] In file included from [01m[K/usr/include/c++/7/mutex:39:0[m[K,
+[3.200s]                  from [01m[K/home/mirellameelo/openvslam/src/pangolin_viewer/viewer.h:9[m[K,
+[3.200s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:2[m[K:
+[3.200s] [01m[K/usr/include/c++/7/chrono:194:7:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::chrono::duration_cast[m[K’
+[3.200s]        [01;36m[Kduration_cast[m[K(const duration<_Rep, _Period>& __d)
+[3.200s]        [01;36m[K^~~~~~~~~~~~~[m[K
+[3.201s] [01m[K/usr/include/c++/7/chrono:194:7:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::chrono::duration_cast[m[K’
+[3.201s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:37:107:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[Ktp_0[m[K’
+[3.201s]  void mytime(duration_cast<std::chrono::duration<double> tp_1, duration_cast<std::chrono::duration<double> [01;31m[Ktp_0[m[K){
+[3.201s]                                                                                                            [01;31m[K^~~~[m[K
+[3.209s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[3.209s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:84:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kmytime[m[K’ was not declared in this scope
+[3.209s]              [01;31m[Kmytime[m[K(tp_1, tp_0)
+[3.209s]              [01;31m[K^~~~~~[m[K
+[3.211s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:84:13:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kmktime[m[K’
+[3.212s]              [01;36m[Kmytime[m[K(tp_1, tp_0)
+[3.212s]              [01;36m[K^~~~~~[m[K
+[3.212s]              [32m[Kmktime[m[K
+[3.212s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:82:92:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[3.213s]          node.get(), "camera/image_raw", [&](const sensor_msgs::msg::Image::ConstSharedPtr& [01;35m[Kmsg[m[K) {
+[3.213s]                                                                                             [01;35m[K^~~[m[K
+[4.998s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.999s] src/CMakeFiles/run_localization.dir/build.make:62: recipe for target 'src/CMakeFiles/run_localization.dir/run_localization.cc.o' failed
+[4.999s] CMakeFiles/Makefile2:156: recipe for target 'src/CMakeFiles/run_localization.dir/all' failed
+[4.999s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.999s] Makefile:140: recipe for target 'all' failed
+[4.999s] make: *** [all] Error 2

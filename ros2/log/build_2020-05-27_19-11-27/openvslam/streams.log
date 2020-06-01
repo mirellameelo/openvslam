@@ -1,0 +1,31 @@
+[0.019s] Invoking command in '/home/mirellameelo/openvslam/ros2/build/openvslam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12
+[0.062s] [35m[1mScanning dependencies of target run_localization[0m
+[0.090s] [ 50%] Built target run_slam
+[0.111s] [ 75%] [32mBuilding CXX object src/CMakeFiles/run_localization.dir/run_localization.cc.o[0m
+[3.271s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:37:26:[m[K [01;31m[Kerror: [m[Kvariable or field ‘[01m[Kmytime[m[K’ declared void
+[3.271s]  void mytime(std::chrono::[01;31m[Kduration_cast<std::chrono::duration<double>>[m[K tp_1, std::chrono::duration_cast<std::chrono::duration<double> tp_0){
+[3.272s]                           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.272s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:37:71:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[Ktp_1[m[K’
+[3.272s]  id mytime(std::chrono::duration_cast<std::chrono::duration<double>> [01;31m[Ktp_1[m[K, std::chrono::duration_cast<std::chrono::duration<double> tp_0){
+[3.272s]                                                                      [01;31m[K^~~~[m[K
+[3.272s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:37:90:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+[3.272s]  no::duration_cast<std::chrono::duration<double>> tp_1, std::chrono::[01;31m[Kduration_cast<std::chrono::duration<double> tp_0[m[K){
+[3.272s]                                                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.283s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[3.283s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:84:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kmytime[m[K’ was not declared in this scope
+[3.283s]              [01;31m[Kmytime[m[K(tp_1, tp_0)
+[3.283s]              [01;31m[K^~~~~~[m[K
+[3.286s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:84:13:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kmktime[m[K’
+[3.286s]              [01;36m[Kmytime[m[K(tp_1, tp_0)
+[3.287s]              [01;36m[K^~~~~~[m[K
+[3.287s]              [32m[Kmktime[m[K
+[3.288s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:82:92:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[3.288s]  , "camera/image_raw", [&](const sensor_msgs::msg::Image::ConstSharedPtr& [01;35m[Kmsg[m[K) {
+[3.289s]                                                                           [01;35m[K^~~[m[K
+[5.188s] src/CMakeFiles/run_localization.dir/build.make:62: recipe for target 'src/CMakeFiles/run_localization.dir/run_localization.cc.o' failed
+[5.189s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[5.189s] CMakeFiles/Makefile2:156: recipe for target 'src/CMakeFiles/run_localization.dir/all' failed
+[5.189s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[5.189s] Makefile:140: recipe for target 'all' failed
+[5.189s] make: *** [all] Error 2
+[5.191s] Invoked command in '/home/mirellameelo/openvslam/ros2/build/openvslam' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mirellameelo/ws/vision_opencv/install/opencv_tests:/opt/ros/dashing /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/openvslam -- -j12 -l12

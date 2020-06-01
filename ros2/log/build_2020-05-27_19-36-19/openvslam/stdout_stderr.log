@@ -1,0 +1,23 @@
+[0.059s] [35m[1mScanning dependencies of target run_localization[0m
+[0.085s] [ 50%] Built target run_slam
+[0.104s] [ 75%] [32mBuilding CXX object src/CMakeFiles/run_localization.dir/run_localization.cc.o[0m
+[3.253s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[3.253s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:123:38:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[Knode[m[K’
+[3.253s]              publi(cam, odometry_pub_ [01;31m[Knode[m[K);
+[3.253s]                                       [01;31m[K^~~~[m[K
+[3.256s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:123:42:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kpubli(Eigen::Matrix<double, 4, 4>&, std::shared_ptr<rclcpp::Publisher<nav_msgs::msg::Odometry_<std::allocator<void> >, std::allocator<void> > >&)[m[K’
+[3.256s]              publi(cam, odometry_pub_ node[01;31m[K)[m[K;
+[3.256s]                                           [01;31m[K^[m[K
+[3.256s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:42:6:[m[K [01;36m[Knote: [m[Kcandidate: template<class auto:5, class auto:6, class auto:7> auto publi(auto:5, auto:6, auto:7)
+[3.256s]  auto [01;36m[Kpubli[m[K(auto cam_pose_, auto odometry_pub_, auto node){
+[3.256s]       [01;36m[K^~~~~[m[K
+[3.257s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:42:6:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.257s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:123:42:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 2 provided
+[3.257s]              publi(cam, odometry_pub_ node[01;36m[K)[m[K;
+[3.257s]                                           [01;36m[K^[m[K
+[5.076s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[5.076s] src/CMakeFiles/run_localization.dir/build.make:62: recipe for target 'src/CMakeFiles/run_localization.dir/run_localization.cc.o' failed
+[5.077s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[5.077s] CMakeFiles/Makefile2:156: recipe for target 'src/CMakeFiles/run_localization.dir/all' failed
+[5.077s] make: *** [all] Error 2
+[5.077s] Makefile:140: recipe for target 'all' failed

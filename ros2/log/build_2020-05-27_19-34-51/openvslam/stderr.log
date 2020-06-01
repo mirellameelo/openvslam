@@ -1,0 +1,29 @@
+[2.968s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In function ‘[01m[Kauto publi(auto:5, auto:6)[m[K’:
+[2.969s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:56:30:[m[K [01;31m[Kerror: [m[K‘[01m[Knode[m[K’ was not declared in this scope
+[2.969s]      odom_msg_.header.stamp = [01;31m[Knode[m[K->now();
+[2.969s]                               [01;31m[K^~~~[m[K
+[2.969s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:56:30:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
+[2.969s] In file included from [01m[K/usr/include/yaml-cpp/node/node.h:15:0[m[K,
+[2.969s]                  from [01m[K/usr/include/yaml-cpp/yaml.h:16[m[K,
+[2.969s]                  from [01m[K/home/mirellameelo/openvslam/src/openvslam/camera/base.h:10[m[K,
+[2.969s]                  from [01m[K/home/mirellameelo/openvslam/src/openvslam/config.h:4[m[K,
+[2.970s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:8[m[K:
+[2.970s] [01m[K/usr/include/yaml-cpp/node/detail/iterator_fwd.h:16:7:[m[K [01;36m[Knote: [m[K  ‘[01m[KYAML::node[m[K’
+[2.970s]  class [01;36m[Knode[m[K;
+[2.970s]        [01;36m[K^~~~[m[K
+[2.970s] In file included from [01m[K/usr/include/yaml-cpp/node/impl.h:13:0[m[K,
+[2.970s]                  from [01m[K/usr/include/yaml-cpp/yaml.h:17[m[K,
+[2.970s]                  from [01m[K/home/mirellameelo/openvslam/src/openvslam/camera/base.h:10[m[K,
+[2.970s]                  from [01m[K/home/mirellameelo/openvslam/src/openvslam/config.h:4[m[K,
+[2.970s]                  from [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:8[m[K:
+[2.970s] [01m[K/usr/include/yaml-cpp/node/detail/node.h:20:7:[m[K [01;36m[Knote: [m[K  ‘[01m[KYAML::detail::node[m[K’
+[2.970s]  class [01;36m[Knode[m[K : private boost::noncopyable {
+[2.970s]        [01;36m[K^~~~[m[K
+[2.996s] /home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc: In instantiation of ‘[01m[Kauto publi(auto:5, auto:6) [with auto:5 = Eigen::Matrix<double, 4, 4>; auto:6 = std::shared_ptr<rclcpp::Publisher<nav_msgs::msg::Odometry_<std::allocator<void> >, std::allocator<void> > >][m[K’:
+[2.996s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:120:37:[m[K   required from here
+[2.997s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:42:33:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kodometry_pub_[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[2.997s]  auto publi(auto cam_pose_, auto [01;35m[Kodometry_pub_[m[K){
+[2.997s]                                  [01;35m[K^~~~~~~~~~~~~[m[K
+[4.801s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.801s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.801s] make: *** [all] Error 2

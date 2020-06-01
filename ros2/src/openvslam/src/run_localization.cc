@@ -56,13 +56,13 @@ auto publi(auto cam_pose_, auto odometry_pub_, auto node){
     odom_msg_.header.stamp = node->now();
     odom_msg_.header.frame_id = "camera_frame";
     odom_msg_.child_frame_id = "base_link_frame";      
-    odom_msg_.pose.pose.orientation.x = transform_tf.getRotation().getX();
-    odom_msg_.pose.pose.orientation.y = transform_tf.getRotation().getY();
-    odom_msg_.pose.pose.orientation.z = transform_tf.getRotation().getZ();
-    odom_msg_.pose.pose.orientation.w = transform_tf.getRotation().getW();      
-    odom_msg_.pose.pose.position.x = transform_tf.getOrigin().getX();
-    odom_msg_.pose.pose.position.y = transform_tf.getOrigin().getY();
-    odom_msg_.pose.pose.position.z = transform_tf.getOrigin().getZ();
+    odom_msg_.pose.pose.orientation.x = 0; //transform_tf.getRotation().getX();
+    odom_msg_.pose.pose.orientation.y = 0.0;//transform_tf.getRotation().getY();
+    odom_msg_.pose.pose.orientation.z = 0.0; //transform_tf.getRotation().getZ();
+    odom_msg_.pose.pose.orientation.w = 1.0; //transform_tf.getRotation().getW();      
+    odom_msg_.pose.pose.position.x = 0.0; //ransform_tf.getOrigin().getX();
+    odom_msg_.pose.pose.position.y = 0.0; //transform_tf.getOrigin().getY();
+    odom_msg_.pose.pose.position.z = 0.0; // transform_tf.getOrigin().getZ();
     odometry_pub_->publish(odom_msg_);
 }
 

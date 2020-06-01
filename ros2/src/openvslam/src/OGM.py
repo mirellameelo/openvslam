@@ -96,9 +96,9 @@ def save_data(scale_factor, quartile, path_to_3d_points, path_to_KF):
     shift_y_KF = min(y_KF_position)
     shift_z_KF = min(z_KF_position)
 
-    shift_x = abs(min(shift_x_point, shift_x_KF))
-    shift_y = abs(min(shift_y_point, shift_y_KF))
-    shift_z = abs(min(shift_z_point, shift_z_KF))
+    shift_x = abs(min(shift_x_point, shift_x_KF)) + 10
+    shift_y = abs(min(shift_y_point, shift_y_KF)) + 10
+    shift_z = abs(min(shift_z_point, shift_z_KF)) + 10
 
     for x_3d_position in x_3d_position:
         x_3d.append(x_3d_position + shift_x)
@@ -129,7 +129,7 @@ def save_data(scale_factor, quartile, path_to_3d_points, path_to_KF):
 
 
 
-def draw_2d_point_cloud(points_3d_data, keyframe_data):
+def draw_2d_point_cloud(points_3d_data, keyframe_data, imgg = None):
 
     print('Use the output data from save_data() function.')
 
@@ -157,11 +157,13 @@ def draw_2d_point_cloud(points_3d_data, keyframe_data):
     c = int(max(x_3d))
     d = int(max(z_3d))
 
-    #tem q mudar isso, p ser o max entre KF e points
     windown_size_x = max(a,c) + 10
     windown_size_z = max(b,d) + 10
-    img = [windown_size_x, windown_size_z]
-    img = np.zeros((windown_size_x, windown_size_z, 3), np.uint8)
+    if imgg.all == None:
+        img = [windown_size_x, windown_size_z]
+        img = np.zeros((windown_size_x, windown_size_z, 3), np.uint8)
+    else: 
+        img = imgg
 
     # drawing 2d points position in red color
     for i in range(len(x_3d)):    
@@ -196,8 +198,12 @@ def draw_2d_keyframes(points_3d_data, keyframe_data):
     # OGM windown size taking into consideration the scale factor
     windown_size_x = int(max(x_3d)) + 10
     windown_size_z = int(max(z_3d)) + 10
+    #if imgg.all == None:
     img = [windown_size_x, windown_size_z]
     img = np.zeros((windown_size_x, windown_size_z, 3), np.uint8)
+    #else:
+    #    img = imgg
+
 
     # saving vectors to 2d keyframe position
     for i in range(len(keyframe_data)):
@@ -205,12 +211,14 @@ def draw_2d_keyframes(points_3d_data, keyframe_data):
         z_keyframe.append(keyframe_data[i][4])
 
     # drawing 2d keyframe positon in light blue color
-    #for i in range(len(x_keyframe)):
-    #    img[int(x_keyframe[i]), int(z_keyframe[i])] = (255, 255, 0)
+    for i in range(len(x_keyframe)):
+       img[int(x_keyframe[i]), int(z_keyframe[i])] = (255, 255, 0)
     
-    kernel = np.ones((5,5),np.uint8)
-    img = cv2.erode(img,kernel,iterations = 1)
-    img = cv2.dilate(img,kernel,iterations = 1)
+    kernel = np.ones((20,20),np.uint8)
+    #img = cv2.erode(img,kernel,iterations = 1)
+    #img = cv2.dilate(img,kernel,iterations = 1)
+    kernel = np.ones((20,20),np.uint8)
+    #img = cv2.erode(img,kernel,iterations = 1)
 
     return img
 
@@ -221,7 +229,7 @@ def filter_ground_points(points_3d_data, threshhold):
     print('Use the output data from save_data() function.')
     ground = []
     for i in range(len(points_3d_data)):
-        if points_3d_data[i][2] < threshhold:
+        if points_3d_data[i][2] > threshhold:
             ground.append(points_3d_data[i])
     
     return ground
@@ -304,3 +312,48 @@ def get_line_bresenham(start, end):
         points.reverse()
 
     return points #return the points that indicate the LINE
+
+
+def bounding_box(keyframe_data, image, threshhold):
+
+    bound_box = []
+    z_KF = []
+    img = image
+    value = 10
+    # saving 2d points position
+    for i in range(len(keyframe_data)):
+        num_of_landmarks = 0
+        value = 15
+
+        # se o numero de landmarks still small, keep growing
+        while num_of_landmarks < threshhold:
+
+            start_x = int(keyframe_data[i][2] - value)
+            end_x = int(keyframe_data[i][2] + value + 1)
+            start_z = int(keyframe_data[i][4] - value)
+            end_z = int(keyframe_data[i][4] + value + 1)
+            for b in range(start_x, end_x):
+                for c in range(start_z, end_z):
+                    color = img[b, c]
+                    if color[2] == 255:
+                        #print('keyframe_pixel: ', keyframe_data[i][2])
+                        #print(' pixel: [', b, ', ', c, end='], ')
+                        #print(color)
+                        num_of_landmarks = num_of_landmarks + 1
+
+            if num_of_landmarks >= threshhold: 
+                for d in range(start_x, end_x):
+                    for e in range(start_z, end_z):
+                        img[d, e] = (255, 255, 0)   
+            else:
+                value = value + 1     
+        #bound_box_x.append(keyframe_data[i][2])
+        #        bound_box_x_size.append(value)
+                    # save data - ponto e tamanho vertical e horizontal
+                    #print(value)
+
+    #for d in range(start_x, end_x):
+    #    for e in range(start_z, end_z):
+    #        img[d, e] = (255, 255, 0)
+                
+    return img

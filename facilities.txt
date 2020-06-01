@@ -3,13 +3,23 @@ source $HOME/ws/image_common-dashing/install/setup.bash
 source $HOME/openvslam/ros2/install/setup.bash
 
 
+
+#SLAM
+ros2 run publisher video -m $HOME/openvslam/build/aist_living_lab_1/video.mp4
+ros2 run publisher video -m $HOME/openvslam/build/aist_store_1/video.mp4
+
+ros2 run openvslam run_slam -v $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/build/aist_living_lab_1/config.yaml --eval-log --map-db $HOME/openvslam/ros2/map.msg
+
+ros2 run image_transport republish raw in:=/video/image_raw raw out:=/camera/image_raw
+
+
+#LOCATION
+
 ros2 run image_tools cam2image -t camera 
 
 ros2 run image_transport republish raw in:=/camera raw out:=/camera/image_raw
 
+ros2 run openvslam run_localization -v  $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/build/aist_living_lab_1/config.yaml --map-db /home/mirellameelo/openvslam/ros2/maps/map.msg
 
-#SLAM
-ros2 run openvslam run_slam -v $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/build/aist_living_lab_1/config.yaml --eval-log --map-db $HOME/openvslam/ros2/map.msg
-
-#LOCATION
-ros2 run openvslam run_localization -v  $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/build/aist_living_lab_1/config.yaml --map-db /home/mirellameelo/openvslam/ros2/maps/mymap.msg
+ros2 topic echo <topic_name>
+ros2 info <topicname>

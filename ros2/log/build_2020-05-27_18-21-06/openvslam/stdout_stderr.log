@@ -1,0 +1,16 @@
+[0.062s] [35m[1mScanning dependencies of target run_localization[0m
+[0.086s] [ 50%] Built target run_slam
+[0.126s] [ 75%] [32mBuilding CXX object src/CMakeFiles/run_localization.dir/run_localization.cc.o[0m
+[2.921s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In function ‘[01m[Kvoid mono_localization(const std::shared_ptr<openvslam::config>&, const string&, const string&, const string&, bool)[m[K’:
+[2.921s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:126:47:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Krclcpp::executors::SingleThreadedExecutor exec[m[K’
+[2.921s]      rclcpp::executors::SingleThreadedExecutor [01;31m[Kexec[m[K;
+[2.921s]                                                [01;31m[K^~~~[m[K
+[2.921s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:75:47:[m[K [01;36m[Knote: [m[K‘[01m[Krclcpp::executors::SingleThreadedExecutor exec[m[K’ previously declared here
+[2.921s]      rclcpp::executors::SingleThreadedExecutor [01;36m[Kexec[m[K;
+[2.922s]                                                [01;36m[K^~~~[m[K
+[4.645s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.645s] src/CMakeFiles/run_localization.dir/build.make:62: recipe for target 'src/CMakeFiles/run_localization.dir/run_localization.cc.o' failed
+[4.646s] CMakeFiles/Makefile2:156: recipe for target 'src/CMakeFiles/run_localization.dir/all' failed
+[4.646s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.646s] Makefile:140: recipe for target 'all' failed
+[4.646s] make: *** [all] Error 2

@@ -1,0 +1,12 @@
+[2.910s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In function ‘[01m[Kauto publi(auto:5, auto:6)[m[K’:
+[2.910s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:66:1:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[K}[m[K’ token
+[2.911s]  [01;31m[K}[m[K
+[2.911s]  [01;31m[K^[m[K
+[2.935s] /home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc: In instantiation of ‘[01m[Kauto publi(auto:5, auto:6) [with auto:5 = Eigen::Matrix<double, 4, 4>; auto:6 = std::shared_ptr<rclcpp::Publisher<nav_msgs::msg::Odometry_<std::allocator<void> >, std::allocator<void> > >][m[K’:
+[2.935s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:120:37:[m[K   required from here
+[2.935s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:42:33:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kodometry_pub_[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[2.935s]  auto publi(auto cam_pose_, auto [01;35m[Kodometry_pub_[m[K){
+[2.936s]                                  [01;35m[K^~~~~~~~~~~~~[m[K
+[4.704s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.705s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.705s] make: *** [all] Error 2

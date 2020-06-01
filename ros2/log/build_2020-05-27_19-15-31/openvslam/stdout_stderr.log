@@ -1,0 +1,26 @@
+[0.066s] [35m[1mScanning dependencies of target run_localization[0m
+[0.086s] [ 50%] Built target run_slam
+[0.115s] [ 75%] [32mBuilding CXX object src/CMakeFiles/run_localization.dir/run_localization.cc.o[0m
+[2.827s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In function ‘[01m[Kvoid mytime(auto:3, auto:4)[m[K’:
+[2.828s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:40:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+[2.828s]  [01;31m[K}[m[K
+[2.828s]  [01;31m[K^[m[K
+[2.841s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[2.841s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:88:81:[m[K [01;31m[Kerror: [m[K‘[01m[Ktimestamp[m[K’ was not declared in this scope
+[2.842s]  SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, [01;31m[Ktimestamp[m[K, mask);
+[2.842s]                                                                      [01;31m[K^~~~~~~~~[m[K
+[2.846s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:88:81:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kmkstemp[m[K’
+[2.846s]  SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, [01;36m[Ktimestamp[m[K, mask);
+[2.846s]                                                                      [01;36m[K^~~~~~~~~[m[K
+[2.846s]                                                                                  [32m[Kmkstemp[m[K
+[3.022s] /home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc: In instantiation of ‘[01m[Kvoid mytime(auto:3, auto:4) [with auto:3 = std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long int, std::ratio<1, 1000000000> > >; auto:4 = std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long int, std::ratio<1, 1000000000> > >][m[K’:
+[3.022s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:84:30:[m[K   required from here
+[3.022s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:39:12:[m[K [01;31m[Kerror: [m[Kreturn-statement with a value, in function returning 'void' [[01;31m[K-fpermissive[m[K]
+[3.023s]      return [01;31m[Ktimestamp[m[K
+[3.023s]             [01;31m[K^~~~~~~~~[m[K
+[4.536s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.537s] src/CMakeFiles/run_localization.dir/build.make:62: recipe for target 'src/CMakeFiles/run_localization.dir/run_localization.cc.o' failed
+[4.537s] CMakeFiles/Makefile2:156: recipe for target 'src/CMakeFiles/run_localization.dir/all' failed
+[4.537s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.537s] make: *** [all] Error 2
+[4.538s] Makefile:140: recipe for target 'all' failed

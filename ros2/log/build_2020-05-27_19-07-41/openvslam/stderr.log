@@ -1,0 +1,24 @@
+[2.925s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In function ‘[01m[Kvoid mytime(double)[m[K’:
+[2.925s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:38:97:[m[K [01;31m[Kerror: [m[K‘[01m[Ktp_0[m[K’ was not declared in this scope
+[2.925s]          const auto timestamp = std::chrono::duration_cast<std::chrono::duration<double>>(tp_1 - [01;31m[Ktp_0[m[K).count();
+[2.925s]                                                                                                  [01;31m[K^~~~[m[K
+[2.927s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:38:97:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Ktp_1[m[K’
+[2.927s]          const auto timestamp = std::chrono::duration_cast<std::chrono::duration<double>>(tp_1 - [01;36m[Ktp_0[m[K).count();
+[2.927s]                                                                                                  [01;36m[K^~~~[m[K
+[2.927s]                                                                                                  [32m[Ktp_1[m[K
+[2.927s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:39:16:[m[K [01;31m[Kerror: [m[Kreturn-statement with a value, in function returning 'void' [[01;31m[K-fpermissive[m[K]
+[2.927s]          return [01;31m[Ktimestamp[m[K
+[2.927s]                 [01;31m[K^~~~~~~~~[m[K
+[2.927s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:40:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+[2.927s]      [01;31m[K}[m[K
+[2.927s]      [01;31m[K^[m[K
+[2.938s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
+[2.938s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:84:24:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kconst std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long int, std::ratio<1, 1000000000> > >[m[K’ to ‘[01m[Kdouble[m[K’ for argument ‘[01m[K1[m[K’ to ‘[01m[Kvoid mytime(double)[m[K’
+[2.938s]              mytime(tp_1[01;31m[K)[m[K
+[2.938s]                         [01;31m[K^[m[K
+[2.939s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:82:92:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[2.939s]          node.get(), "camera/image_raw", [&](const sensor_msgs::msg::Image::ConstSharedPtr& [01;35m[Kmsg[m[K) {
+[2.939s]                                                                                             [01;35m[K^~~[m[K
+[4.699s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
+[4.700s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
+[4.700s] make: *** [all] Error 2
