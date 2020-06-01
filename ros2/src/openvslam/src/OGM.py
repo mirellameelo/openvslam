@@ -129,7 +129,7 @@ def save_data(scale_factor, quartile, path_to_3d_points, path_to_KF):
 
 
 
-def draw_2d_point_cloud(points_3d_data, keyframe_data, imgg = None):
+def draw_2d_point_cloud(points_3d_data, keyframe_data):
 
     print('Use the output data from save_data() function.')
 
@@ -159,11 +159,9 @@ def draw_2d_point_cloud(points_3d_data, keyframe_data, imgg = None):
 
     windown_size_x = max(a,c) + 10
     windown_size_z = max(b,d) + 10
-    if imgg.all == None:
-        img = [windown_size_x, windown_size_z]
-        img = np.zeros((windown_size_x, windown_size_z, 3), np.uint8)
-    else: 
-        img = imgg
+    img = [windown_size_x, windown_size_z]
+    img = np.zeros((windown_size_x, windown_size_z, 3), np.uint8)
+
 
     # drawing 2d points position in red color
     for i in range(len(x_3d)):    
@@ -235,7 +233,7 @@ def filter_ground_points(points_3d_data, threshhold):
     return ground
 
 
-def draw_lines(point_2d, keyframe, lista):
+def draw_lines(points_3d_data, keyframe):
     
      # vectors related to 2d points position
     x_3d = []
@@ -244,11 +242,13 @@ def draw_lines(point_2d, keyframe, lista):
     # vectors related to 2d keyframe position
     x_keyframe = []
     z_keyframe = []
+    KF_id = []
 
     # saving 2d points position
     for i in range(len(points_3d_data)):
         x_3d.append(points_3d_data[i][1])
         z_3d.append(points_3d_data[i][3])
+ 
 
     # OGM windown size taking into consideration the scale factor
     windown_size_x = int(max(x_3d)) + 10
@@ -256,9 +256,18 @@ def draw_lines(point_2d, keyframe, lista):
     img = [windown_size_x, windown_size_z]
     img = np.zeros((windown_size_x, windown_size_z, 3), np.uint8)
 
-    # drawing 2d points position in red color
-    for i in range(len(lista)):    
-        img[int(x_3d[i]),int(z_3d[i])] = (0,0, 255)   
+    for i in range(len(keyframe)):
+        KF_id = keyframe[i][0]
+        for a in range(len(points_3d_data)):
+            if points_3d_data[a][0] == KF_id:
+                c = int(keyframe[i][2])
+                d = int(keyframe[i][4])
+                e = int(points_3d_data[a][1])
+                f = int(points_3d_data[a][3])
+                ray_points = get_line_bresenham( [c, d], [e,f] )
+                #print(ray_points)
+                for b in range(len(ray_points)):
+                    img[ray_points[b][0], ray_points[b][1]] = (105, 255, 100)
 
     return img
 
@@ -323,7 +332,7 @@ def bounding_box(keyframe_data, image, threshhold):
     # saving 2d points position
     for i in range(len(keyframe_data)):
         num_of_landmarks = 0
-        value = 15
+        value = 1
 
         # se o numero de landmarks still small, keep growing
         while num_of_landmarks < threshhold:
