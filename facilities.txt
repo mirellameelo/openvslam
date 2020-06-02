@@ -3,7 +3,6 @@ source $HOME/ws/image_common-dashing/install/setup.bash
 source $HOME/openvslam/ros2/install/setup.bash
 
 
-
 #SLAM
 ros2 run publisher video -m $HOME/openvslam/build/aist_living_lab_1/video.mp4
 ros2 run publisher video -m $HOME/openvslam/build/aist_store_1/video.mp4

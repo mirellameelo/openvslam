@@ -227,7 +227,7 @@ def filter_ground_points(points_3d_data, threshhold):
     print('Use the output data from save_data() function.')
     ground = []
     for i in range(len(points_3d_data)):
-        if points_3d_data[i][2] > threshhold:
+        if points_3d_data[i][2] < threshhold:
             ground.append(points_3d_data[i])
     
     return ground
@@ -329,6 +329,10 @@ def bounding_box(keyframe_data, image, threshhold):
     z_KF = []
     img = image
     value = 10
+    vector_start_x = []
+    vector_end_x = []
+    vector_start_z = []
+    vector_end_z = []
     # saving 2d points position
     for i in range(len(keyframe_data)):
         num_of_landmarks = 0
@@ -345,24 +349,24 @@ def bounding_box(keyframe_data, image, threshhold):
                 for c in range(start_z, end_z):
                     color = img[b, c]
                     if color[2] == 255:
-                        #print('keyframe_pixel: ', keyframe_data[i][2])
-                        #print(' pixel: [', b, ', ', c, end='], ')
-                        #print(color)
                         num_of_landmarks = num_of_landmarks + 1
+            # if red points are not enough, ignore this KF
+            if value > threshhold + 5:
+                break
 
-            if num_of_landmarks >= threshhold: 
-                for d in range(start_x, end_x):
-                    for e in range(start_z, end_z):
-                        img[d, e] = (255, 255, 0)   
+            elif num_of_landmarks >= threshhold: 
+                vector_start_x.append(start_x)
+                vector_end_x.append(end_x)
+                vector_start_z.append(start_z)
+                vector_end_z.append(end_z)
             else:
                 value = value + 1     
-        #bound_box_x.append(keyframe_data[i][2])
-        #        bound_box_x_size.append(value)
-                    # save data - ponto e tamanho vertical e horizontal
-                    #print(value)
 
-    #for d in range(start_x, end_x):
-    #    for e in range(start_z, end_z):
-    #        img[d, e] = (255, 255, 0)
-                
+    for i in range(len(vector_end_z)):
+        for d in range(vector_start_x[i], vector_end_x[i]):
+            for e in range(vector_start_z[i], vector_end_z[i]):
+                img[d, e] = (255, 255, 0)  
+
     return img
+
+    
