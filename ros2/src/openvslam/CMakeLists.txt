@@ -234,6 +234,9 @@ add_subdirectory(src)
 install(TARGETS
   run_slam
   run_localization
+  run_odometry
+  run_slam_odometry
+  run_localization_odometry
 DESTINATION lib/${PROJECT_NAME})
 
 
