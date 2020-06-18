@@ -3,22 +3,99 @@ source $HOME/ws/image_common-dashing/install/setup.bash
 source $HOME/openvslam/ros2/install/setup.bash
 
 
-#SLAM
+########## SLAM_1
 ros2 run publisher video -m $HOME/openvslam/build/aist_living_lab_1/video.mp4
-ros2 run publisher video -m $HOME/openvslam/build/aist_store_1/video.mp4
 
-ros2 run openvslam run_slam -v $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/build/aist_living_lab_1/config.yaml --eval-log --map-db $HOME/openvslam/ros2/map.msg
+ros	2 run openvslam run_slam -v $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/build/aist_store_1/config.yaml --eval-log --map-db $HOME/openvslam/ros2/maps/map.msg
 
 ros2 run image_transport republish raw in:=/video/image_raw raw out:=/camera/image_raw
 
 
-#LOCATION
-
+########## SLAM_2 - myWebcam
 ros2 run image_tools cam2image -t camera 
 
 ros2 run image_transport republish raw in:=/camera raw out:=/camera/image_raw
 
-ros2 run openvslam run_localization -v  $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/build/aist_living_lab_1/config.yaml --map-db /home/mirellameelo/openvslam/ros2/maps/map.msg
+ros2 run openvslam run_slam -v $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/config.yaml --eval-log --map-db $HOME/openvslam/ros2/maps/map.msg
+
+
+
+########## LOCATION_1
+ros2 run publisher video -m $HOME/openvslam/build/aist_living_lab_1/video.mp4
+
+ros2 run image_transport republish raw in:=/video/image_raw raw out:=/camera/image_raw
+
+ros2 run openvslam run_localization -v  $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/build/aist_store_1/config.yaml --map-db /home/mirellameelo/openvslam/ros2/maps/map.msg
+
+
+######### LOCATION_2 myWebcam
+ros2 run image_tools cam2image -t camera
+
+ros2 run image_transport republish raw in:=/camera raw out:=/camera/image_raw
+
+ros2 run openvslam run_localization -v  $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/config.yaml --map-db /home/mirellameelo/openvslam/ros2/maps/map.msg
+
+
+
+
+
 
 ros2 topic echo <topic_name>
 ros2 info <topicname>
+ros2 topic list -t
+ros2 run demo_nodes_cpp parameter_blackboard --ros-args --params-file demo_params.yaml
+ros2 launch nav2_bringup nav2_simulation_launch.py
+
+
+source /opt/ros/melodic/setup.bash
+source catkin_ws/devel/setup.bash
+
+
+rodar calibracao:
+terminal 1:
+source /opt/ros/melodic/setup.bash
+source catkin_ws/devel/setup.bash
+roscore
+
+terminal 2:
+source /opt/ros/melodic/setup.bash
+source catkin_ws/devel/setup.bash
+rosrun usb_cam usb_cam_node
+
+terminal 3:
+source /opt/ros/melodic/setup.bash
+source catkin_ws/devel/setup.bash
+#MUDAR SIZE PARA NUMERO DE QUADRADOS +1 E TAMANHO
+rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.025 image:=/usb_cam/image_raw usb_cam:=/usb_cam
+
+
+[image]
+
+width
+640
+
+height
+480
+
+[narrow_stereo]
+
+camera matrix
+643.193173 0.000000 334.442766
+0.000000 641.053741 235.263927
+0.000000 0.000000 1.000000
+
+distortion
+-0.025462 0.071908 0.004506 -0.004357 0.000000
+
+rectification
+1.000000 0.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 0.000000 1.000000
+
+projection
+646.329773 0.000000 331.827143 0.000000
+0.000000 644.919128 237.237560 0.000000
+0.000000 0.000000 1.000000 0.000000
+
+
+

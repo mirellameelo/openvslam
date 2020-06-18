@@ -125,7 +125,7 @@ def save_data(scale_factor, quartile, path_to_3d_points, path_to_KF):
                                 KF_quarternion_y[i], KF_quarternion_z[i], KF_quarternion_w[i] ])
 
     #return 3d point data and keyframe data
-    return points_3d_data, keyframe_data
+    return points_3d_data, keyframe_data, np.mean(y_KF)
 
 
 
@@ -139,6 +139,7 @@ def draw_2d_point_cloud(points_3d_data, keyframe_data):
 
     # vectors related to 2d keyframe position
     x_keyframe = []
+    y_keyframe = []
     z_keyframe = []
 
     # saving 2d points position
@@ -149,6 +150,7 @@ def draw_2d_point_cloud(points_3d_data, keyframe_data):
     # saving 2d keyframe position
     for i in range(len(keyframe_data)):
         x_keyframe.append(keyframe_data[i][2])
+        y_keyframe.append(keyframe_data[i][3])
         z_keyframe.append(keyframe_data[i][4])
 
     # OGM windown size taking into consideration the scale factor
@@ -160,12 +162,58 @@ def draw_2d_point_cloud(points_3d_data, keyframe_data):
     windown_size_x = max(a,c) + 10
     windown_size_z = max(b,d) + 10
     img = [windown_size_x, windown_size_z]
-    img = np.zeros((windown_size_x, windown_size_z, 3), np.uint8)
-
+    img = np.zeros((windown_size_x, windown_size_z, 3), np.uint8) 
 
     # drawing 2d points position in red color
     for i in range(len(x_3d)):    
-        img[int(x_3d[i]),int(z_3d[i])] = (0,0, 255)   
+        img[int(x_3d[i]),int(z_3d[i])] = (0, 0, 255)   
+
+
+    # drawing 2d keyframe positon in light blue color
+    for i in range(len(x_keyframe)):
+        img[int(x_keyframe[i]), int(z_keyframe[i])] = (0, 0, 0)
+
+    return img
+
+
+def draw_2d_point_cloud2(points_3d_data, keyframe_data):
+
+    print('Use the output data from save_data() function.')
+
+    # vectors related to 2d points position
+    x_3d = []
+    z_3d = []
+
+    # vectors related to 2d keyframe position
+    x_keyframe = []
+    y_keyframe = []
+    z_keyframe = []
+
+    # saving 2d points position
+    for i in range(len(points_3d_data)):
+        x_3d.append(points_3d_data[i, 0])
+        z_3d.append(points_3d_data[i, 2])
+
+    # saving 2d keyframe position
+    for i in range(len(keyframe_data)):
+        x_keyframe.append(keyframe_data[i][2])
+        y_keyframe.append(keyframe_data[i][3])
+        z_keyframe.append(keyframe_data[i][4])
+
+    # OGM windown size taking into consideration the scale factor
+    a = int(max(x_keyframe))
+    b = int(max(z_keyframe))
+    c = int(max(x_3d))
+    d = int(max(z_3d))
+
+    windown_size_x = max(a,c) + 10
+    windown_size_z = max(b,d) + 10
+    img = [windown_size_x, windown_size_z]
+    img = np.zeros((windown_size_x, windown_size_z, 3), np.uint8) 
+
+    # drawing 2d points position in red color
+    for i in range(len(x_3d)):    
+        img[int(x_3d[i]),int(z_3d[i])] = (0, 0, 255)   
 
 
     # drawing 2d keyframe positon in light blue color
@@ -227,9 +275,18 @@ def filter_ground_points(points_3d_data, threshhold):
     print('Use the output data from save_data() function.')
     ground = []
     for i in range(len(points_3d_data)):
+        if points_3d_data[i][2] > threshhold:
+            ground.append(points_3d_data[i])
+    return ground
+
+
+def filter_roof_points(points_3d_data, threshhold):
+
+    print('Use the output data from save_data() function.')
+    ground = []
+    for i in range(len(points_3d_data)):
         if points_3d_data[i][2] < threshhold:
             ground.append(points_3d_data[i])
-    
     return ground
 
 
@@ -268,6 +325,47 @@ def draw_lines(points_3d_data, keyframe):
                 #print(ray_points)
                 for b in range(len(ray_points)):
                     img[ray_points[b][0], ray_points[b][1]] = (105, 255, 100)
+
+    return img
+
+def draw_lines2(keyframe, img2):
+    img = img2
+
+    keyframe_after = []
+    for i in range(1, len(keyframe)):
+        keyframe_after.append(keyframe[i])
+
+    keyframe.remove(keyframe[-1])
+    
+    # vectors related to 2d points position
+    x_keyframe_after = []
+    z_keyframe_after = []
+
+    # vectors related to 2d keyframe position
+    x_keyframe = []
+    z_keyframe = []
+    
+    # saving 2d points position
+    for i in range(len(keyframe_after)):
+        x_keyframe_after.append(keyframe_after[i][2])
+        z_keyframe_after.append(keyframe_after[i][4])
+        x_keyframe.append(keyframe[i][2])
+        z_keyframe.append(keyframe[i][4])
+ 
+    # OGM windown size taking into consideration the scale factor
+    # windown_size_x = int(max(x_keyframe)) + 100
+    # windown_size_z = int(max(z_keyframe)) + 100
+    # img = [windown_size_x, windown_size_z]
+    # img = np.zeros((windown_size_x, windown_size_z, 3), np.uint8)
+
+    for i in range(len(keyframe)):
+        a = int(x_keyframe[i])
+        b = int(z_keyframe[i])
+        c = int(x_keyframe_after[i])
+        d = int(z_keyframe_after[i])
+        ray_points = get_line_bresenham( [a, b], [c, d] )
+        for b in range(len(ray_points)):
+            img[ray_points[b][0], ray_points[b][1]] = (105, 255, 100)
 
     return img
 
@@ -348,7 +446,7 @@ def bounding_box(keyframe_data, image, threshhold):
             for b in range(start_x, end_x):
                 for c in range(start_z, end_z):
                     color = img[b, c]
-                    if color[2] == 255:
+                    if color[2] >= 230:
                         num_of_landmarks = num_of_landmarks + 1
             # if red points are not enough, ignore this KF
             if value > threshhold + 5:
@@ -362,11 +460,21 @@ def bounding_box(keyframe_data, image, threshhold):
             else:
                 value = value + 1     
 
+    windown_size_x = (img.shape)[0]
+    windown_size_z = (img.shape)[1]
+    #if imgg.all == None:
+    img2 = [windown_size_x, windown_size_z]
+    img2 = np.zeros((windown_size_x, windown_size_z, 3), np.uint8)
+
+    for i in range(windown_size_x): 
+        for k in range(windown_size_z):   
+            img2[i, k] = (220, 220, 220)   
+    
     for i in range(len(vector_end_z)):
         for d in range(vector_start_x[i], vector_end_x[i]):
             for e in range(vector_start_z[i], vector_end_z[i]):
-                img[d, e] = (255, 255, 0)  
+                img2[d, e] = (0, 0, 0)  
 
-    return img
+    return img2
 
     

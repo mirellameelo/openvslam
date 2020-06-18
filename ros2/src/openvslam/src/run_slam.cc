@@ -16,6 +16,7 @@
 #include "openvslam/data/landmark.h"
 
 #include <rclcpp/rclcpp.hpp>
+#include <tf2/LinearMath/Matrix3x3.h>
 #include <nav_msgs/msg/odometry.hpp>
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>

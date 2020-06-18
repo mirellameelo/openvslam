@@ -49,20 +49,33 @@ auto publi(auto cam_pose_, auto odometry_pub_, auto node){
 
     tf2::Vector3 tf_translation_vector(translation_vector(0), translation_vector(1), translation_vector(2));
 
+    //Coordinate transformation matrix from orb coordinate system to ros coordinate system
+    tf2::Matrix3x3 tf_open_to_ros (0, 0, 1,
+                                 -1, 0, 0,
+                                 0,-1, 0);
+
+    //Transform actual coordinate system to ros coordinate system on camera coordinates
+    tf_rotation_matrix = tf_open_to_ros*tf_rotation_matrix;
+    tf_translation_vector = tf_open_to_ros*tf_translation_vector;
+
+    tf_rotation_matrix = tf_rotation_matrix.transpose();
+    tf_translation_vector = -(tf_rotation_matrix*tf_translation_vector);
+
     tf2::Transform transform_tf(tf_rotation_matrix, tf_translation_vector);
 
     // Create odometry message and update it with current camera pose
-    nav_msgs::msg::Odometry odom_msg_;         
+    nav_msgs::msg::Odometry odom_msg_;
     odom_msg_.header.stamp = node->now();
-    odom_msg_.header.frame_id = "camera_frame";
-    odom_msg_.child_frame_id = "base_link_frame";      
-    odom_msg_.pose.pose.orientation.x = 0; //transform_tf.getRotation().getX();
-    odom_msg_.pose.pose.orientation.y = 0.0;//transform_tf.getRotation().getY();
-    odom_msg_.pose.pose.orientation.z = 0.0; //transform_tf.getRotation().getZ();
-    odom_msg_.pose.pose.orientation.w = 1.0; //transform_tf.getRotation().getW();      
-    odom_msg_.pose.pose.position.x = 0.0; //ransform_tf.getOrigin().getX();
-    odom_msg_.pose.pose.position.y = 0.0; //transform_tf.getOrigin().getY();
-    odom_msg_.pose.pose.position.z = 0.0; // transform_tf.getOrigin().getZ();
+    odom_msg_.header.frame_id = "map";
+    odom_msg_.child_frame_id = "base_link_frame";
+    odom_msg_.pose.pose.orientation.x = transform_tf.getRotation().getX();
+    odom_msg_.pose.pose.orientation.y = transform_tf.getRotation().getY();
+    odom_msg_.pose.pose.orientation.z = transform_tf.getRotation().getZ();
+    odom_msg_.pose.pose.orientation.w = transform_tf.getRotation().getW();
+
+    odom_msg_.pose.pose.position.x = transform_tf.getOrigin().getX();
+    odom_msg_.pose.pose.position.y = transform_tf.getOrigin().getY();
+    odom_msg_.pose.pose.position.z = transform_tf.getOrigin().getZ();
     odometry_pub_->publish(odom_msg_);
 }
 
@@ -126,11 +139,7 @@ void mono_localization(const std::shared_ptr<openvslam::config>& cfg, const std:
         },
         "raw", custom_qos);
 
-
-    auto map_publisher_  = SLAM.get_map_publisher();
-
     rclcpp::WallRate pub_rate(10);
-    //auto cam_pose_ = map_publisher_->get_current_cam_pose();
 
     std::thread thread([&]() {
         exec.spin();
