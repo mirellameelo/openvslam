@@ -1,4 +1,0 @@
-[0.014s] Invoking command in '/home/mirellameelo/openvslam/ros2/build/publisher': /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/publisher -- -j12 -l12
-[0.089s] Invoked command in '/home/mirellameelo/openvslam/ros2/build/publisher' returned '0': /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/publisher -- -j12 -l12
-[0.116s] Invoking command in '/home/mirellameelo/openvslam/ros2/build/publisher': /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/publisher --target install -- -j12 -l12
-[0.212s] Invoked command in '/home/mirellameelo/openvslam/ros2/build/publisher' returned '0': /usr/bin/cmake --build /home/mirellameelo/openvslam/ros2/build/publisher --target install -- -j12 -l12

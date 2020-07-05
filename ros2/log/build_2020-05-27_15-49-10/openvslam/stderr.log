@@ -1,5 +1,0 @@
-[0.455s] CMake Error at src/CMakeLists.txt:1 (f):
-[0.455s]   Unknown CMake command "f".
-[0.455s] 
-[0.455s] 
-[0.458s] make: *** [cmake_check_build_system] Error 1

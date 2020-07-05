@@ -1,0 +1,1 @@
+/home/mirellameelo/ws/image_common-dashing/build/image_transport/ament_cmake_environment_hooks/local_setup.zsh

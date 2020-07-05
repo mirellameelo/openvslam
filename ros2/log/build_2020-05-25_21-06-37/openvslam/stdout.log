@@ -1,7 +1,0 @@
-[0.065s] [35m[1mScanning dependencies of target run_slam[0m
-[0.090s] [ 33%] Built target run_pose
-[0.097s] [ 66%] Built target run_localization
-[0.122s] [ 83%] [32mBuilding CXX object src/CMakeFiles/run_slam.dir/run_slam.cc.o[0m
-[7.192s] src/CMakeFiles/run_slam.dir/build.make:62: recipe for target 'src/CMakeFiles/run_slam.dir/run_slam.cc.o' failed
-[7.192s] CMakeFiles/Makefile2:121: recipe for target 'src/CMakeFiles/run_slam.dir/all' failed
-[7.192s] Makefile:140: recipe for target 'all' failed

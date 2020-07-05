@@ -1,7 +1,0 @@
-[3.675s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
-[3.675s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:92:29:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Krotation_matrix[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
-[3.675s]              Eigen::Matrix3d [01;35m[Krotation_matrix[m[K = cam_pose_.block(0, 0, 3, 3);
-[3.676s]                              [01;35m[K^~~~~~~~~~~~~~~[m[K
-[3.676s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:94:29:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Ktranslation_vector[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
-[3.676s]              Eigen::Vector3d [01;35m[Ktranslation_vector[m[K = cam_pose_.block(0, 3, 3, 1);
-[3.676s]                              [01;35m[K^~~~~~~~~~~~~~~~~~[m[K

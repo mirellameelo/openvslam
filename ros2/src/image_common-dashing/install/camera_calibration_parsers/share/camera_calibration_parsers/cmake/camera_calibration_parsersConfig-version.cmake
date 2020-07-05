@@ -1,0 +1,1 @@
+/home/mirellameelo/ws/image_common-dashing/build/camera_calibration_parsers/ament_cmake_core/camera_calibration_parsersConfig-version.cmake

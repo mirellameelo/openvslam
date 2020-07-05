@@ -1,0 +1,69 @@
+[0.055s] -- The C compiler identification is GNU 7.4.0
+[0.107s] -- The CXX compiler identification is GNU 7.4.0
+[0.110s] -- Check for working C compiler: /usr/bin/cc
+[0.187s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.188s] -- Detecting C compiler ABI info
+[0.283s] -- Detecting C compiler ABI info - done
+[0.290s] -- Detecting C compile features
+[0.468s] -- Detecting C compile features - done
+[0.470s] -- Check for working CXX compiler: /usr/bin/c++
+[0.545s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.546s] -- Detecting CXX compiler ABI info
+[0.623s] -- Detecting CXX compiler ABI info - done
+[0.628s] -- Detecting CXX compile features
+[0.953s] -- Detecting CXX compile features - done
+[0.955s] -- Found ament_cmake_ros: 0.7.0 (/opt/ros/dashing/share/ament_cmake_ros/cmake)
+[0.976s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.6.9", minimum required is "3") 
+[0.976s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.122s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.137s] -- Found ament_index_cpp: 0.7.2 (/opt/ros/dashing/share/ament_index_cpp/cmake)
+[1.140s] -- Found rclcpp: 0.7.12 (/opt/ros/dashing/share/rclcpp/cmake)
+[1.154s] -- Found rosidl_adapter: 0.7.8 (/opt/ros/dashing/share/rosidl_adapter/cmake)
+[1.184s] -- Found rmw_implementation_cmake: 0.7.2 (/opt/ros/dashing/share/rmw_implementation_cmake/cmake)
+[1.185s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.186s] -- Looking for pthread.h
+[1.237s] -- Looking for pthread.h - found
+[1.238s] -- Looking for pthread_create
+[1.309s] -- Looking for pthread_create - not found
+[1.309s] -- Looking for pthread_create in pthreads
+[1.370s] -- Looking for pthread_create in pthreads - not found
+[1.370s] -- Looking for pthread_create in pthread
+[1.452s] -- Looking for pthread_create in pthread - found
+[1.452s] -- Found Threads: TRUE  
+[1.476s] -- Found camera_calibration_parsers: 2.1.1 (/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/cmake)
+[1.510s] -- Setting yaml-cpp_DIR to: '/opt/ros/dashing/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/lib/cmake/yaml-cpp'
+[1.512s] -- Found image_transport: 2.1.1 (/home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/cmake)
+[1.531s] -- Found tinyxml2_vendor:  (/opt/ros/dashing/share/tinyxml2_vendor/cmake)
+[1.541s] -- Found TinyXML2: /usr/lib/x86_64-linux-gnu/libtinyxml2.so  
+[1.543s] -- Found poco_vendor:  (/opt/ros/dashing/share/poco_vendor/cmake)
+[1.595s] -- Found ament_cmake_cppcheck: 0.7.11 (/opt/ros/dashing/share/ament_cmake_cppcheck/cmake)
+[1.597s] -- Found ament_cmake_cpplint: 0.7.11 (/opt/ros/dashing/share/ament_cmake_cpplint/cmake)
+[1.598s] -- Found ament_cmake_lint_cmake: 0.7.11 (/opt/ros/dashing/share/ament_cmake_lint_cmake/cmake)
+[1.599s] -- Found ament_cmake_uncrustify: 0.7.11 (/opt/ros/dashing/share/ament_cmake_uncrustify/cmake)
+[1.650s] -- Configuring done
+[1.658s] -- Generating done
+[1.659s] -- Build files have been written to: /home/mirellameelo/ws/image_common-dashing/build/camera_info_manager
+[1.694s] [35m[1mScanning dependencies of target camera_info_manager[0m
+[1.716s] [ 50%] [32mBuilding CXX object CMakeFiles/camera_info_manager.dir/src/camera_info_manager.cpp.o[0m
+[2.949s] [100%] [32m[1mLinking CXX shared library libcamera_info_manager.so[0m
+[3.043s] [100%] Built target camera_info_manager
+[3.128s] [100%] Built target camera_info_manager
+[3.151s] [36mInstall the project...[0m
+[3.161s] -- Install configuration: ""
+[3.162s] -- Execute custom install script
+[3.163s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/lib/libcamera_info_manager.so
+[3.173s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/include/camera_info_manager/camera_info_manager.h
+[3.182s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/environment/library_path.sh
+[3.191s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/ament_index/resource_index/package_run_dependencies/camera_info_manager
+[3.201s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/ament_index/resource_index/parent_prefix_path/camera_info_manager
+[3.210s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/environment/ament_prefix_path.sh
+[3.220s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/environment/path.sh
+[3.229s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/local_setup.bash
+[3.237s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/local_setup.sh
+[3.243s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/local_setup.zsh
+[3.249s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/ament_index/resource_index/packages/camera_info_manager
+[3.256s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/cmake/ament_cmake_export_include_directories-extras.cmake
+[3.262s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/cmake/ament_cmake_export_libraries-extras.cmake
+[3.268s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/cmake/camera_info_managerConfig.cmake
+[3.275s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/cmake/camera_info_managerConfig-version.cmake
+[3.281s] -- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/package.xml

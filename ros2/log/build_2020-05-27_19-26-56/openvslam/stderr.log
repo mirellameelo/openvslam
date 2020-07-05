@@ -1,7 +1,0 @@
-[3.223s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In function ‘[01m[Kauto publi(auto:5)[m[K’:
-[3.223s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:49:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[Ktf2[m[K’
-[3.223s]      [01;31m[Ktf2[m[K::Vector3 tf_translation_vector(translation_vector(0), translation_vector(1), translation_vector(2))
-[3.223s]      [01;31m[K^~~[m[K
-[5.045s] make[2]: *** [src/CMakeFiles/run_localization.dir/run_localization.cc.o] Error 1
-[5.046s] make[1]: *** [src/CMakeFiles/run_localization.dir/all] Error 2
-[5.046s] make: *** [all] Error 2

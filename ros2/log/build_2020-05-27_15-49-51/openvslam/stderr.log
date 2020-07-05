@@ -1,5 +1,0 @@
-[0.398s] CMake Error at src/CMakeLists.txt:1:
-[0.398s]   Parse error.  Expected a command name, got left paren with text "(".
-[0.398s] 
-[0.398s] 
-[0.401s] make: *** [cmake_check_build_system] Error 1

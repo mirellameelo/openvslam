@@ -1,4 +1,0 @@
-[3.279s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:[m[K In lambda function:
-[3.279s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_localization.cc:82:18:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kcam_pose_[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
-[3.280s]              auto [01;35m[Kcam_pose_[m[K = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
-[3.280s]                   [01;35m[K^~~~~~~~~[m[K

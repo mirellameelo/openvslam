@@ -1,8 +1,0 @@
-[0.067s] [35m[1mScanning dependencies of target run_pose[0m
-[0.097s] [ 33%] Built target run_localization
-[0.111s] [ 66%] Built target run_slam
-[0.129s] [ 83%] [32mBuilding CXX object src/CMakeFiles/run_pose.dir/run_pose.cc.o[0m
-[8.088s] [100%] [32m[1mLinking CXX executable run_pose[0m
-[8.409s] src/CMakeFiles/run_pose.dir/build.make:374: recipe for target 'src/run_pose' failed
-[8.410s] CMakeFiles/Makefile2:158: recipe for target 'src/CMakeFiles/run_pose.dir/all' failed
-[8.410s] Makefile:140: recipe for target 'all' failed

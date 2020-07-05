@@ -1,8 +1,0 @@
-[5.647s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_slam.cc:[m[K In function ‘[01m[Kvoid mono_tracking(const std::shared_ptr<openvslam::config>&, const string&, const string&, bool, const string&)[m[K’:
-[5.648s] [01m[K/home/mirellameelo/openvslam/ros2/src/openvslam/src/run_slam.cc:124:14:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass openvslam::system[m[K’ has no member named ‘[01m[Ksave_landmarks_and_timestamp[m[K’
-[5.648s]          SLAM.[01;31m[Ksave_landmarks_and_timestamp[m[K("/home/mirellameelo/openvslam/ros2/maps/landmarks_and_timestamp.json");
-[5.648s]               [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
-[9.293s] make[2]: *** [src/CMakeFiles/run_slam.dir/run_slam.cc.o] Error 1
-[9.293s] make[1]: *** [src/CMakeFiles/run_slam.dir/all] Error 2
-[9.293s] make[1]: *** Waiting for unfinished jobs....
-[10.312s] make: *** [all] Error 2

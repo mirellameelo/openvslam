@@ -1,0 +1,544 @@
+[0.000000] (-) TimerEvent: {}
+[0.000363] (camera_calibration_parsers) JobQueued: {'identifier': 'camera_calibration_parsers', 'dependencies': OrderedDict()}
+[0.000398] (image_transport) JobQueued: {'identifier': 'image_transport', 'dependencies': OrderedDict()}
+[0.000601] (camera_info_manager) JobQueued: {'identifier': 'camera_info_manager', 'dependencies': OrderedDict([('camera_calibration_parsers', '/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers'), ('image_transport', '/home/mirellameelo/ws/image_common-dashing/install/image_transport')])}
+[0.000636] (camera_calibration_parsers) JobStarted: {'identifier': 'camera_calibration_parsers'}
+[0.009140] (image_transport) JobStarted: {'identifier': 'image_transport'}
+[0.012091] (camera_calibration_parsers) JobProgress: {'identifier': 'camera_calibration_parsers', 'progress': 'cmake'}
+[0.012881] (camera_calibration_parsers) Command: {'cmd': ['/usr/bin/cmake', '/home/mirellameelo/ws/image_common-dashing/camera_calibration_parsers', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers'], 'cwd': '/home/mirellameelo/ws/image_common-dashing/build/camera_calibration_parsers', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'mirellameelo'), ('LC_TIME', 'pt_BR.UTF-8'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1211'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/opt/ros/dashing/opt/yaml_cpp_vendor/lib:/opt/ros/dashing/opt/rviz_ogre_vendor/lib:/opt/ros/dashing/lib'), ('SHLVL', '1'), ('OLDPWD', '/home/mirellameelo/ws'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/mirellameelo'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('LC_CTYPE', 'pt_BR.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'dashing'), ('LOGNAME', 'mirellameelo'), ('GTK_IM_MODULE', 'ibus'), ('DESKTOP_AUTOSTART_ID', '107e106f2d18e4a08d158260482817987300000011160007'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'mirellameelo'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/dashing/bin:/home/mirellameelo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/mirella:@/tmp/.ICE-unix/1116,unix/mirella:/tmp/.ICE-unix/1116'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/01122f83_821b_4636_bde3_59384c4dfec9'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.77'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/opt/ros/dashing'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'pt_BR.UTF-8'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/mirellameelo/ws/image_common-dashing/build/camera_calibration_parsers'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('PYTHONPATH', '/opt/ros/dashing/lib/python3.6/site-packages'), ('LC_PAPER', 'pt_BR.UTF-8'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/opt/ros/dashing')]), 'shell': False}
+[0.016625] (image_transport) JobProgress: {'identifier': 'image_transport', 'progress': 'cmake'}
+[0.017580] (image_transport) Command: {'cmd': ['/usr/bin/cmake', '/home/mirellameelo/ws/image_common-dashing/image_transport', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/mirellameelo/ws/image_common-dashing/install/image_transport'], 'cwd': '/home/mirellameelo/ws/image_common-dashing/build/image_transport', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'mirellameelo'), ('LC_TIME', 'pt_BR.UTF-8'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1211'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/opt/ros/dashing/opt/yaml_cpp_vendor/lib:/opt/ros/dashing/opt/rviz_ogre_vendor/lib:/opt/ros/dashing/lib'), ('SHLVL', '1'), ('OLDPWD', '/home/mirellameelo/ws'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/mirellameelo'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('LC_CTYPE', 'pt_BR.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'dashing'), ('LOGNAME', 'mirellameelo'), ('GTK_IM_MODULE', 'ibus'), ('DESKTOP_AUTOSTART_ID', '107e106f2d18e4a08d158260482817987300000011160007'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'mirellameelo'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/dashing/bin:/home/mirellameelo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/mirella:@/tmp/.ICE-unix/1116,unix/mirella:/tmp/.ICE-unix/1116'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/01122f83_821b_4636_bde3_59384c4dfec9'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.77'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/opt/ros/dashing'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'pt_BR.UTF-8'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/mirellameelo/ws/image_common-dashing/build/image_transport'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('PYTHONPATH', '/opt/ros/dashing/lib/python3.6/site-packages'), ('LC_PAPER', 'pt_BR.UTF-8'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/opt/ros/dashing')]), 'shell': False}
+[0.093031] (camera_calibration_parsers) StdoutLine: {'line': b'-- The C compiler identification is GNU 7.4.0\n'}
+[0.093196] (image_transport) StdoutLine: {'line': b'-- The C compiler identification is GNU 7.4.0\n'}
+[0.099011] (-) TimerEvent: {}
+[0.142227] (image_transport) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 7.4.0\n'}
+[0.142377] (camera_calibration_parsers) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 7.4.0\n'}
+[0.144988] (image_transport) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.145107] (camera_calibration_parsers) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.199141] (-) TimerEvent: {}
+[0.201719] (image_transport) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[0.201869] (camera_calibration_parsers) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[0.202214] (image_transport) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.202326] (camera_calibration_parsers) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.259663] (camera_calibration_parsers) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.259823] (image_transport) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.264196] (image_transport) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.264310] (camera_calibration_parsers) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.299243] (-) TimerEvent: {}
+[0.399568] (-) TimerEvent: {}
+[0.437874] (camera_calibration_parsers) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.438040] (image_transport) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.439795] (image_transport) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[0.439909] (camera_calibration_parsers) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[0.499674] (-) TimerEvent: {}
+[0.507539] (image_transport) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[0.507726] (camera_calibration_parsers) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[0.508009] (image_transport) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.508265] (camera_calibration_parsers) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.577185] (camera_calibration_parsers) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.577465] (image_transport) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.582275] (camera_calibration_parsers) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.582518] (image_transport) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.599806] (-) TimerEvent: {}
+[0.700107] (-) TimerEvent: {}
+[0.800368] (-) TimerEvent: {}
+[0.866833] (image_transport) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.867047] (camera_calibration_parsers) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.868162] (image_transport) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.7.0 (/opt/ros/dashing/share/ament_cmake_ros/cmake)\n'}
+[0.868407] (camera_calibration_parsers) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.7.0 (/opt/ros/dashing/share/ament_cmake_ros/cmake)\n'}
+[0.893306] (image_transport) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.6.9", minimum required is "3") \n'}
+[0.893590] (image_transport) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.893844] (camera_calibration_parsers) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.6.9", minimum required is "3") \n'}
+[0.894041] (camera_calibration_parsers) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.900468] (-) TimerEvent: {}
+[1.000715] (-) TimerEvent: {}
+[1.063495] (image_transport) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[1.066287] (camera_calibration_parsers) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[1.079843] (image_transport) StdoutLine: {'line': b'-- Found message_filters: 3.1.3 (/opt/ros/dashing/share/message_filters/cmake)\n'}
+[1.082333] (image_transport) StdoutLine: {'line': b'-- Found pluginlib: 2.3.3 (/opt/ros/dashing/share/pluginlib/cmake)\n'}
+[1.082829] (camera_calibration_parsers) StdoutLine: {'line': b'-- Found rclcpp: 0.7.12 (/opt/ros/dashing/share/rclcpp/cmake)\n'}
+[1.083643] (image_transport) StdoutLine: {'line': b'-- Found tinyxml2_vendor:  (/opt/ros/dashing/share/tinyxml2_vendor/cmake)\n'}
+[1.095841] (image_transport) StdoutLine: {'line': b'-- Found TinyXML2: /usr/lib/x86_64-linux-gnu/libtinyxml2.so  \n'}
+[1.100308] (camera_calibration_parsers) StdoutLine: {'line': b'-- Found rosidl_adapter: 0.7.8 (/opt/ros/dashing/share/rosidl_adapter/cmake)\n'}
+[1.100771] (image_transport) StdoutLine: {'line': b'-- Found poco_vendor:  (/opt/ros/dashing/share/poco_vendor/cmake)\n'}
+[1.100906] (-) TimerEvent: {}
+[1.110770] (image_transport) StdoutLine: {'line': b'-- Found rclcpp: 0.7.12 (/opt/ros/dashing/share/rclcpp/cmake)\n'}
+[1.126924] (image_transport) StdoutLine: {'line': b'-- Found rosidl_adapter: 0.7.8 (/opt/ros/dashing/share/rosidl_adapter/cmake)\n'}
+[1.135924] (camera_calibration_parsers) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 0.7.2 (/opt/ros/dashing/share/rmw_implementation_cmake/cmake)\n'}
+[1.137288] (camera_calibration_parsers) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.138132] (camera_calibration_parsers) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[1.162404] (image_transport) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 0.7.2 (/opt/ros/dashing/share/rmw_implementation_cmake/cmake)\n'}
+[1.163614] (image_transport) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.164377] (image_transport) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[1.196886] (camera_calibration_parsers) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[1.197233] (camera_calibration_parsers) StdoutLine: {'line': b'-- Looking for pthread_create\n'}
+[1.200985] (-) TimerEvent: {}
+[1.223212] (image_transport) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[1.223464] (image_transport) StdoutLine: {'line': b'-- Looking for pthread_create\n'}
+[1.259034] (camera_calibration_parsers) StdoutLine: {'line': b'-- Looking for pthread_create - not found\n'}
+[1.259282] (camera_calibration_parsers) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[1.285556] (image_transport) StdoutLine: {'line': b'-- Looking for pthread_create - not found\n'}
+[1.285831] (image_transport) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[1.301131] (-) TimerEvent: {}
+[1.307011] (camera_calibration_parsers) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[1.307244] (camera_calibration_parsers) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[1.335600] (image_transport) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[1.335877] (image_transport) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[1.366439] (camera_calibration_parsers) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[1.367384] (camera_calibration_parsers) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[1.392670] (image_transport) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[1.393564] (image_transport) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[1.393765] (camera_calibration_parsers) StdoutLine: {'line': b'-- Found sensor_msgs: 0.7.0 (/opt/ros/dashing/share/sensor_msgs/cmake)\n'}
+[1.401203] (-) TimerEvent: {}
+[1.416470] (camera_calibration_parsers) StdoutLine: {'line': b'-- Found yaml_cpp_vendor: 6.0.1 (/opt/ros/dashing/share/yaml_cpp_vendor/cmake)\n'}
+[1.416680] (camera_calibration_parsers) StdoutLine: {'line': b"-- Setting yaml-cpp_DIR to: '/opt/ros/dashing/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/lib/cmake/yaml-cpp'\n"}
+[1.416981] (image_transport) StdoutLine: {'line': b'-- Found sensor_msgs: 0.7.0 (/opt/ros/dashing/share/sensor_msgs/cmake)\n'}
+[1.438910] (camera_calibration_parsers) StdoutLine: {'line': b'-- Found ament_cmake_cppcheck: 0.7.11 (/opt/ros/dashing/share/ament_cmake_cppcheck/cmake)\n'}
+[1.440219] (camera_calibration_parsers) StdoutLine: {'line': b'-- Found ament_cmake_cpplint: 0.7.11 (/opt/ros/dashing/share/ament_cmake_cpplint/cmake)\n'}
+[1.441551] (camera_calibration_parsers) StdoutLine: {'line': b'-- Found ament_cmake_lint_cmake: 0.7.11 (/opt/ros/dashing/share/ament_cmake_lint_cmake/cmake)\n'}
+[1.442905] (camera_calibration_parsers) StdoutLine: {'line': b'-- Found ament_cmake_uncrustify: 0.7.11 (/opt/ros/dashing/share/ament_cmake_uncrustify/cmake)\n'}
+[1.445006] (camera_calibration_parsers) StdoutLine: {'line': b'-- Found ament_cmake_gtest: 0.7.4 (/opt/ros/dashing/share/ament_cmake_gtest/cmake)\n'}
+[1.446852] (camera_calibration_parsers) StdoutLine: {'line': b"-- Found gtest sources under '/opt/ros/dashing/src/gtest_vendor': C++ tests using 'Google Test' will be built\n"}
+[1.448802] (camera_calibration_parsers) StdoutLine: {'line': b'-- Check if compiler accepts -pthread\n'}
+[1.461360] (image_transport) StdoutLine: {'line': b'-- Found ament_cmake_gtest: 0.7.4 (/opt/ros/dashing/share/ament_cmake_gtest/cmake)\n'}
+[1.463175] (image_transport) StdoutLine: {'line': b"-- Found gtest sources under '/opt/ros/dashing/src/gtest_vendor': C++ tests using 'Google Test' will be built\n"}
+[1.465496] (image_transport) StdoutLine: {'line': b'-- Check if compiler accepts -pthread\n'}
+[1.501299] (-) TimerEvent: {}
+[1.510294] (camera_calibration_parsers) StdoutLine: {'line': b'-- Check if compiler accepts -pthread - yes\n'}
+[1.526955] (image_transport) StdoutLine: {'line': b'-- Check if compiler accepts -pthread - yes\n'}
+[1.574722] (camera_calibration_parsers) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.598400] (image_transport) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.601390] (-) TimerEvent: {}
+[1.605554] (camera_calibration_parsers) StdoutLine: {'line': b'-- Generating done\n'}
+[1.607310] (camera_calibration_parsers) StdoutLine: {'line': b'-- Build files have been written to: /home/mirellameelo/ws/image_common-dashing/build/camera_calibration_parsers\n'}
+[1.610668] (camera_calibration_parsers) CommandEnded: {'returncode': 0}
+[1.612973] (camera_calibration_parsers) JobProgress: {'identifier': 'camera_calibration_parsers', 'progress': 'build'}
+[1.613039] (camera_calibration_parsers) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mirellameelo/ws/image_common-dashing/build/camera_calibration_parsers', '--', '-j12', '-l12'], 'cwd': '/home/mirellameelo/ws/image_common-dashing/build/camera_calibration_parsers', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'mirellameelo'), ('LC_TIME', 'pt_BR.UTF-8'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1211'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/opt/ros/dashing/opt/yaml_cpp_vendor/lib:/opt/ros/dashing/opt/rviz_ogre_vendor/lib:/opt/ros/dashing/lib'), ('SHLVL', '1'), ('OLDPWD', '/home/mirellameelo/ws'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/mirellameelo'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('LC_CTYPE', 'pt_BR.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'dashing'), ('LOGNAME', 'mirellameelo'), ('GTK_IM_MODULE', 'ibus'), ('DESKTOP_AUTOSTART_ID', '107e106f2d18e4a08d158260482817987300000011160007'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'mirellameelo'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/dashing/bin:/home/mirellameelo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/mirella:@/tmp/.ICE-unix/1116,unix/mirella:/tmp/.ICE-unix/1116'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/01122f83_821b_4636_bde3_59384c4dfec9'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.77'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/opt/ros/dashing'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'pt_BR.UTF-8'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/mirellameelo/ws/image_common-dashing/build/camera_calibration_parsers'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('PYTHONPATH', '/opt/ros/dashing/lib/python3.6/site-packages'), ('LC_PAPER', 'pt_BR.UTF-8'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/opt/ros/dashing')]), 'shell': False}
+[1.649170] (camera_calibration_parsers) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target gtest\x1b[0m\n'}
+[1.651402] (camera_calibration_parsers) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target camera_calibration_parsers\x1b[0m\n'}
+[1.657082] (camera_calibration_parsers) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target gtest_main\x1b[0m\n'}
+[1.671843] (camera_calibration_parsers) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o\x1b[0m\n'}
+[1.675637] (camera_calibration_parsers) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o\x1b[0m\n'}
+[1.690015] (image_transport) StdoutLine: {'line': b'-- Generating done\n'}
+[1.692923] (image_transport) StdoutLine: {'line': b'-- Build files have been written to: /home/mirellameelo/ws/image_common-dashing/build/image_transport\n'}
+[1.696032] (camera_calibration_parsers) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/camera_calibration_parsers.dir/src/parse_ini.cpp.o\x1b[0m\n'}
+[1.696895] (camera_calibration_parsers) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/camera_calibration_parsers.dir/src/parse_yml.cpp.o\x1b[0m\n'}
+[1.697707] (image_transport) CommandEnded: {'returncode': 0}
+[1.698432] (image_transport) JobProgress: {'identifier': 'image_transport', 'progress': 'build'}
+[1.698966] (image_transport) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mirellameelo/ws/image_common-dashing/build/image_transport', '--', '-j12', '-l12'], 'cwd': '/home/mirellameelo/ws/image_common-dashing/build/image_transport', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'mirellameelo'), ('LC_TIME', 'pt_BR.UTF-8'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1211'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/opt/ros/dashing/opt/yaml_cpp_vendor/lib:/opt/ros/dashing/opt/rviz_ogre_vendor/lib:/opt/ros/dashing/lib'), ('SHLVL', '1'), ('OLDPWD', '/home/mirellameelo/ws'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/mirellameelo'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('LC_CTYPE', 'pt_BR.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'dashing'), ('LOGNAME', 'mirellameelo'), ('GTK_IM_MODULE', 'ibus'), ('DESKTOP_AUTOSTART_ID', '107e106f2d18e4a08d158260482817987300000011160007'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'mirellameelo'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/dashing/bin:/home/mirellameelo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/mirella:@/tmp/.ICE-unix/1116,unix/mirella:/tmp/.ICE-unix/1116'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/01122f83_821b_4636_bde3_59384c4dfec9'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.77'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/opt/ros/dashing'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'pt_BR.UTF-8'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/mirellameelo/ws/image_common-dashing/build/image_transport'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('PYTHONPATH', '/opt/ros/dashing/lib/python3.6/site-packages'), ('LC_PAPER', 'pt_BR.UTF-8'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/opt/ros/dashing')]), 'shell': False}
+[1.700605] (camera_calibration_parsers) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/camera_calibration_parsers.dir/src/parse.cpp.o\x1b[0m\n'}
+[1.701862] (-) TimerEvent: {}
+[1.747960] (image_transport) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target gtest\x1b[0m\n'}
+[1.752834] (image_transport) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target gtest_main\x1b[0m\n'}
+[1.761561] (image_transport) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target image_transport\x1b[0m\n'}
+[1.775296] (image_transport) StdoutLine: {'line': b'[  3%] \x1b[32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o\x1b[0m\n'}
+[1.778517] (image_transport) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o\x1b[0m\n'}
+[1.801983] (-) TimerEvent: {}
+[1.814065] (image_transport) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/image_transport.dir/src/camera_common.cpp.o\x1b[0m\n'}
+[1.818294] (image_transport) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding CXX object CMakeFiles/image_transport.dir/src/single_subscriber_publisher.cpp.o\x1b[0m\n'}
+[1.818691] (image_transport) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/image_transport.dir/src/publisher.cpp.o\x1b[0m\n'}
+[1.819127] (image_transport) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/image_transport.dir/src/subscriber.cpp.o\x1b[0m\n'}
+[1.827654] (image_transport) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding CXX object CMakeFiles/image_transport.dir/src/camera_publisher.cpp.o\x1b[0m\n'}
+[1.829810] (image_transport) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/image_transport.dir/src/image_transport.cpp.o\x1b[0m\n'}
+[1.834584] (image_transport) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/image_transport.dir/src/camera_subscriber.cpp.o\x1b[0m\n'}
+[1.902104] (-) TimerEvent: {}
+[2.002513] (-) TimerEvent: {}
+[2.102921] (-) TimerEvent: {}
+[2.203327] (-) TimerEvent: {}
+[2.303735] (-) TimerEvent: {}
+[2.404157] (-) TimerEvent: {}
+[2.504702] (-) TimerEvent: {}
+[2.605242] (-) TimerEvent: {}
+[2.705647] (-) TimerEvent: {}
+[2.806067] (-) TimerEvent: {}
+[2.906475] (-) TimerEvent: {}
+[3.006892] (-) TimerEvent: {}
+[3.107300] (-) TimerEvent: {}
+[3.163236] (camera_calibration_parsers) StdoutLine: {'line': b'[ 42%] \x1b[32m\x1b[1mLinking CXX static library libgtest_main.a\x1b[0m\n'}
+[3.195754] (image_transport) StdoutLine: {'line': b'[ 33%] \x1b[32m\x1b[1mLinking CXX static library libgtest_main.a\x1b[0m\n'}
+[3.207424] (-) TimerEvent: {}
+[3.271887] (camera_calibration_parsers) StdoutLine: {'line': b'[ 42%] Built target gtest_main\n'}
+[3.287849] (image_transport) StdoutLine: {'line': b'[ 33%] Built target gtest_main\n'}
+[3.307556] (-) TimerEvent: {}
+[3.408098] (-) TimerEvent: {}
+[3.508625] (-) TimerEvent: {}
+[3.609171] (-) TimerEvent: {}
+[3.709642] (-) TimerEvent: {}
+[3.810128] (-) TimerEvent: {}
+[3.910650] (-) TimerEvent: {}
+[4.011009] (-) TimerEvent: {}
+[4.111342] (-) TimerEvent: {}
+[4.211735] (-) TimerEvent: {}
+[4.312146] (-) TimerEvent: {}
+[4.375748] (camera_calibration_parsers) StdoutLine: {'line': b'[ 50%] \x1b[32m\x1b[1mLinking CXX shared library libcamera_calibration_parsers.so\x1b[0m\n'}
+[4.412284] (-) TimerEvent: {}
+[4.512606] (-) TimerEvent: {}
+[4.602768] (camera_calibration_parsers) StdoutLine: {'line': b'[ 50%] Built target camera_calibration_parsers\n'}
+[4.612720] (-) TimerEvent: {}
+[4.620681] (camera_calibration_parsers) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target convert\x1b[0m\n'}
+[4.652661] (camera_calibration_parsers) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/convert.dir/src/convert.cpp.o\x1b[0m\n'}
+[4.712838] (-) TimerEvent: {}
+[4.813225] (-) TimerEvent: {}
+[4.913602] (-) TimerEvent: {}
+[5.014009] (-) TimerEvent: {}
+[5.114338] (-) TimerEvent: {}
+[5.214681] (-) TimerEvent: {}
+[5.315002] (-) TimerEvent: {}
+[5.415374] (-) TimerEvent: {}
+[5.515761] (-) TimerEvent: {}
+[5.582874] (camera_calibration_parsers) StdoutLine: {'line': b'[ 64%] \x1b[32m\x1b[1mLinking CXX executable convert\x1b[0m\n'}
+[5.615880] (-) TimerEvent: {}
+[5.716269] (-) TimerEvent: {}
+[5.755602] (camera_calibration_parsers) StdoutLine: {'line': b'[ 64%] Built target convert\n'}
+[5.816380] (-) TimerEvent: {}
+[5.916756] (-) TimerEvent: {}
+[6.017123] (-) TimerEvent: {}
+[6.117485] (-) TimerEvent: {}
+[6.217846] (-) TimerEvent: {}
+[6.318210] (-) TimerEvent: {}
+[6.418573] (-) TimerEvent: {}
+[6.425667] (camera_calibration_parsers) StdoutLine: {'line': b'[ 71%] \x1b[32m\x1b[1mLinking CXX static library libgtest.a\x1b[0m\n'}
+[6.484341] (camera_calibration_parsers) StdoutLine: {'line': b'[ 71%] Built target gtest\n'}
+[6.495865] (camera_calibration_parsers) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target camera_calibration_parsers-parse_ini\x1b[0m\n'}
+[6.496153] (camera_calibration_parsers) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target camera_calibration_parsers-parse_yml\x1b[0m\n'}
+[6.518689] (-) TimerEvent: {}
+[6.522920] (camera_calibration_parsers) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding CXX object CMakeFiles/camera_calibration_parsers-parse_yml.dir/test/test_parse_yml.cpp.o\x1b[0m\n'}
+[6.523199] (camera_calibration_parsers) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding CXX object CMakeFiles/camera_calibration_parsers-parse_ini.dir/test/test_parse_ini.cpp.o\x1b[0m\n'}
+[6.618804] (-) TimerEvent: {}
+[6.719171] (-) TimerEvent: {}
+[6.819554] (-) TimerEvent: {}
+[6.846299] (image_transport) StdoutLine: {'line': b'[ 36%] \x1b[32m\x1b[1mLinking CXX static library libgtest.a\x1b[0m\n'}
+[6.916635] (image_transport) StdoutLine: {'line': b'[ 36%] Built target gtest\n'}
+[6.919634] (-) TimerEvent: {}
+[7.019978] (-) TimerEvent: {}
+[7.120352] (-) TimerEvent: {}
+[7.220715] (-) TimerEvent: {}
+[7.321086] (-) TimerEvent: {}
+[7.421453] (-) TimerEvent: {}
+[7.521821] (-) TimerEvent: {}
+[7.622196] (-) TimerEvent: {}
+[7.722562] (-) TimerEvent: {}
+[7.792284] (camera_calibration_parsers) StdoutLine: {'line': b'[ 92%] \x1b[32m\x1b[1mLinking CXX executable camera_calibration_parsers-parse_yml\x1b[0m\n'}
+[7.810863] (camera_calibration_parsers) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable camera_calibration_parsers-parse_ini\x1b[0m\n'}
+[7.822698] (-) TimerEvent: {}
+[7.923017] (-) TimerEvent: {}
+[8.012617] (camera_calibration_parsers) StdoutLine: {'line': b'[100%] Built target camera_calibration_parsers-parse_yml\n'}
+[8.023157] (-) TimerEvent: {}
+[8.037522] (camera_calibration_parsers) StdoutLine: {'line': b'[100%] Built target camera_calibration_parsers-parse_ini\n'}
+[8.048453] (camera_calibration_parsers) CommandEnded: {'returncode': 0}
+[8.080502] (camera_calibration_parsers) JobProgress: {'identifier': 'camera_calibration_parsers', 'progress': 'install'}
+[8.082152] (camera_calibration_parsers) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mirellameelo/ws/image_common-dashing/build/camera_calibration_parsers', '--target', 'install', '--', '-j12', '-l12'], 'cwd': '/home/mirellameelo/ws/image_common-dashing/build/camera_calibration_parsers', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'mirellameelo'), ('LC_TIME', 'pt_BR.UTF-8'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1211'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/opt/ros/dashing/opt/yaml_cpp_vendor/lib:/opt/ros/dashing/opt/rviz_ogre_vendor/lib:/opt/ros/dashing/lib'), ('SHLVL', '1'), ('OLDPWD', '/home/mirellameelo/ws'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/mirellameelo'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('LC_CTYPE', 'pt_BR.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'dashing'), ('LOGNAME', 'mirellameelo'), ('GTK_IM_MODULE', 'ibus'), ('DESKTOP_AUTOSTART_ID', '107e106f2d18e4a08d158260482817987300000011160007'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'mirellameelo'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/dashing/bin:/home/mirellameelo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/mirella:@/tmp/.ICE-unix/1116,unix/mirella:/tmp/.ICE-unix/1116'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/01122f83_821b_4636_bde3_59384c4dfec9'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.77'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/opt/ros/dashing'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'pt_BR.UTF-8'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/mirellameelo/ws/image_common-dashing/build/camera_calibration_parsers'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('PYTHONPATH', '/opt/ros/dashing/lib/python3.6/site-packages'), ('LC_PAPER', 'pt_BR.UTF-8'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/opt/ros/dashing')]), 'shell': False}
+[8.123309] (-) TimerEvent: {}
+[8.137803] (camera_calibration_parsers) StdoutLine: {'line': b'[ 28%] Built target gtest\n'}
+[8.138015] (camera_calibration_parsers) StdoutLine: {'line': b'[ 28%] Built target gtest_main\n'}
+[8.147629] (camera_calibration_parsers) StdoutLine: {'line': b'[ 57%] Built target camera_calibration_parsers\n'}
+[8.172955] (camera_calibration_parsers) StdoutLine: {'line': b'[ 85%] Built target camera_calibration_parsers-parse_yml\n'}
+[8.173171] (camera_calibration_parsers) StdoutLine: {'line': b'[ 85%] Built target camera_calibration_parsers-parse_ini\n'}
+[8.177188] (camera_calibration_parsers) StdoutLine: {'line': b'[100%] Built target convert\n'}
+[8.193177] (camera_calibration_parsers) StdoutLine: {'line': b'\x1b[36mInstall the project...\x1b[0m\n'}
+[8.200562] (camera_calibration_parsers) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[8.201001] (camera_calibration_parsers) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[8.201499] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/lib/libcamera_calibration_parsers.so\n'}
+[8.209352] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/lib/camera_calibration_parsers/convert\n'}
+[8.217327] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/include/camera_calibration_parsers/impl/filesystem_helper.hpp\n'}
+[8.223414] (-) TimerEvent: {}
+[8.224905] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/include/camera_calibration_parsers/impl/split.hpp\n'}
+[8.232992] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/include/camera_calibration_parsers/parse.h\n'}
+[8.240885] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/include/camera_calibration_parsers/parse_ini.h\n'}
+[8.248544] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/include/camera_calibration_parsers/parse_yml.h\n'}
+[8.256326] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/include/camera_calibration_parsers/visibility_control.hpp\n'}
+[8.264265] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/environment/library_path.sh\n'}
+[8.272222] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/ament_index/resource_index/package_run_dependencies/camera_calibration_parsers\n'}
+[8.279774] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/ament_index/resource_index/parent_prefix_path/camera_calibration_parsers\n'}
+[8.287286] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/environment/ament_prefix_path.sh\n'}
+[8.294779] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/environment/path.sh\n'}
+[8.302285] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/local_setup.bash\n'}
+[8.309809] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/local_setup.sh\n'}
+[8.317376] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/local_setup.zsh\n'}
+[8.323520] (-) TimerEvent: {}
+[8.325066] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/ament_index/resource_index/packages/camera_calibration_parsers\n'}
+[8.332727] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[8.340339] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[8.348052] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[8.356187] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/cmake/camera_calibration_parsersConfig.cmake\n'}
+[8.364128] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/cmake/camera_calibration_parsersConfig-version.cmake\n'}
+[8.372307] (camera_calibration_parsers) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/package.xml\n'}
+[8.382618] (camera_calibration_parsers) CommandEnded: {'returncode': 0}
+[8.404787] (camera_calibration_parsers) JobEnded: {'identifier': 'camera_calibration_parsers', 'rc': 0}
+[8.423660] (-) TimerEvent: {}
+[8.437016] (image_transport) StdoutLine: {'line': b'[ 40%] \x1b[32m\x1b[1mLinking CXX shared library libimage_transport.so\x1b[0m\n'}
+[8.523784] (-) TimerEvent: {}
+[8.624047] (-) TimerEvent: {}
+[8.724279] (-) TimerEvent: {}
+[8.725649] (image_transport) StdoutLine: {'line': b'[ 40%] Built target image_transport\n'}
+[8.737554] (image_transport) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target list_transports\x1b[0m\n'}
+[8.737838] (image_transport) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target image_transport-publisher\x1b[0m\n'}
+[8.738083] (image_transport) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target image_transport-single_subscriber_publisher\x1b[0m\n'}
+[8.741248] (image_transport) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target image_transport-remapping\x1b[0m\n'}
+[8.741460] (image_transport) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target image_transport-camera_common\x1b[0m\n'}
+[8.741982] (image_transport) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target republish\x1b[0m\n'}
+[8.742422] (image_transport) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target image_transport-subscriber\x1b[0m\n'}
+[8.742647] (image_transport) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target image_transport-message_passing\x1b[0m\n'}
+[8.742978] (image_transport) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target image_transport_plugins\x1b[0m\n'}
+[8.768085] (image_transport) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding CXX object CMakeFiles/image_transport-camera_common.dir/test/test_camera_common.cpp.o\x1b[0m\n'}
+[8.770881] (image_transport) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/list_transports.dir/src/list_transports.cpp.o\x1b[0m\n'}
+[8.780708] (image_transport) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/image_transport-publisher.dir/test/test_publisher.cpp.o\x1b[0m\n'}
+[8.783806] (image_transport) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding CXX object CMakeFiles/image_transport-single_subscriber_publisher.dir/test/test_single_subscriber_publisher.cpp.o\x1b[0m\n'}
+[8.790152] (image_transport) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding CXX object CMakeFiles/image_transport_plugins.dir/src/manifest.cpp.o\x1b[0m\n'}
+[8.797309] (image_transport) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object CMakeFiles/republish.dir/src/republish.cpp.o\x1b[0m\n'}
+[8.798294] (image_transport) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/image_transport-message_passing.dir/test/test_message_passing.cpp.o\x1b[0m\n'}
+[8.803069] (image_transport) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/image_transport-subscriber.dir/test/test_subscriber.cpp.o\x1b[0m\n'}
+[8.806790] (image_transport) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding CXX object CMakeFiles/image_transport-remapping.dir/test/test_remapping.cpp.o\x1b[0m\n'}
+[8.824393] (-) TimerEvent: {}
+[8.924747] (-) TimerEvent: {}
+[9.025116] (-) TimerEvent: {}
+[9.125490] (-) TimerEvent: {}
+[9.225864] (-) TimerEvent: {}
+[9.326241] (-) TimerEvent: {}
+[9.426624] (-) TimerEvent: {}
+[9.527010] (-) TimerEvent: {}
+[9.627401] (-) TimerEvent: {}
+[9.727796] (-) TimerEvent: {}
+[9.828181] (-) TimerEvent: {}
+[9.928563] (-) TimerEvent: {}
+[10.028956] (-) TimerEvent: {}
+[10.129369] (-) TimerEvent: {}
+[10.229751] (-) TimerEvent: {}
+[10.285225] (image_transport) StdoutLine: {'line': b'[ 73%] \x1b[32m\x1b[1mLinking CXX executable image_transport-camera_common\x1b[0m\n'}
+[10.329877] (-) TimerEvent: {}
+[10.430283] (-) TimerEvent: {}
+[10.530680] (-) TimerEvent: {}
+[10.631079] (-) TimerEvent: {}
+[10.731463] (-) TimerEvent: {}
+[10.736937] (image_transport) StdoutLine: {'line': b'[ 73%] Built target image_transport-camera_common\n'}
+[10.831584] (-) TimerEvent: {}
+[10.931958] (-) TimerEvent: {}
+[11.032337] (-) TimerEvent: {}
+[11.060020] (image_transport) StdoutLine: {'line': b'[ 76%] \x1b[32m\x1b[1mLinking CXX executable image_transport-publisher\x1b[0m\n'}
+[11.132492] (-) TimerEvent: {}
+[11.232850] (-) TimerEvent: {}
+[11.333173] (-) TimerEvent: {}
+[11.382865] (image_transport) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking CXX executable image_transport-remapping\x1b[0m\n'}
+[11.433278] (-) TimerEvent: {}
+[11.471885] (image_transport) StdoutLine: {'line': b'[ 80%] Built target image_transport-publisher\n'}
+[11.533408] (-) TimerEvent: {}
+[11.633816] (-) TimerEvent: {}
+[11.734050] (image_transport) StdoutLine: {'line': b'[ 80%] Built target image_transport-remapping\n'}
+[11.734338] (-) TimerEvent: {}
+[11.834646] (-) TimerEvent: {}
+[11.868295] (image_transport) StdoutLine: {'line': b'[ 83%] \x1b[32m\x1b[1mLinking CXX executable image_transport-message_passing\x1b[0m\n'}
+[11.934798] (-) TimerEvent: {}
+[11.954754] (image_transport) StdoutLine: {'line': b'[ 86%] \x1b[32m\x1b[1mLinking CXX executable image_transport-single_subscriber_publisher\x1b[0m\n'}
+[12.034981] (-) TimerEvent: {}
+[12.135365] (-) TimerEvent: {}
+[12.235754] (-) TimerEvent: {}
+[12.242539] (image_transport) StdoutLine: {'line': b'[ 86%] Built target image_transport-message_passing\n'}
+[12.283116] (image_transport) StdoutLine: {'line': b'[ 90%] \x1b[32m\x1b[1mLinking CXX executable image_transport-subscriber\x1b[0m\n'}
+[12.320414] (image_transport) StdoutLine: {'line': b'[ 90%] Built target image_transport-single_subscriber_publisher\n'}
+[12.335890] (-) TimerEvent: {}
+[12.436213] (-) TimerEvent: {}
+[12.536550] (-) TimerEvent: {}
+[12.602037] (image_transport) StdoutLine: {'line': b'[ 90%] Built target image_transport-subscriber\n'}
+[12.636680] (-) TimerEvent: {}
+[12.736975] (-) TimerEvent: {}
+[12.837279] (-) TimerEvent: {}
+[12.937575] (-) TimerEvent: {}
+[13.037848] (-) TimerEvent: {}
+[13.083115] (image_transport) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking CXX shared library libimage_transport_plugins.so\x1b[0m\n'}
+[13.137978] (-) TimerEvent: {}
+[13.238293] (-) TimerEvent: {}
+[13.254923] (image_transport) StdoutLine: {'line': b'[ 93%] Built target image_transport_plugins\n'}
+[13.338419] (-) TimerEvent: {}
+[13.438695] (-) TimerEvent: {}
+[13.538975] (-) TimerEvent: {}
+[13.639223] (-) TimerEvent: {}
+[13.739510] (-) TimerEvent: {}
+[13.779509] (image_transport) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking CXX executable republish\x1b[0m\n'}
+[13.839636] (-) TimerEvent: {}
+[13.939912] (-) TimerEvent: {}
+[14.008970] (image_transport) StdoutLine: {'line': b'[ 96%] Built target republish\n'}
+[14.040019] (-) TimerEvent: {}
+[14.140256] (-) TimerEvent: {}
+[14.240512] (-) TimerEvent: {}
+[14.340784] (-) TimerEvent: {}
+[14.347465] (image_transport) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable list_transports\x1b[0m\n'}
+[14.440906] (-) TimerEvent: {}
+[14.526191] (image_transport) StdoutLine: {'line': b'[100%] Built target list_transports\n'}
+[14.534189] (image_transport) CommandEnded: {'returncode': 0}
+[14.540997] (-) TimerEvent: {}
+[14.572334] (image_transport) JobProgress: {'identifier': 'image_transport', 'progress': 'install'}
+[14.573647] (image_transport) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mirellameelo/ws/image_common-dashing/build/image_transport', '--target', 'install', '--', '-j12', '-l12'], 'cwd': '/home/mirellameelo/ws/image_common-dashing/build/image_transport', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'mirellameelo'), ('LC_TIME', 'pt_BR.UTF-8'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1211'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/opt/ros/dashing/opt/yaml_cpp_vendor/lib:/opt/ros/dashing/opt/rviz_ogre_vendor/lib:/opt/ros/dashing/lib'), ('SHLVL', '1'), ('OLDPWD', '/home/mirellameelo/ws'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/mirellameelo'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('LC_CTYPE', 'pt_BR.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'dashing'), ('LOGNAME', 'mirellameelo'), ('GTK_IM_MODULE', 'ibus'), ('DESKTOP_AUTOSTART_ID', '107e106f2d18e4a08d158260482817987300000011160007'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'mirellameelo'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/dashing/bin:/home/mirellameelo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/mirella:@/tmp/.ICE-unix/1116,unix/mirella:/tmp/.ICE-unix/1116'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/01122f83_821b_4636_bde3_59384c4dfec9'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.77'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/opt/ros/dashing'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'pt_BR.UTF-8'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/mirellameelo/ws/image_common-dashing/build/image_transport'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('PYTHONPATH', '/opt/ros/dashing/lib/python3.6/site-packages'), ('LC_PAPER', 'pt_BR.UTF-8'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/opt/ros/dashing')]), 'shell': False}
+[14.618084] (image_transport) StdoutLine: {'line': b'[  6%] Built target gtest_main\n'}
+[14.619645] (image_transport) StdoutLine: {'line': b'[ 13%] Built target gtest\n'}
+[14.634785] (image_transport) StdoutLine: {'line': b'[ 40%] Built target image_transport\n'}
+[14.641106] (-) TimerEvent: {}
+[14.671979] (image_transport) StdoutLine: {'line': b'[ 46%] Built target image_transport-subscriber\n'}
+[14.672554] (image_transport) StdoutLine: {'line': b'[ 53%] Built target image_transport-camera_common\n'}
+[14.678252] (image_transport) StdoutLine: {'line': b'[ 60%] Built target republish\n'}
+[14.678750] (image_transport) StdoutLine: {'line': b'[ 66%] Built target image_transport_plugins\n'}
+[14.680216] (image_transport) StdoutLine: {'line': b'[ 73%] Built target image_transport-remapping\n'}
+[14.680902] (image_transport) StdoutLine: {'line': b'[ 80%] Built target image_transport-publisher\n'}
+[14.681555] (image_transport) StdoutLine: {'line': b'[ 86%] Built target image_transport-message_passing\n'}
+[14.681873] (image_transport) StdoutLine: {'line': b'[ 93%] Built target list_transports\n'}
+[14.683681] (image_transport) StdoutLine: {'line': b'[100%] Built target image_transport-single_subscriber_publisher\n'}
+[14.698877] (image_transport) StdoutLine: {'line': b'\x1b[36mInstall the project...\x1b[0m\n'}
+[14.705060] (image_transport) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[14.705451] (image_transport) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[14.705719] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport//default_plugins.xml\n'}
+[14.712932] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/lib/libimage_transport.so\n'}
+[14.719606] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/lib/libimage_transport_plugins.so\n'}
+[14.725891] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/lib/image_transport/list_transports\n'}
+[14.732280] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/lib/image_transport/republish\n'}
+[14.738989] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/camera_common.h\n'}
+[14.741128] (-) TimerEvent: {}
+[14.745307] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/camera_publisher.h\n'}
+[14.751972] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/camera_subscriber.h\n'}
+[14.758706] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/exception.h\n'}
+[14.765455] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/image_transport.h\n'}
+[14.772318] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/loader_fwds.h\n'}
+[14.779232] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/publisher.h\n'}
+[14.786029] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/publisher_plugin.h\n'}
+[14.792711] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/raw_publisher.h\n'}
+[14.799506] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/raw_subscriber.h\n'}
+[14.806243] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/simple_publisher_plugin.h\n'}
+[14.812952] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/simple_subscriber_plugin.h\n'}
+[14.819727] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/single_subscriber_publisher.h\n'}
+[14.826461] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/subscriber.h\n'}
+[14.833172] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/subscriber_filter.h\n'}
+[14.839845] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/subscriber_plugin.h\n'}
+[14.841198] (-) TimerEvent: {}
+[14.846533] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/transport_hints.h\n'}
+[14.853225] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/include/image_transport/visibility_control.hpp\n'}
+[14.860057] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/environment/library_path.sh\n'}
+[14.866918] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/ament_index/resource_index/package_run_dependencies/image_transport\n'}
+[14.874130] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/ament_index/resource_index/parent_prefix_path/image_transport\n'}
+[14.881097] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/environment/ament_prefix_path.sh\n'}
+[14.888005] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/environment/path.sh\n'}
+[14.894862] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/local_setup.bash\n'}
+[14.901668] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/local_setup.sh\n'}
+[14.907961] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/local_setup.zsh\n'}
+[14.914313] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/ament_index/resource_index/packages/image_transport\n'}
+[14.920644] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/ament_index/resource_index/image_transport__pluginlib__plugin/image_transport\n'}
+[14.927171] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[14.933763] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[14.939977] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[14.941267] (-) TimerEvent: {}
+[14.946412] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/cmake/image_transportConfig.cmake\n'}
+[14.952722] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/cmake/image_transportConfig-version.cmake\n'}
+[14.958891] (image_transport) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/package.xml\n'}
+[14.967167] (image_transport) CommandEnded: {'returncode': 0}
+[14.977248] (image_transport) JobEnded: {'identifier': 'image_transport', 'rc': 0}
+[14.978780] (camera_info_manager) JobStarted: {'identifier': 'camera_info_manager'}
+[14.983813] (camera_info_manager) JobProgress: {'identifier': 'camera_info_manager', 'progress': 'cmake'}
+[14.983905] (camera_info_manager) Command: {'cmd': ['/usr/bin/cmake', '/home/mirellameelo/ws/image_common-dashing/camera_info_manager', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/mirellameelo/ws/image_common-dashing/install/camera_info_manager'], 'cwd': '/home/mirellameelo/ws/image_common-dashing/build/camera_info_manager', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'mirellameelo'), ('LC_TIME', 'pt_BR.UTF-8'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1211'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/home/mirellameelo/ws/image_common-dashing/install/image_transport/lib:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/lib:/opt/ros/dashing/opt/yaml_cpp_vendor/lib:/opt/ros/dashing/opt/rviz_ogre_vendor/lib:/opt/ros/dashing/lib'), ('SHLVL', '1'), ('OLDPWD', '/home/mirellameelo/ws'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/mirellameelo'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('LC_CTYPE', 'pt_BR.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'dashing'), ('LOGNAME', 'mirellameelo'), ('GTK_IM_MODULE', 'ibus'), ('DESKTOP_AUTOSTART_ID', '107e106f2d18e4a08d158260482817987300000011160007'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'mirellameelo'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/dashing/bin:/home/mirellameelo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/mirella:@/tmp/.ICE-unix/1116,unix/mirella:/tmp/.ICE-unix/1116'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/01122f83_821b_4636_bde3_59384c4dfec9'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.77'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/opt/ros/dashing'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'pt_BR.UTF-8'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/mirellameelo/ws/image_common-dashing/build/camera_info_manager'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('PYTHONPATH', '/opt/ros/dashing/lib/python3.6/site-packages'), ('LC_PAPER', 'pt_BR.UTF-8'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/opt/ros/dashing')]), 'shell': False}
+[15.033477] (camera_info_manager) StdoutLine: {'line': b'-- The C compiler identification is GNU 7.4.0\n'}
+[15.041348] (-) TimerEvent: {}
+[15.085292] (camera_info_manager) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 7.4.0\n'}
+[15.088752] (camera_info_manager) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[15.141471] (-) TimerEvent: {}
+[15.165914] (camera_info_manager) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[15.166744] (camera_info_manager) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[15.241616] (-) TimerEvent: {}
+[15.261337] (camera_info_manager) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[15.268904] (camera_info_manager) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[15.341739] (-) TimerEvent: {}
+[15.442023] (-) TimerEvent: {}
+[15.446767] (camera_info_manager) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[15.448926] (camera_info_manager) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[15.524255] (camera_info_manager) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[15.524868] (camera_info_manager) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[15.542140] (-) TimerEvent: {}
+[15.601255] (camera_info_manager) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[15.606268] (camera_info_manager) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[15.642277] (-) TimerEvent: {}
+[15.742554] (-) TimerEvent: {}
+[15.842829] (-) TimerEvent: {}
+[15.932130] (camera_info_manager) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[15.933455] (camera_info_manager) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.7.0 (/opt/ros/dashing/share/ament_cmake_ros/cmake)\n'}
+[15.942919] (-) TimerEvent: {}
+[15.954293] (camera_info_manager) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.6.9", minimum required is "3") \n'}
+[15.954521] (camera_info_manager) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[16.043042] (-) TimerEvent: {}
+[16.100608] (camera_info_manager) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[16.115655] (camera_info_manager) StdoutLine: {'line': b'-- Found ament_index_cpp: 0.7.2 (/opt/ros/dashing/share/ament_index_cpp/cmake)\n'}
+[16.118291] (camera_info_manager) StdoutLine: {'line': b'-- Found rclcpp: 0.7.12 (/opt/ros/dashing/share/rclcpp/cmake)\n'}
+[16.132830] (camera_info_manager) StdoutLine: {'line': b'-- Found rosidl_adapter: 0.7.8 (/opt/ros/dashing/share/rosidl_adapter/cmake)\n'}
+[16.143110] (-) TimerEvent: {}
+[16.163018] (camera_info_manager) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 0.7.2 (/opt/ros/dashing/share/rmw_implementation_cmake/cmake)\n'}
+[16.164189] (camera_info_manager) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[16.164841] (camera_info_manager) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[16.216181] (camera_info_manager) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[16.216440] (camera_info_manager) StdoutLine: {'line': b'-- Looking for pthread_create\n'}
+[16.243249] (-) TimerEvent: {}
+[16.287503] (camera_info_manager) StdoutLine: {'line': b'-- Looking for pthread_create - not found\n'}
+[16.287816] (camera_info_manager) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[16.343398] (-) TimerEvent: {}
+[16.348712] (camera_info_manager) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[16.349033] (camera_info_manager) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[16.430346] (camera_info_manager) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[16.431129] (camera_info_manager) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[16.443485] (-) TimerEvent: {}
+[16.454805] (camera_info_manager) StdoutLine: {'line': b'-- Found camera_calibration_parsers: 2.1.1 (/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/share/camera_calibration_parsers/cmake)\n'}
+[16.489008] (camera_info_manager) StdoutLine: {'line': b"-- Setting yaml-cpp_DIR to: '/opt/ros/dashing/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/lib/cmake/yaml-cpp'\n"}
+[16.491124] (camera_info_manager) StdoutLine: {'line': b'-- Found image_transport: 2.1.1 (/home/mirellameelo/ws/image_common-dashing/install/image_transport/share/image_transport/cmake)\n'}
+[16.509484] (camera_info_manager) StdoutLine: {'line': b'-- Found tinyxml2_vendor:  (/opt/ros/dashing/share/tinyxml2_vendor/cmake)\n'}
+[16.519295] (camera_info_manager) StdoutLine: {'line': b'-- Found TinyXML2: /usr/lib/x86_64-linux-gnu/libtinyxml2.so  \n'}
+[16.521761] (camera_info_manager) StdoutLine: {'line': b'-- Found poco_vendor:  (/opt/ros/dashing/share/poco_vendor/cmake)\n'}
+[16.543585] (-) TimerEvent: {}
+[16.574151] (camera_info_manager) StdoutLine: {'line': b'-- Found ament_cmake_cppcheck: 0.7.11 (/opt/ros/dashing/share/ament_cmake_cppcheck/cmake)\n'}
+[16.575376] (camera_info_manager) StdoutLine: {'line': b'-- Found ament_cmake_cpplint: 0.7.11 (/opt/ros/dashing/share/ament_cmake_cpplint/cmake)\n'}
+[16.576668] (camera_info_manager) StdoutLine: {'line': b'-- Found ament_cmake_lint_cmake: 0.7.11 (/opt/ros/dashing/share/ament_cmake_lint_cmake/cmake)\n'}
+[16.577810] (camera_info_manager) StdoutLine: {'line': b'-- Found ament_cmake_uncrustify: 0.7.11 (/opt/ros/dashing/share/ament_cmake_uncrustify/cmake)\n'}
+[16.628348] (camera_info_manager) StdoutLine: {'line': b'-- Configuring done\n'}
+[16.636471] (camera_info_manager) StdoutLine: {'line': b'-- Generating done\n'}
+[16.637535] (camera_info_manager) StdoutLine: {'line': b'-- Build files have been written to: /home/mirellameelo/ws/image_common-dashing/build/camera_info_manager\n'}
+[16.641937] (camera_info_manager) CommandEnded: {'returncode': 0}
+[16.642543] (camera_info_manager) JobProgress: {'identifier': 'camera_info_manager', 'progress': 'build'}
+[16.642574] (camera_info_manager) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mirellameelo/ws/image_common-dashing/build/camera_info_manager', '--', '-j12', '-l12'], 'cwd': '/home/mirellameelo/ws/image_common-dashing/build/camera_info_manager', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'mirellameelo'), ('LC_TIME', 'pt_BR.UTF-8'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1211'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/home/mirellameelo/ws/image_common-dashing/install/image_transport/lib:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/lib:/opt/ros/dashing/opt/yaml_cpp_vendor/lib:/opt/ros/dashing/opt/rviz_ogre_vendor/lib:/opt/ros/dashing/lib'), ('SHLVL', '1'), ('OLDPWD', '/home/mirellameelo/ws'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/mirellameelo'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('LC_CTYPE', 'pt_BR.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'dashing'), ('LOGNAME', 'mirellameelo'), ('GTK_IM_MODULE', 'ibus'), ('DESKTOP_AUTOSTART_ID', '107e106f2d18e4a08d158260482817987300000011160007'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'mirellameelo'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/dashing/bin:/home/mirellameelo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/mirella:@/tmp/.ICE-unix/1116,unix/mirella:/tmp/.ICE-unix/1116'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/01122f83_821b_4636_bde3_59384c4dfec9'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.77'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/opt/ros/dashing'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'pt_BR.UTF-8'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/mirellameelo/ws/image_common-dashing/build/camera_info_manager'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('PYTHONPATH', '/opt/ros/dashing/lib/python3.6/site-packages'), ('LC_PAPER', 'pt_BR.UTF-8'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/opt/ros/dashing')]), 'shell': False}
+[16.644227] (-) TimerEvent: {}
+[16.672346] (camera_info_manager) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target camera_info_manager\x1b[0m\n'}
+[16.694656] (camera_info_manager) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/camera_info_manager.dir/src/camera_info_manager.cpp.o\x1b[0m\n'}
+[16.744364] (-) TimerEvent: {}
+[16.844632] (-) TimerEvent: {}
+[16.944892] (-) TimerEvent: {}
+[17.045155] (-) TimerEvent: {}
+[17.145427] (-) TimerEvent: {}
+[17.245700] (-) TimerEvent: {}
+[17.345968] (-) TimerEvent: {}
+[17.446246] (-) TimerEvent: {}
+[17.546516] (-) TimerEvent: {}
+[17.646787] (-) TimerEvent: {}
+[17.747053] (-) TimerEvent: {}
+[17.847311] (-) TimerEvent: {}
+[17.927872] (camera_info_manager) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library libcamera_info_manager.so\x1b[0m\n'}
+[17.947433] (-) TimerEvent: {}
+[18.021933] (camera_info_manager) StdoutLine: {'line': b'[100%] Built target camera_info_manager\n'}
+[18.030026] (camera_info_manager) CommandEnded: {'returncode': 0}
+[18.047225] (camera_info_manager) JobProgress: {'identifier': 'camera_info_manager', 'progress': 'install'}
+[18.047333] (camera_info_manager) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mirellameelo/ws/image_common-dashing/build/camera_info_manager', '--target', 'install', '--', '-j12', '-l12'], 'cwd': '/home/mirellameelo/ws/image_common-dashing/build/camera_info_manager', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'mirellameelo'), ('LC_TIME', 'pt_BR.UTF-8'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1211'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/home/mirellameelo/ws/image_common-dashing/install/image_transport/lib:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers/lib:/opt/ros/dashing/opt/yaml_cpp_vendor/lib:/opt/ros/dashing/opt/rviz_ogre_vendor/lib:/opt/ros/dashing/lib'), ('SHLVL', '1'), ('OLDPWD', '/home/mirellameelo/ws'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/mirellameelo'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('LC_CTYPE', 'pt_BR.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'dashing'), ('LOGNAME', 'mirellameelo'), ('GTK_IM_MODULE', 'ibus'), ('DESKTOP_AUTOSTART_ID', '107e106f2d18e4a08d158260482817987300000011160007'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'mirellameelo'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/dashing/bin:/home/mirellameelo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/mirella:@/tmp/.ICE-unix/1116,unix/mirella:/tmp/.ICE-unix/1116'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/01122f83_821b_4636_bde3_59384c4dfec9'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.77'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/opt/ros/dashing'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'pt_BR.UTF-8'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/mirellameelo/ws/image_common-dashing/build/camera_info_manager'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('PYTHONPATH', '/opt/ros/dashing/lib/python3.6/site-packages'), ('LC_PAPER', 'pt_BR.UTF-8'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/home/mirellameelo/ws/image_common-dashing/install/image_transport:/home/mirellameelo/ws/image_common-dashing/install/camera_calibration_parsers:/opt/ros/dashing')]), 'shell': False}
+[18.047921] (-) TimerEvent: {}
+[18.106703] (camera_info_manager) StdoutLine: {'line': b'[100%] Built target camera_info_manager\n'}
+[18.129305] (camera_info_manager) StdoutLine: {'line': b'\x1b[36mInstall the project...\x1b[0m\n'}
+[18.139977] (camera_info_manager) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[18.140723] (camera_info_manager) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[18.141384] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/lib/libcamera_info_manager.so\n'}
+[18.148016] (-) TimerEvent: {}
+[18.151279] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/include/camera_info_manager/camera_info_manager.h\n'}
+[18.160755] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/environment/library_path.sh\n'}
+[18.170183] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/ament_index/resource_index/package_run_dependencies/camera_info_manager\n'}
+[18.179691] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/ament_index/resource_index/parent_prefix_path/camera_info_manager\n'}
+[18.189123] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/environment/ament_prefix_path.sh\n'}
+[18.198433] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/environment/path.sh\n'}
+[18.207673] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/local_setup.bash\n'}
+[18.215407] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/local_setup.sh\n'}
+[18.222005] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/local_setup.zsh\n'}
+[18.228164] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/ament_index/resource_index/packages/camera_info_manager\n'}
+[18.234554] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[18.240776] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[18.247089] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/cmake/camera_info_managerConfig.cmake\n'}
+[18.248130] (-) TimerEvent: {}
+[18.253351] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/cmake/camera_info_managerConfig-version.cmake\n'}
+[18.259745] (camera_info_manager) StdoutLine: {'line': b'-- Symlinking: /home/mirellameelo/ws/image_common-dashing/install/camera_info_manager/share/camera_info_manager/package.xml\n'}
+[18.269040] (camera_info_manager) CommandEnded: {'returncode': 0}
+[18.275493] (camera_info_manager) JobEnded: {'identifier': 'camera_info_manager', 'rc': 0}
+[18.277198] (-) EventReactorShutdown: {}
