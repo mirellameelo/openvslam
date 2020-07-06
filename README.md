@@ -139,55 +139,33 @@ The preprint can be found [here](https://arxiv.org/abs/1910.01122).
 
 # Personal notes for running it using ROS2
 
-It already contains the dependencies vision_opencv and image_common
+Packages of **vision_opencv** and **image_common** are self-contained.
 
-## Dependencies
-
-### ROS 2
-
-I used [ROS2 dashing](https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians/)
-
-
-### Vision openCV and Image Common packages
-
-1. Source **ros2 dashing** setup files:
 
 ```bh
-    source /opt/ros/dashing/setup.bash
-```
-
-2. Build the vision_opencv and image_common packages 
-
-```bh
-    cd $HOME/openvslam/ros2
-    colcon build --packages-select cv_bridge camera_calibration_parsers image_geometry image_transport opencv_tests vision_opencv camera_info_manager
-```
-
-### Openvslam packages
-
-3. Source **image_common** and **vision_opencv** setup files
-
-```bh
-    source $HOME/openvslam/ros2/install/setup.bash
-```
-
-4. Build openvslam packages
-
-```
+    # Clone the repository
     cd $HOME
     git clone -b ros2 --single-branch https://github.com/mirellameelo/openvslam.git
-    cd openvslam
+    
+    #Build Vision openCV and Image Common packages
+    source /opt/ros/dashing/setup.bash
+    cd $HOME/openvslam/ros2
+    colcon build --packages-select cv_bridge camera_calibration_parsers image_geometry image_transport opencv_tests vision_opencv camera_info_manager
+    
+    # Source Vision openCV and Image Common packages
+    source $HOME/openvslam/ros2/install/setup.bash
+    
+    # Build openvslam project
+    cd $HOME/openvslam
     mkdir build && cd build
     cmake     -DBUILD_WITH_MARCH_NATIVE=ON     -DUSE_PANGOLIN_VIEWER=ON     -DUSE_SOCKET_PUBLISHER=OFF     -DUSE_STACK_TRACE_LOGGER=ON     -DBOW_FRAMEWORK=DBoW2     -DBUILD_TESTS=ON     ..
     make -j4
     sudo make install
-    cd ../ros2
+    
+    # Build openvslam packages
+    cd $HOME/openvslam/ros2
     colcon build --symlink-install
 ```
-
-It should build more 2 packs:
-- openvslam
-- publisher
 
 # Running with a dataset 
 
