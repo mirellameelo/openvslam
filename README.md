@@ -150,7 +150,13 @@ I used [ROS2 dashing](https://index.ros.org/doc/ros2/Installation/Dashing/Linux-
 
 ### Vision openCV and Image Common packages
 
-3) Build the vision_opencv and image_common packages 
+1. Source **ros2 dashing** setup files:
+
+```bh
+    source $HOME/openvslam/install/setup.bash
+```
+
+2. Build the vision_opencv and image_common packages 
 
 ```bh
     cd $HOME/openvslam/ros2
@@ -159,17 +165,17 @@ I used [ROS2 dashing](https://index.ros.org/doc/ros2/Installation/Dashing/Linux-
 
 ### Openvslam packages
 
-4. Source **image_common** and **vision_opencv** setup files
+3. Source **image_common** and **vision_opencv** setup files
 
 ```bh
     source $HOME/openvslam/install/setup.bash
 ```
 
-5. Build openvslam packages
+4. Build openvslam packages
 
 ```
     cd $HOME
-    git clone -b ros2 --single-branch https://github.com/klintan/openvslam.git
+    git clone -b ros2 --single-branch https://github.com/mirellameelo/openvslam.git
     cd openvslam
     mkdir build && cd build
     cmake     -DBUILD_WITH_MARCH_NATIVE=ON     -DUSE_PANGOLIN_VIEWER=ON     -DUSE_SOCKET_PUBLISHER=OFF     -DUSE_STACK_TRACE_LOGGER=ON     -DBOW_FRAMEWORK=DBoW2     -DBUILD_TESTS=ON     ..
