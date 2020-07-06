@@ -153,7 +153,7 @@ I used [ROS2 dashing](https://index.ros.org/doc/ros2/Installation/Dashing/Linux-
 1. Source **ros2 dashing** setup files:
 
 ```bh
-    source $HOME/openvslam/install/setup.bash
+    source /opt/ros/dashing/setup.bash
 ```
 
 2. Build the vision_opencv and image_common packages 
@@ -168,7 +168,7 @@ I used [ROS2 dashing](https://index.ros.org/doc/ros2/Installation/Dashing/Linux-
 3. Source **image_common** and **vision_opencv** setup files
 
 ```bh
-    source $HOME/openvslam/install/setup.bash
+    source $HOME/openvslam/ros2/install/setup.bash
 ```
 
 4. Build openvslam packages
@@ -218,7 +218,7 @@ It should build more 2 packs:
 2. Open 3 terminals and source **vision_opencv**, **image_common** and **openvslam** setup files in each terminal:
 
 ```bh
-    source $HOME/openvslam/install/setup.bash
+    source $HOME/openvslam/ros2/install/setup.bash
 ```
 
 **Terminal 1**: publish the video
@@ -243,7 +243,7 @@ It should build more 2 packs:
 1. Open 3 terminals and source **vision_opencv**, **image_common** and **openvslam** setup files in each terminal:
 
 ```bh
-    source $HOME/openvslam/install/setup.bash
+    source $HOME/openvslam/ros2/install/setup.bash
 ```
 
 **Terminal 1**: publish the video
