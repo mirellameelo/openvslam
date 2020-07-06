@@ -3,17 +3,17 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     return LaunchDescription([
-        Node(
-            package='image_transport',
-            node_executable='republish',
-            output="screen",
-            arguments=["raw"],
-            remappings=[
-                ('in', '/video/image_raw'),
-                ('out', '/camera/image_raw'),
-                ('in_transport', 'raw'),
-            ]
-        ),        
+        # Node(
+        #     package='image_transport',
+        #     node_executable='republish',
+        #     output="screen",
+        #     arguments=["raw"],
+        #     remappings=[
+        #         ('in', '/video/image_raw'),
+        #         ('out', '/camera/image_raw'),
+        #         ('in_transport', 'raw'),
+        #     ]
+        # ),        
         Node(
             package='openvslam',
             node_executable='run_localization',

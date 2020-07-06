@@ -190,7 +190,7 @@ void trajectory_io::save_json_file(const std::string& path) const {
         openvslam::Vec3_t pos_w = point->get_pos_in_world();
         auto ref_keyframe = point->first_keyfrm_id_;
 
-        ofs << ref_keyframe << " " << pos_w(0) << " " << pos_w(1) << " " <<pos_w(2) << std::endl;
+        ofs << pos_w(0) << " " << pos_w(1) << " " <<pos_w(2) << std::endl;
 
         //nlohmann::json dict = points->to_json();
     }
