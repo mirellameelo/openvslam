@@ -139,49 +139,33 @@ The preprint can be found [here](https://arxiv.org/abs/1910.01122).
 
 # Personal notes for running it using ROS2
 
-It already contains the dependencies vision_opencv and image_common
+Packages of **vision_opencv** and **image_common** are self-contained.
 
-## Dependencies
-
-### ROS 2
-
-I used [ROS2 dashing](https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians/)
-
-
-### Vision openCV and Image Common packages
-
-3) Build the vision_opencv and image_common packages 
 
 ```bh
+    # Clone the repository
+    cd $HOME
+    git clone -b ros2 --single-branch https://github.com/mirellameelo/openvslam.git
+    
+    #Build Vision openCV and Image Common packages
+    source /opt/ros/dashing/setup.bash
     cd $HOME/openvslam/ros2
     colcon build --packages-select cv_bridge camera_calibration_parsers image_geometry image_transport opencv_tests vision_opencv camera_info_manager
-```
-
-### Openvslam packages
-
-4. Source **image_common** and **vision_opencv** setup files
-
-```bh
-    source $HOME/openvslam/install/setup.bash
-```
-
-5. Build openvslam packages
-
-```
-    cd $HOME
-    git clone -b ros2 --single-branch https://github.com/klintan/openvslam.git
-    cd openvslam
+    
+    # Source Vision openCV and Image Common packages
+    source $HOME/openvslam/ros2/install/setup.bash
+    
+    # Build openvslam project
+    cd $HOME/openvslam
     mkdir build && cd build
     cmake     -DBUILD_WITH_MARCH_NATIVE=ON     -DUSE_PANGOLIN_VIEWER=ON     -DUSE_SOCKET_PUBLISHER=OFF     -DUSE_STACK_TRACE_LOGGER=ON     -DBOW_FRAMEWORK=DBoW2     -DBUILD_TESTS=ON     ..
     make -j4
     sudo make install
-    cd ../ros2
+    
+    # Build openvslam packages
+    cd $HOME/openvslam/ros2
     colcon build --symlink-install
 ```
-
-It should build more 2 packs:
-- openvslam
-- publisher
 
 # Running with a dataset 
 
@@ -212,7 +196,7 @@ It should build more 2 packs:
 2. Open 3 terminals and source **vision_opencv**, **image_common** and **openvslam** setup files in each terminal:
 
 ```bh
-    source $HOME/openvslam/install/setup.bash
+    source $HOME/openvslam/ros2/install/setup.bash
 ```
 
 **Terminal 1**: publish the video
@@ -237,7 +221,7 @@ It should build more 2 packs:
 1. Open 3 terminals and source **vision_opencv**, **image_common** and **openvslam** setup files in each terminal:
 
 ```bh
-    source $HOME/openvslam/install/setup.bash
+    source $HOME/openvslam/ros2/install/setup.bash
 ```
 
 **Terminal 1**: publish the video
