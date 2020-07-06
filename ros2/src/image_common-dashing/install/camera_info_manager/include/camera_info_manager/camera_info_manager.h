@@ -1,1 +1,0 @@
-/home/mirellameelo/ws/image_common-dashing/camera_info_manager/include/camera_info_manager/camera_info_manager.h

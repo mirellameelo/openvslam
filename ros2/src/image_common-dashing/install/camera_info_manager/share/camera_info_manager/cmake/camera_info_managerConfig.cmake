@@ -1,1 +1,0 @@
-/home/mirellameelo/ws/image_common-dashing/build/camera_info_manager/ament_cmake_core/camera_info_managerConfig.cmake

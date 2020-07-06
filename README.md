@@ -135,3 +135,128 @@ The preprint can be found [here](https://arxiv.org/abs/1910.01122).
 - Mapillary AB. 2019. OpenSfM. https://github.com/mapillary/OpenSfM.
 - Giorgio Grisetti, Rainer Kümmerle, Cyrill Stachniss, and Wolfram Burgard. 2010. A Tutorial on Graph-Based SLAM. IEEE Transactions on Intelligent Transportation SystemsMagazine 2, 4 (2010), 31–43.
 - Rainer Kümmerle, Giorgio Grisetti, Hauke Strasdat, Kurt Konolige, and Wolfram Burgard. 2011. g2o: A general framework for graph optimization. In Proceedings of IEEE International Conference on Robotics and Automation (ICRA). 3607–3613.
+
+
+# Personal notes for running it using ROS2
+
+It already contains the dependencies vision_opencv and image_common
+
+## Dependencies
+
+### ROS 2
+
+I used [ROS2 dashing](https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians/)
+
+
+### Vision openCV and Image Common packages
+
+3) Build the vision_opencv and image_common packages 
+
+```bh
+    cd $HOME/openvslam/ros2
+    colcon build --packages-select cv_bridge camera_calibration_parsers image_geometry image_transport opencv_tests vision_opencv camera_info_manager
+```
+
+### Openvslam packages
+
+4. Source **image_common** and **vision_opencv** setup files
+
+```bh
+    source $HOME/openvslam/install/setup.bash
+```
+
+5. Build openvslam packages
+
+```
+    cd $HOME
+    git clone -b ros2 --single-branch https://github.com/klintan/openvslam.git
+    cd openvslam
+    mkdir build && cd build
+    cmake     -DBUILD_WITH_MARCH_NATIVE=ON     -DUSE_PANGOLIN_VIEWER=ON     -DUSE_SOCKET_PUBLISHER=OFF     -DUSE_STACK_TRACE_LOGGER=ON     -DBOW_FRAMEWORK=DBoW2     -DBUILD_TESTS=ON     ..
+    make -j4
+    sudo make install
+    cd ../ros2
+    colcon build --symlink-install
+```
+
+It should build more 2 packs:
+- openvslam
+- publisher
+
+# Running with a dataset 
+
+1. Download:
+
+    a. video.mp4 file
+    b. config.yaml file
+    c. vocabulary.dbow2 file
+
+```bh
+    cd $HOME/openvslam/build
+    
+    # video and config files
+    FILE_ID="1d8kADKWBptEqTF7jEVhKatBEdN7g0ikY"
+    curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${FILE_ID}" > /dev/null
+    CODE="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
+    curl -sLb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${CODE}&id=${FILE_ID}" -o aist_living_lab_1.zip
+    unzip aist_living_lab_1.zip
+    
+    # vocabulary
+    FILE_ID="1wUPb328th8bUqhOk-i8xllt5mgRW4n84"
+    curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${FILE_ID}" > /dev/null
+    CODE="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
+    curl -sLb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${CODE}&id=${FILE_ID}" -o orb_vocab.zip
+    unzip orb_vocab.zip
+```
+
+2. Open 3 terminals and source **vision_opencv**, **image_common** and **openvslam** setup files in each terminal:
+
+```bh
+    source $HOME/openvslam/install/setup.bash
+```
+
+**Terminal 1**: publish the video
+```bh
+    ros2 run publisher video -m $HOME/openvslam/build/aist_living_lab_1/video.mp4
+```
+
+**Terminal 2**: republish the video
+```bh
+    ros2 run image_transport republish raw in:=/video/image_raw raw out:=/camera/image_raw
+```
+
+**Terminal 3**: run_slam mode
+```bh
+     ros2 run openvslam run_slam -v $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/build/aist_living_lab_1/config.yaml 
+     # OR to save the map
+     ros2 run openvslam run_slam -v $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/build/aist_living_lab_1/config.yaml --eval-log --map-db $HOME/openvslam/ros2/mymap.msg
+```
+
+# Running with a USB camera
+
+1. Open 3 terminals and source **vision_opencv**, **image_common** and **openvslam** setup files in each terminal:
+
+```bh
+    source $HOME/openvslam/install/setup.bash
+```
+
+**Terminal 1**: publish the video
+```bh
+    ros2 run image_tools cam2image -t camera 
+```
+
+**Terminal 2**: republish the video
+```bh
+    ros2 run image_transport republish raw in:=/camera raw out:=/camera/image_raw
+```
+
+**Terminal 3**: run_slam mode or run_localization mode
+```bh
+     # SLAM MODE
+     ros2 run openvslam run_slam -v $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c <CONFIG_PATH>/config.yaml 
+     # OR to save the map
+     ros2 run openvslam run_slam -v $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c <CONFIG_PATH>/config.yaml --eval-log --map-db $HOME/openvslam/ros2/map.msg
+
+     # localization mode (once you alread have a map.msg)
+     ros2 run openvslam run_localization -v  $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c <CONFIG_PATH>/config.yaml --map-db $HOME/openvslam/ros2/map.msg
+```

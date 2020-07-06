@@ -1,1 +1,0 @@
-/home/mirellameelo/ws/image_common-dashing/build/image_transport/ament_cmake_core/image_transportConfig.cmake

@@ -1,1 +1,0 @@
-/home/mirellameelo/ws/image_common-dashing/build/camera_info_manager/ament_cmake_environment_hooks/local_setup.zsh
