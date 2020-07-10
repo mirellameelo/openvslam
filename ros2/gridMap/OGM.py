@@ -49,10 +49,10 @@ def save_data(scale_factor, quartile, path_to_3d_points, path_to_KF):
     for line in data_point_related:
         line_splited = line.split(' ')  
         # convert txt em int/float and save into vectors
-        first_keyframe_id.append(int(line_splited[0]))
-        x_3d_position_raw.append(float(line_splited[1]) * scale_factor)
-        y_3d_position_raw.append(float(line_splited[2]) * scale_factor)
-        z_3d_position_raw.append(float(line_splited[3]) * scale_factor)
+        #first_keyframe_id.append(int(line_splited[0]))
+        x_3d_position_raw.append(float(line_splited[0]) * scale_factor)
+        y_3d_position_raw.append(float(line_splited[1]) * scale_factor)
+        z_3d_position_raw.append(float(line_splited[2]) * scale_factor)
 
     # read keyframes data from txt
     data_keyframe_related = open(path_to_KF).readlines()
@@ -82,7 +82,7 @@ def save_data(scale_factor, quartile, path_to_3d_points, path_to_KF):
     for i in range(len(x_3d_position_raw)):
         if x_3d_position_raw[i] > threshhold_x_sup and  y_3d_position_raw[i] > threshhold_y_sup and z_3d_position_raw[i] > threshhold_z_sup:
             if x_3d_position_raw[i] < threshhold_x_inf and y_3d_position_raw[i] < threshhold_y_inf and z_3d_position_raw[i] < threshhold_z_inf:
-                keyframe_point_id.append(first_keyframe_id[i])
+                #keyframe_point_id.append(first_keyframe_id[i])
                 x_3d_position.append(x_3d_position_raw[i])
                 y_3d_position.append(y_3d_position_raw[i])
                 z_3d_position.append(z_3d_position_raw[i])
@@ -116,7 +116,7 @@ def save_data(scale_factor, quartile, path_to_3d_points, path_to_KF):
 
     # save 3d point data treated
     for i in range(len(x_3d)):
-        points_3d_data.append([keyframe_point_id[i], x_3d[i] , y_3d[i], z_3d[i]])
+        points_3d_data.append([x_3d[i] , y_3d[i], z_3d[i]])
 
     # save keyframe data treated 
     for i in range(len(x_KF)):
@@ -144,8 +144,8 @@ def draw_2d_point_cloud(points_3d_data, keyframe_data):
 
     # saving 2d points position
     for i in range(len(points_3d_data)):
-        x_3d.append(points_3d_data[i][1])
-        z_3d.append(points_3d_data[i][3])
+        x_3d.append(points_3d_data[i][0])
+        z_3d.append(points_3d_data[i][2])
 
     # saving 2d keyframe position
     for i in range(len(keyframe_data)):
@@ -275,7 +275,7 @@ def filter_ground_points(points_3d_data, threshhold):
     print('Use the output data from save_data() function.')
     ground = []
     for i in range(len(points_3d_data)):
-        if points_3d_data[i][2] > threshhold:
+        if points_3d_data[i][1] > threshhold:
             ground.append(points_3d_data[i])
     return ground
 
@@ -285,7 +285,7 @@ def filter_roof_points(points_3d_data, threshhold):
     print('Use the output data from save_data() function.')
     ground = []
     for i in range(len(points_3d_data)):
-        if points_3d_data[i][2] < threshhold:
+        if points_3d_data[i][1] < threshhold:
             ground.append(points_3d_data[i])
     return ground
 
