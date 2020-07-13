@@ -178,6 +178,10 @@ void mono_localization(const std::shared_ptr<openvslam::config>& cfg, const std:
     // shutdown the SLAM process
     SLAM.shutdown();
 
+    SLAM.save_map_database(map_db_path);
+    SLAM.save_keyframe_trajectory("/home/mirellameelo/openvslam/ros2/maps/KF_trajectory.txt", "TUM");
+    SLAM.save_json_file("/home/mirellameelo/openvslam/ros2/maps/xyz.txt");
+
     if (track_times.size()) {
         std::sort(track_times.begin(), track_times.end());
         const auto total_track_time = std::accumulate(track_times.begin(), track_times.end(), 0.0);
