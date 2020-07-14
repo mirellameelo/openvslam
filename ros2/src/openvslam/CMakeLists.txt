@@ -133,6 +133,7 @@ find_package(image_transport REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system)
 
 set(dependencies
   rclcpp
@@ -143,6 +144,8 @@ set(dependencies
   nav_msgs
   geometry_msgs
   tf2_ros
+  sensor_msgs
+  pcl_conversions
 )
 
 # thread library
@@ -198,6 +201,8 @@ if(USE_SOCKET_PUBLISHER)
     include_directories(${SIOCLIENT_INCLUDE_DIR} ${PROTOBUF_INCLUDE_DIRS})
 endif()
 
+
+
 #################
 # BoW framework #
 #################
@@ -231,7 +236,9 @@ include_directories(
 
 link_libraries(
         ${rclcpp_LIBRARIES}
-        ${OpenVSLAM_LIB})
+        ${OpenVSLAM_LIB}
+	${Boost_SYSTEM_LIBRARY}
+	)
 
 add_subdirectory(src)
 

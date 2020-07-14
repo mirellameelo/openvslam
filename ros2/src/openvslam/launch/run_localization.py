@@ -20,13 +20,13 @@ def generate_launch_description():
             arguments=[
                 "-v", "/home/mirellameelo/openvslam/build/orb_vocab/orb_vocab.dbow2", 
                 "-c", "/home/mirellameelo/openvslam/ros2/configs/config4.yaml",
-                "-p", "/home/mirellameelo/openvslam/ros2/maps/mapps.msg",
-                "--mapping"
+                "-p", "/home/mirellameelo/openvslam/ros2/maps/map.msg"
+                #"--mapping"
             ]
         ),
         Node(
             package='publisher',
             node_executable='video',
-            arguments=["-m", "/home/mirellameelo/openvslam/ros2/configs/z_1.mp4"]
+            arguments=["-m", "/home/mirellameelo/openvslam/ros2/maps/house_map/video.mp4"]
         )
     ])

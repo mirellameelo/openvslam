@@ -20,6 +20,11 @@
 //#include "std_msgs/msg/string.hpp"
 #include "geometry_msgs/msg/pose.hpp"
 #include <tf2_ros/transform_listener.h>
+#include <sensor_msgs/msg/point_cloud2.hpp>
+#include <pcl_conversions/pcl_conversions.h>
+#include <pcl/conversions.h>
+#include <pcl/point_cloud.h>
+#include <pcl/point_types.h>
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/opencv.hpp>
@@ -73,9 +78,9 @@ auto publi(auto cam_pose_, auto odometry_pub_, auto node){
     odom_msg_.pose.pose.orientation.z = transform_tf.getRotation().getZ();
     odom_msg_.pose.pose.orientation.w = transform_tf.getRotation().getW();
 
-    odom_msg_.pose.pose.position.x = transform_tf.getOrigin().getX();
-    odom_msg_.pose.pose.position.y = transform_tf.getOrigin().getY();
-    odom_msg_.pose.pose.position.z = transform_tf.getOrigin().getZ();
+    odom_msg_.pose.pose.position.x = transform_tf.getOrigin().getX()*5;
+    odom_msg_.pose.pose.position.y = transform_tf.getOrigin().getY()*5;
+    odom_msg_.pose.pose.position.z = transform_tf.getOrigin().getZ()*5;
     odometry_pub_->publish(odom_msg_);
 }
 
@@ -116,6 +121,26 @@ void mono_localization(const std::shared_ptr<openvslam::config>& cfg, const std:
 
     auto odometry_pub_ = node->create_publisher<nav_msgs::msg::Odometry>("odometry", 1);
 
+    auto point_cloud_ = node->create_publisher<sensor_msgs::msg::PointCloud2>("point_cloud");
+    sensor_msgs::msg::PointCloud2::SharedPtr pc2_msg_;
+    pcl::PointCloud<pcl::PointXYZRGB> cloud_;
+    std::ifstream file("/home/mirellameelo/openvslam/ros2/maps/xyz.txt");
+    std::string line; 
+    while (std::getline(file, line))
+    {
+        std::stringstream ss(line);
+        double a, b, c;
+        if (ss >> a >> b >> c)
+        {
+            pcl::PointXYZRGB pt;
+            pt.x = a*5;
+            pt.y = b*5;
+            pt.z = c*5;
+            cloud_.points.push_back(pt);
+        // Add a, b, and c to their respective arrays
+        }
+    }
+
     rclcpp::executors::SingleThreadedExecutor exec;
     exec.add_node(node);
     
@@ -134,6 +159,12 @@ void mono_localization(const std::shared_ptr<openvslam::config>& cfg, const std:
 
             const auto track_time = std::chrono::duration_cast<std::chrono::duration<double>>(tp_2 - tp_1).count();
             track_times.push_back(track_time);
+
+            pc2_msg_ = std::make_shared<sensor_msgs::msg::PointCloud2>();
+            pcl::toROSMsg(cloud_, *pc2_msg_);
+            pc2_msg_->header.frame_id = "map";
+            pc2_msg_->header.stamp = node->now();
+            point_cloud_->publish(pc2_msg_);
             publi(cam, odometry_pub_, node);
 
         },

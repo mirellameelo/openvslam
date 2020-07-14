@@ -65,6 +65,7 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
     // cria um topico, canal de envio de msg
     auto odometry_pub_ = node->create_publisher<nav_msgs::msg::Odometry>("pose", 1);
 
+    
     // run the SLAM as subscriber
     image_transport::Subscriber sub = image_transport::create_subscription(
         node.get(), "/video/image_raw", [&](const sensor_msgs::msg::Image::ConstSharedPtr& msg) {
