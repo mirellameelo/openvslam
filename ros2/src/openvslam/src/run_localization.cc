@@ -150,13 +150,9 @@ void mono_localization(const std::shared_ptr<openvslam::config>& cfg, const std:
         node.get(), "/video/image_raw", [&](const sensor_msgs::msg::Image::ConstSharedPtr& msg) {
             const auto tp_1 = std::chrono::steady_clock::now();
             auto timestamp = mytime(tp_1, tp_0);
-            //const auto timestamp = std::chrono::duration_cast<std::chrono::duration<double>>(tp_1 - tp_0).count();
-
             // input the current frame and estimate the camera pose
             auto cam = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
-
             const auto tp_2 = std::chrono::steady_clock::now();
-
             const auto track_time = std::chrono::duration_cast<std::chrono::duration<double>>(tp_2 - tp_1).count();
             track_times.push_back(track_time);
 
@@ -222,12 +218,12 @@ void mono_localization(const std::shared_ptr<openvslam::config>& cfg, const std:
 }
 
 int main(int argc, char* argv[]) {
-#ifdef USE_STACK_TRACE_LOGGER
-    google::InitGoogleLogging(argv[0]);
-    google::InstallFailureSignalHandler();
-#endif
-    rclcpp::init(argc, argv);
+    #ifdef USE_STACK_TRACE_LOGGER
+        google::InitGoogleLogging(argv[0]);
+        google::InstallFailureSignalHandler();
+    #endif
 
+    rclcpp::init(argc, argv);
     // create options
     popl::OptionParser op("Allowed options");
     auto help = op.add<popl::Switch>("h", "help", "produce help message");

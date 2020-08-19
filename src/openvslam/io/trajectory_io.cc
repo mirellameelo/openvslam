@@ -153,9 +153,13 @@ void trajectory_io::save_keyframe_trajectory(const std::string& path, const std:
             const Vec3_t& trans_wc = cam_pose_wc.block<3, 1>(0, 3);
             const Quat_t quat_wc = Quat_t(rot_wc);
             
-            ofs << ref << " " << std::setprecision(15)
-                << timestamp << " "
-                << std::setprecision(9)
+            // ofs << ref << " " << std::setprecision(15)
+            //     << timestamp << " "
+            //     << std::setprecision(9)
+            //     << trans_wc(0) << " " << trans_wc(1) << " " << trans_wc(2) << " "
+            //     << quat_wc.x() << " " << quat_wc.y() << " " << quat_wc.z() << " " << quat_wc.w() << std::endl;
+
+            ofs << std::setprecision(9)
                 << trans_wc(0) << " " << trans_wc(1) << " " << trans_wc(2) << " "
                 << quat_wc.x() << " " << quat_wc.y() << " " << quat_wc.z() << " " << quat_wc.w() << std::endl;
         }

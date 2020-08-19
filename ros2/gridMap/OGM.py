@@ -129,6 +129,137 @@ def save_data(scale_factor, quartile, path_to_3d_points, path_to_KF):
 
 
 
+def save_data_2(scale_factor, quartile, path_to_3d_points, path_to_KF):
+
+    print('The input data must be a .txt file, organized as follows: \n-> path_to_3d_points: [1st keyframe id] [x position] [y position] [z position]\n->') 
+    print('path_to_KF: [keyframe id] [timestamp] [x_position] [y position] [z position] [] [] [] ')
+
+    # scale_factor affects the window size to vizualization
+    scale_factor = scale_factor
+    # quartile affects the treatment of the raw data. For the biggest values, more chances of outliers. Suggested: 1.5
+    quartile = quartile
+
+    # vectors related to 3D points 
+    first_keyframe_id = []
+    keyframe_point_id = []
+    x_3d_position_raw = []
+    y_3d_position_raw = []
+    z_3d_position_raw = []
+    x_3d_position = []
+    y_3d_position = []
+    z_3d_position = []
+    x_3d = []
+    y_3d = []
+    z_3d = []
+
+    # output 1: data treated. List: ( first keyframe id, x position, y position, z position )
+    #points_3d_data = []
+
+    # vectors related to keyframe
+    keyframe_id = []
+    KF_timestamp = []
+    x_KF_position = []
+    y_KF_position = []
+    z_KF_position = []
+    x_KF = []
+    y_KF = []
+    z_KF = []
+    KF_quarternion_x = []
+    KF_quarternion_y = []
+    KF_quarternion_z = []
+    KF_quarternion_w = []
+    # output 2: data treated. List: ( keyframe id, timestamp, x position, y position, z position )
+ 
+
+    # read 3D points data from txt
+    data_point_related = open(path_to_3d_points, 'r').readlines()
+    for line in data_point_related:
+        line_splited = line.split(' ')  
+        # convert txt em int/float and save into vectors
+        #first_keyframe_id.append(int(line_splited[0]))
+        x_3d_position_raw.append(float(line_splited[0]) * scale_factor)
+        y_3d_position_raw.append(float(line_splited[1]) * scale_factor)
+        z_3d_position_raw.append(float(line_splited[2]) * scale_factor)
+
+    # read keyframes data from txt
+    data_keyframe_related = open(path_to_KF).readlines()
+    for line in data_keyframe_related:
+        line_splited = line.split(' ')
+        x_KF_position.append(float(line_splited[0]) * scale_factor)
+        y_KF_position.append(float(line_splited[1]) * scale_factor)
+        z_KF_position.append(float(line_splited[2]) * scale_factor)
+        
+    # 3D points data treatment
+    threshhold_x_sup = np.mean(x_3d_position_raw) - quartile * np.std(x_3d_position_raw)
+    threshhold_x_inf = np.mean(x_3d_position_raw) + quartile * np.std(x_3d_position_raw)
+
+    threshhold_y_sup = np.mean(y_3d_position_raw) - quartile * np.std(y_3d_position_raw)
+    threshhold_y_inf = np.mean(y_3d_position_raw) + quartile * np.std(y_3d_position_raw)
+
+    threshhold_z_sup = np.mean(z_3d_position_raw) - quartile * np.std(z_3d_position_raw)
+    threshhold_z_inf = np.mean(z_3d_position_raw) + quartile * np.std(z_3d_position_raw)
+
+    # save 3d point data treated 
+    for i in range(len(x_3d_position_raw)):
+        if x_3d_position_raw[i] > threshhold_x_sup and  y_3d_position_raw[i] > threshhold_y_sup and z_3d_position_raw[i] > threshhold_z_sup:
+            if x_3d_position_raw[i] < threshhold_x_inf and y_3d_position_raw[i] < threshhold_y_inf and z_3d_position_raw[i] < threshhold_z_inf:
+                #keyframe_point_id.append(first_keyframe_id[i])
+                x_3d_position.append(x_3d_position_raw[i])
+                y_3d_position.append(y_3d_position_raw[i])
+                z_3d_position.append(z_3d_position_raw[i])
+
+    # shifting x and z axis to origin sistem coordinator
+    shift_x_point = min(x_3d_position)
+    shift_y_point = min(y_3d_position)
+    shift_z_point = min(z_3d_position)
+    
+    shift_x_KF = min(x_KF_position)
+    shift_y_KF = min(y_KF_position)
+    shift_z_KF = min(z_KF_position)
+
+    shift_x = abs(min(shift_x_point, shift_x_KF)) + 10
+    shift_y = abs(min(shift_y_point, shift_y_KF)) + 10
+    shift_z = abs(min(shift_z_point, shift_z_KF)) + 10
+
+    for x_3d_position in x_3d_position:
+        x_3d.append(x_3d_position + shift_x)
+    for y_3d_position in y_3d_position:
+        y_3d.append(y_3d_position + shift_y)
+    for z_3d_position in z_3d_position:
+        z_3d.append(z_3d_position + shift_z)
+
+    for x_KF_position in x_KF_position:
+        x_KF.append(x_KF_position + shift_x)
+    for y_KF_position in y_KF_position:
+        y_KF.append(y_KF_position + shift_y)
+    for z_KF_position in z_KF_position:
+        z_KF.append(z_KF_position + shift_z)
+
+
+
+    points_3d_data = np.zeros(shape=(len(x_3d), 3))  
+    keyframe_data =  np.zeros(shape=(len(x_KF), 3))  
+
+    # save 3d point data treated
+    for i in range(len(x_3d)):
+        points_3d_data[i, 0] = x_3d[i]   
+        points_3d_data[i, 1] = y_3d[i] 
+        points_3d_data[i, 2] = z_3d[i]  
+
+        #points_3d_data.append([x_3d[i] , y_3d[i], z_3d[i]])
+
+    # save keyframe data treated 
+    for i in range(len(x_KF)):
+        #keyframe_data.append([  x_KF[i], y_KF[i], z_KF[i] ])
+            keyframe_data[i, 0] = x_KF[i]
+            keyframe_data[i, 1] = y_KF[i]
+            keyframe_data[i, 2] = z_KF[i]
+
+    #return 3d point data and keyframe data
+    return points_3d_data, keyframe_data, np.mean(y_KF)
+
+
+
 def draw_2d_point_cloud(points_3d_data, keyframe_data):
 
     print('Use the output data from save_data() function.')
@@ -196,9 +327,9 @@ def draw_2d_point_cloud2(points_3d_data, keyframe_data):
 
     # saving 2d keyframe position
     for i in range(len(keyframe_data)):
-        x_keyframe.append(keyframe_data[i][2])
-        y_keyframe.append(keyframe_data[i][3])
-        z_keyframe.append(keyframe_data[i][4])
+        x_keyframe.append(keyframe_data[i][0])
+        y_keyframe.append(keyframe_data[i][1])
+        z_keyframe.append(keyframe_data[i][2])
 
     # OGM windown size taking into consideration the scale factor
     a = int(max(x_keyframe))
@@ -217,8 +348,8 @@ def draw_2d_point_cloud2(points_3d_data, keyframe_data):
 
 
     # drawing 2d keyframe positon in light blue color
-    for i in range(len(x_keyframe)):
-        img[int(x_keyframe[i]), int(z_keyframe[i])] = (255, 255, 0)
+    #for i in range(len(x_keyframe)):
+    #    img[int(x_keyframe[i]), int(z_keyframe[i])] = (255, 255, 0)
 
     return img
 
@@ -238,8 +369,8 @@ def draw_2d_keyframes(points_3d_data, keyframe_data):
 
     # saving 2d points position
     for i in range(len(points_3d_data)):
-        x_3d.append(points_3d_data[i][1])
-        z_3d.append(points_3d_data[i][3])
+        x_3d.append(points_3d_data[i, 0])
+        z_3d.append(points_3d_data[i, 2])
 
     # OGM windown size taking into consideration the scale factor
     windown_size_x = int(max(x_3d)) + 10
@@ -253,8 +384,8 @@ def draw_2d_keyframes(points_3d_data, keyframe_data):
 
     # saving vectors to 2d keyframe position
     for i in range(len(keyframe_data)):
-        x_keyframe.append(keyframe_data[i][2])
-        z_keyframe.append(keyframe_data[i][4])
+        x_keyframe.append(keyframe_data[i, 0])
+        z_keyframe.append(keyframe_data[i, 2])
 
     # drawing 2d keyframe positon in light blue color
     for i in range(len(x_keyframe)):
@@ -272,22 +403,30 @@ def draw_2d_keyframes(points_3d_data, keyframe_data):
 
 def filter_ground_points(points_3d_data, threshhold):
 
-    print('Use the output data from save_data() function.')
-    ground = []
+    ground = np.zeros(shape=(len(points_3d_data), 3))     
+
     for i in range(len(points_3d_data)):
-        if points_3d_data[i][1] > threshhold:
-            ground.append(points_3d_data[i])
+        if points_3d_data[i, 1] > threshhold:
+            ground[i] = points_3d_data[i]   
     return ground
 
+def get_ground_points(points_3d_data, threshhold):
+
+    ground = np.zeros(shape=(len(points_3d_data), 3))     
+
+    for i in range(len(points_3d_data)):
+        if points_3d_data[i, 1] < threshhold:
+            ground[i] = points_3d_data[i]   
+    return ground
 
 def filter_roof_points(points_3d_data, threshhold):
 
-    print('Use the output data from save_data() function.')
-    ground = []
+    roof = np.zeros(shape=(len(points_3d_data), 3))     
+
     for i in range(len(points_3d_data)):
-        if points_3d_data[i][1] < threshhold:
-            ground.append(points_3d_data[i])
-    return ground
+        if points_3d_data[i, 1] < threshhold:
+            roof[i] = points_3d_data[i]   
+    return roof
 
 
 def draw_lines(points_3d_data, keyframe):
@@ -330,42 +469,17 @@ def draw_lines(points_3d_data, keyframe):
 
 def draw_lines2(keyframe, img2):
     img = img2
+    keyframe_after = keyframe[1:]
+    keyframe[:-1]
 
-    keyframe_after = []
-    for i in range(1, len(keyframe)):
-        keyframe_after.append(keyframe[i])
-
-    keyframe.remove(keyframe[-1])
-    
-    # vectors related to 2d points position
-    x_keyframe_after = []
-    z_keyframe_after = []
-
-    # vectors related to 2d keyframe position
-    x_keyframe = []
-    z_keyframe = []
-    
-    # saving 2d points position
     for i in range(len(keyframe_after)):
-        x_keyframe_after.append(keyframe_after[i][2])
-        z_keyframe_after.append(keyframe_after[i][4])
-        x_keyframe.append(keyframe[i][2])
-        z_keyframe.append(keyframe[i][4])
- 
-    # OGM windown size taking into consideration the scale factor
-    # windown_size_x = int(max(x_keyframe)) + 100
-    # windown_size_z = int(max(z_keyframe)) + 100
-    # img = [windown_size_x, windown_size_z]
-    # img = np.zeros((windown_size_x, windown_size_z, 3), np.uint8)
-
-    for i in range(len(keyframe)):
-        a = int(x_keyframe[i])
-        b = int(z_keyframe[i])
-        c = int(x_keyframe_after[i])
-        d = int(z_keyframe_after[i])
+        a = int(keyframe[i, 0])
+        b = int(keyframe[i, 2])
+        c = int(keyframe_after[i, 0])
+        d = int(keyframe_after[i, 2])
         ray_points = get_line_bresenham( [a, b], [c, d] )
         for b in range(len(ray_points)):
-            img[ray_points[b][0], ray_points[b][1]] = (105, 255, 100)
+            img[ray_points[b][0], ray_points[b][1]] = (0, 255, 255)
 
     return img
 

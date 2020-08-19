@@ -6,6 +6,36 @@ import matplotlib.pyplot as plt
 import open3d as o3d
 
 
+class ShapeDetector:
+	def __init__(self):
+		pass
+	def detect(self, c):
+		# initialize the shape name and approximate the contour
+		shape = "unidentified"
+		peri = cv2.arcLength(c, True)
+		approx = cv2.approxPolyDP(c, 0.04 * peri, True)
+		# if the shape is a triangle, it will have 3 vertices
+		if len(approx) == 3:
+			shape = "triangle"
+		# if the shape has 4 vertices, it is either a square or
+		# a rectangle
+		elif len(approx) == 4:
+			# compute the bounding box of the contour and use the
+			# bounding box to compute the aspect ratio
+			(x, y, w, h) = cv2.boundingRect(approx)
+			ar = w / float(h)
+			# a square will have an aspect ratio that is approximately
+			# equal to one, otherwise, the shape is a rectangle
+			shape = "square" if ar >= 0.95 and ar <= 1.05 else "rectangle"
+		# if the shape is a pentagon, it will have 5 vertices
+		elif len(approx) == 5:
+			shape = "pentagon"
+		# otherwise, we assume the shape is a circle
+		else:
+			shape = "circle"
+		# return the name of the shape
+		return shape
+
 
 def main():
     #points, keyframe, mean = ogm.save_data(100, 1.5, './../maps/xyz_rotated.txt', './../maps/KF_trajectory.txt')
@@ -37,29 +67,21 @@ def main():
     
     # img2 = ogm.draw_2d_point_cloud2(b, keyframe)
 
-    
-    # print(max(a[:,0]))
-    # outrem = cloud.make_RadiusOutlierRemoval()
-    # outrem.set_radius_search(20)
-    # outrem.set_MinNeighborsInRadius(1)
-    # cloud_filtered = outrem.filter()
-    # print(outrem)
-    # for i in range(0, cloud_filtered.size):
-    #     print('x: ' + str(cloud_filtered[i][0]) + ', y : ' + str(
-    #         cloud_filtered[i][1]) + ', z : ' + str(cloud_filtered[i][2]))
 
 
     # cv2.imshow('original', img)
     # cv2.imshow('saporra', img2)
     # cv2.waitKey(0)
-        # FIRST APPROACH
+
+    
+    # FIRST APPROACH
     # data treatment
-    points, keyframe, mean = ogm.save_data(350, 2.5, './../maps/xyz.txt', './../maps/KF_trajectory.txt')
+    points, keyframe, mean = ogm.save_data(200, 2.5, './xyz_rotated_1.txt', './../maps/KF_trajectory.txt')
     # excluding ground points
-    #points_2d = ogm.filter_roof_points(points, mean/2)
+    points_2d = ogm.filter_roof_points(points, mean*1.5)
     #points_3d = ogm.filter_ground_points(points, mean/2.5)
     # draw KF and map points
-    img = ogm.draw_2d_point_cloud(points, keyframe)
+    img = ogm.draw_2d_point_cloud(points_2d, keyframe)
     cv2.imshow('original', img)
 
     # my proposal - draw OGM
@@ -79,18 +101,6 @@ def main():
 if __name__ == "__main__":
 
     main()
-
-
-# PROXIMOS PASSOS: 
-# automatizar o limite de filtrar ground points
-# on the fly?
-# carregar grid no rviz
-# carregar localizacao
-# calibrar camera do celular
-# fazer video .mp4 com o celular da casa
-
-
-
 
 
 # draw only KF

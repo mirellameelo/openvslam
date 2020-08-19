@@ -1,6 +1,8 @@
 build/
 devel/
 lib/
+log/
+install/
 .idea/
 cmake-build-debug/
 cmake-build-release/
@@ -39,3 +41,6 @@ cmake-build-release/
 *.exe
 *.out
 *.app
+
+#videos
+*.mp4

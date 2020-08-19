@@ -1,6 +1,6 @@
 from plyfile import PlyData, PlyElement
 
-plydata = PlyData.read('worldMap22.ply')
+plydata = PlyData.read('worldMap0.ply')
 
 f = open("xyz_rotated.txt", "w")
 
