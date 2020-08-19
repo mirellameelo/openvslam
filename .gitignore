@@ -6,6 +6,13 @@ install/
 .idea/
 cmake-build-debug/
 cmake-build-release/
+videos/
+orb_vocab/
+ros2/build
+ros2/log
+ros2/install
+
+
 */.python-version
 *.user
 

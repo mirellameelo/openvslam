@@ -1,0 +1,63 @@
+source /opt/ros/melodic/setup.bash
+source /home/mirellameelo/new_test/lsd_slam/devel/setup.bash
+
+rosrun lsd_slam_core live_slam rosrun lsd_slam_core image:=/webcam/image_raw _calib:=/home/mirellameelo/new_test/lsd_slam/src/lsd_slam/calib
+
+
+rosrun lsd_slam_core live_slam rosrun lsd_slam_core image:=/videofile/image_raw camera_info:=/videofile/camera_info
+
+
+
+rosrun lsd_slam_viewer viewer
+
+roslaunch video_stream_opencv webcam.launch
+
+
+rosrun lsd_slam_core dataset rosrun lsd_slam_core _files:=/home/mirellameelo/Desktop/rgbd_dataset_freiburg2_pioneer_360/rgb _hz:=10 _calib:=/home/mirellameelo/new_test/lsd_slam/src/lsd_slam/calibration_params
+
+
+roslaunch video_stream_opencv video_file.launch video_stream_provider:=/path/to/file.mp4
+
+
+CAMERA CALIBRATION ROS1-MELODIC - monocular
+
+roslaunch video_stream_opencv camera.launch (no note vai abrir a web do note)
+rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.108 image:=camera/image_raw camera:=/camera
+
+roslaunch video_stream_opencv webcam.launch (modifiquei o .launch p (2) e encontrou a logitech)
+rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.108 image:=webcam/image_raw camera:=/camera
+
+
+CAMERA CALIBRATION ROS1-MELODIC - stereo
+
+rosrun camera_calibration cameracalibrator.py --approximate 0.1 --size 7x7 --square 0.108 right:=/right/image_raw left:=/left/image_raw right_camera:=/my_stereo/right left_camera:=/my_stereo/left
+
+de ontemmmm ; v-rep camera 
+[image]
+
+width
+640
+
+height
+480
+
+[narrow_stereo]
+
+camera matrix
+457.201996 0.000000 319.407857
+0.000000 457.235898 240.133863
+0.000000 0.000000 1.000000
+
+distortion
+0.005062 -0.010008 0.000118 -0.000025 0.000000
+
+rectification
+1.000000 0.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 0.000000 1.000000
+
+projection
+457.237701 0.000000 319.387937 0.000000
+0.000000 457.526123 240.178624 0.000000
+0.000000 0.000000 1.000000 0.000000
+
