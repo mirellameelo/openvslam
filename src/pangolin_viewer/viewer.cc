@@ -354,12 +354,12 @@ void viewer::draw_camera(const openvslam::Mat44_t& cam_pose_wc, const float widt
 void viewer::draw_frustum(const float w) const {
     const float h = w * 0.75f;
     const float z = w * 0.6f;
-    // 四角錐の斜辺
+    // Hipotenusa de uma pirâmide quadrangular
     draw_line(0.0f, 0.0f, 0.0f, w, h, z);
     draw_line(0.0f, 0.0f, 0.0f, w, -h, z);
     draw_line(0.0f, 0.0f, 0.0f, -w, -h, z);
     draw_line(0.0f, 0.0f, 0.0f, -w, h, z);
-    // 四角錐の底辺
+    // Base da pirâmide quadrangular
     draw_line(w, h, z, w, -h, z);
     draw_line(-w, h, z, -w, -h, z);
     draw_line(-w, h, z, w, h, z);

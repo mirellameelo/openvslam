@@ -21,6 +21,17 @@
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
 
+
+
+#include <tf2_ros/transform_listener.h>
+#include <sensor_msgs/msg/point_cloud2.hpp>
+#include <pcl_conversions/pcl_conversions.h>
+#include <pcl/conversions.h>
+#include <pcl/point_cloud.h>
+#include <pcl/point_types.h>
+
+
+
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/opencv.hpp>
@@ -35,17 +46,59 @@
 #include <gperftools/profiler.h>
 #endif
 
+
+
+
+
+auto publi(auto cam_pose_, auto odometry_pub_, auto node){
+    Eigen::Matrix3d rotation_matrix = cam_pose_.block(0, 0, 3, 3);
+    Eigen::Vector3d translation_vector = cam_pose_.block(0, 3, 3, 1);
+
+    tf2::Matrix3x3 tf_rotation_matrix(rotation_matrix(0, 0), rotation_matrix(0, 1), rotation_matrix(0, 2),
+                                      rotation_matrix(1, 0), rotation_matrix(1, 1), rotation_matrix(1, 2),
+                                      rotation_matrix(2, 0), rotation_matrix(2, 1), rotation_matrix(2, 2));
+
+    tf2::Vector3 tf_translation_vector(translation_vector(0), translation_vector(1), translation_vector(2));
+
+    //Coordinate transformation matrix from orb coordinate system to ros coordinate system
+    tf2::Matrix3x3 tf_open_to_ros (0, 0, 1,
+                                 -1, 0, 0,
+                                 0,-1, 0);
+
+    //Transform actual coordinate system to ros coordinate system on camera coordinates
+    tf_rotation_matrix = tf_open_to_ros*tf_rotation_matrix;
+    tf_translation_vector = tf_open_to_ros*tf_translation_vector;
+
+    tf_rotation_matrix = tf_rotation_matrix.transpose();
+    tf_translation_vector = -(tf_rotation_matrix*tf_translation_vector);
+
+    tf2::Transform transform_tf(tf_rotation_matrix, tf_translation_vector);
+
+    // Create odometry message and update it with current camera pose
+    nav_msgs::msg::Odometry odom_msg_;
+    odom_msg_.header.stamp = node->now();
+    odom_msg_.header.frame_id = "map";
+    odom_msg_.child_frame_id = "base_link_frame";
+    odom_msg_.pose.pose.orientation.x = transform_tf.getRotation().getX();
+    odom_msg_.pose.pose.orientation.y = transform_tf.getRotation().getY();
+    odom_msg_.pose.pose.orientation.z = transform_tf.getRotation().getZ();
+    odom_msg_.pose.pose.orientation.w = transform_tf.getRotation().getW();
+
+    odom_msg_.pose.pose.position.x = transform_tf.getOrigin().getX();
+    odom_msg_.pose.pose.position.y = 0.0; //transform_tf.getOrigin().getY();
+    odom_msg_.pose.pose.position.z = transform_tf.getOrigin().getZ();
+    odometry_pub_->publish(odom_msg_);
+}
+
+
 void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::string& vocab_file_path,
                     const std::string& mask_img_path, const bool eval_log, const std::string& map_db_path){
     // load the mask image
     const cv::Mat mask = mask_img_path.empty() ? cv::Mat{} : cv::imread(mask_img_path, cv::IMREAD_GRAYSCALE);
-
     // build a SLAM system
     openvslam::system SLAM(cfg, vocab_file_path);
-
     // startup the SLAM process
     SLAM.startup();
-
     // create a viewer object
     // and pass the frame_publisher and the map_publisher
     #ifdef USE_PANGOLIN_VIEWER
@@ -54,31 +107,53 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
         socket_publisher::publisher publisher(cfg, &SLAM, SLAM.get_frame_publisher(), SLAM.get_map_publisher());
     #endif
 
-    std::vector<double> track_times;
-    const auto tp_0 = std::chrono::steady_clock::now();
-
     // initialize this node
     auto node = std::make_shared<rclcpp::Node>("run_slam");
     rmw_qos_profile_t custom_qos = rmw_qos_profile_default;
     custom_qos.depth = 1;
 
+
+    // cria um topico, canal de envio de msg
+    auto point_cloud_ = node->create_publisher<sensor_msgs::msg::PointCloud2>("point_cloud");
+    sensor_msgs::msg::PointCloud2::SharedPtr pc2_msg_;
+    pcl::PointCloud<pcl::PointXYZRGB> cloud_;
     // cria um topico, canal de envio de msg
     auto odometry_pub_ = node->create_publisher<nav_msgs::msg::Odometry>("pose", 1);
 
+    const auto tp_0 = std::chrono::steady_clock::now();
     
     // run the SLAM as subscriber
     image_transport::Subscriber sub = image_transport::create_subscription(
         node.get(), "/video/image_raw", [&](const sensor_msgs::msg::Image::ConstSharedPtr& msg) {
+        auto local_map_points = SLAM.print();
+        int y;
+        if(!local_map_points.empty()){
+            cloud_.clear();
+            for (y =0;  y < local_map_points.size();  y++){
+                Eigen::Matrix<double, 3, 1> c = local_map_points[y]->get_pos_in_world();
+                pcl::PointXYZRGB pt;
+                pt.x = c[0];
+                pt.y = 0.0;
+                pt.z = c[2];
+                cloud_.points.push_back(pt);
+            }
+            pc2_msg_ = std::make_shared<sensor_msgs::msg::PointCloud2>();
+            pcl::toROSMsg(cloud_, *pc2_msg_);
+            pc2_msg_->header.frame_id = "map";
+            pc2_msg_->header.stamp = node->now();
+            point_cloud_->publish(pc2_msg_);
+        }
+
+
             const auto tp_1 = std::chrono::steady_clock::now();
             const auto timestamp = std::chrono::duration_cast<std::chrono::duration<double>>(tp_1 - tp_0).count();
 
             // input the current frame and estimate the camera pose
-            SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
+            auto cam = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
 
-            const auto tp_2 = std::chrono::steady_clock::now();
 
-            const auto track_time = std::chrono::duration_cast<std::chrono::duration<double>>(tp_2 - tp_1).count();
-            track_times.push_back(track_time);
+
+            publi(cam, odometry_pub_, node);
         },
         "raw", custom_qos);
 
@@ -135,12 +210,6 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
         SLAM.save_map_database(map_db_path);
     }
 
-    if (track_times.size()) {
-        std::sort(track_times.begin(), track_times.end());
-        const auto total_track_time = std::accumulate(track_times.begin(), track_times.end(), 0.0);
-        std::cout << "median tracking time: " << track_times.at(track_times.size() / 2) << "[s]" << std::endl;
-        std::cout << "mean tracking time: " << total_track_time / track_times.size() << "[s]" << std::endl;
-    }
 }
 
 int main(int argc, char* argv[]) {

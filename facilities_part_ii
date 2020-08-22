@@ -61,3 +61,6 @@ projection
 0.000000 457.526123 240.178624 0.000000
 0.000000 0.000000 1.000000 0.000000
 
+
+#run with v-rep
+ros2 run openvslam run_slam -v /home/mirellameelo/openvslam/orb_vocab/orb_vocab.dbow2 -c /home/mirellameelo/openvslam/ros2/configs/config_v_rep.yaml

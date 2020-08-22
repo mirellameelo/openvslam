@@ -34,6 +34,7 @@ public:
 
     //! set world coordinates of this landmark
     void set_pos_in_world(const Vec3_t& pos_w);
+
     //! get world coordinates of this landmark
     Vec3_t get_pos_in_world() const;
 

@@ -11,7 +11,7 @@
 #include "openvslam/io/map_database_io.h"
 #include "openvslam/publish/map_publisher.h"
 #include "openvslam/publish/frame_publisher.h"
-
+#include "openvslam/data/landmark.h"
 #include <thread>
 
 #include <spdlog/spdlog.h>
@@ -350,6 +350,17 @@ void system::resume_other_threads() const {
     if (mapper_) {
         mapper_->resume();
     }
+}
+
+std::vector<openvslam::data::landmark*> system::print(){
+    std::vector<openvslam::data::landmark*> a = map_db_->get_local_landmarks();
+    //auto c = a[0];
+    //if (!a.empty()){
+        return a;
+    //   Eigen::Matrix<double, 3, 1> c = a[0]->get_pos_in_world();
+        //openvslam::data::keyframe* b = c->get_ref_keyframe();
+        //std::cout << &c << std::endl;
+    //}
 }
 
 } // namespace openvslam

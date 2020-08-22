@@ -120,7 +120,6 @@ void mono_localization(const std::shared_ptr<openvslam::config>& cfg, const std:
     custom_qos.depth = 1;
 
     auto odometry_pub_ = node->create_publisher<nav_msgs::msg::Odometry>("odometry", 1);
-
     auto point_cloud_ = node->create_publisher<sensor_msgs::msg::PointCloud2>("point_cloud");
     sensor_msgs::msg::PointCloud2::SharedPtr pc2_msg_;
     pcl::PointCloud<pcl::PointXYZRGB> cloud_;

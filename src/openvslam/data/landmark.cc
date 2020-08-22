@@ -27,6 +27,7 @@ void landmark::set_pos_in_world(const Vec3_t& pos_w) {
     pos_w_ = pos_w;
 }
 
+
 Vec3_t landmark::get_pos_in_world() const {
     std::lock_guard<std::mutex> lock(mtx_position_);
     return pos_w_;
