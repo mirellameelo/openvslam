@@ -154,6 +154,7 @@ public:
      */
     landmark* get_landmark(const unsigned int idx) const;
 
+    // mspm
     /**
      * Get the keypoint indices in the cell which reference point is located
      */

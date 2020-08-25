@@ -46,28 +46,7 @@
 #endif
 
 
-std::vector<std::tuple<int, int>> find_line(int x1, int y1, int x2, int y2) 
-{ 
-    int m_new = 2 * (y2 - y1); 
-    int slope_error_new = m_new - (x2 - x1); 
-    std::vector<std::tuple<int, int>> grid_line;
-    for (int x = x1, y = y1; x <= x2; x++) 
-    { 
-        grid_line.push_back(std::make_tuple(x, y));
-        //std::cout << "(" << x << "," << y << ")\n"; 
-  
-        slope_error_new += m_new; 
-        if (slope_error_new >= 0) 
-        { 
-            y++; 
-            slope_error_new  -= 2 * (x2 - x1); 
-        } 
-    } 
-    return grid_line;
-} 
-
-
-void publi(auto cam_pose_, auto odometry_pub_, auto node){
+tf2::Vector3 publi(auto cam_pose_, auto odometry_pub_, auto node){
     Eigen::Matrix3d rotation_matrix = cam_pose_.block(0, 0, 3, 3);
     Eigen::Vector3d translation_vector = cam_pose_.block(0, 3, 3, 1);
 
@@ -107,10 +86,9 @@ void publi(auto cam_pose_, auto odometry_pub_, auto node){
     odom_msg_.pose.pose.position.y = 0.0; //transform_tf.getOrigin().getY();
     odom_msg_.pose.pose.position.z = transform_tf.getOrigin().getZ();
     odometry_pub_->publish(odom_msg_);
+
+    return tf_translation_vector;
 }
-
-
-bool cond = true;
 
 void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::string& vocab_file_path,
                     const std::string& mask_img_path, const bool eval_log, const std::string& map_db_path){
@@ -165,51 +143,56 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
             const auto timestamp = std::chrono::duration_cast<std::chrono::duration<double>>(tp_1 - tp_0).count();
             // input the current frame and estimate the camera pose
             auto cam = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
-            Eigen::Vector3d cam_pose_xyz = cam.block(0, 3, 3, 1);
-            auto local_map_points = SLAM.print();
 
             
             geometry_msgs::msg::Point list_point;
             geometry_msgs::msg::Point cam_pose_ros;
-            cam_pose_ros.x = cam_pose_xyz(0);
+            auto cam_pose_xyz = publi(cam, odometry_pub_, node);
+            cam_pose_ros.x = -cam_pose_xyz[0];
             cam_pose_ros.y = 0.0;
-            cam_pose_ros.z = cam_pose_xyz(2);
-
+            cam_pose_ros.z = cam_pose_xyz[2];
             int y;
+            auto all_keyframes = SLAM.get_keyframes();
+            if(!all_keyframes.empty()){
+                for(y = 0; y < all_keyframes.size(); y++){
+                    if(all_keyframes[y]->id_ == (all_keyframes.size()-1)){
 
-            if(local_map_points.size() > 100 && cond == true){
-                cloud_.clear();
-                line.points.clear();
-                // CLEAR LINE
-                for (y =0;  y < local_map_points.size();  y++){
-                //     //auto f = all_map_points[y]->get_observations();
-                     pcl::PointXYZRGB pt;
-                    
-                     Eigen::Matrix<double, 3, 1> point_pos = local_map_points[y]->get_pos_in_world();
-                //     // std::vector<std::tuple<int, int>> line = find_line(cam_pos_scaled(0), cam_pos_scaled(2), c_scaled[0], c_scaled[2]);
-                    list_point.x = -point_pos[0];
-                    list_point.y = 0;
-                    list_point.z = point_pos[2];
-                    line.points.push_back(cam_pose_ros);
-                    line.points.push_back(list_point);
+                        // acessar todos os keyframes
+                        cloud_.clear();
+                        line.points.clear();
+                        // acessar cada landmark visualizado por ele
+                        // get just the last keyframe from all 
+                        std::set<openvslam::data::landmark*> landm = all_keyframes[y]->get_valid_landmarks();
+                        //std::cout << all_keyframes[y]->id_ << std::endl;
+                            
+                        for (std::set<openvslam::data::landmark*>::iterator it=landm.begin(); it!=landm.end(); ++it){
 
-                    pt.x = point_pos[0];
-                    pt.y = 0.0;
-                    pt.z = point_pos[2];
-                    cloud_.points.push_back(pt);
+                            pcl::PointXYZRGB pt;
+
+                            auto point_pos = (*it)->get_pos_in_world();
+                            list_point.x = -point_pos[0];
+                            list_point.y = 0;
+                            list_point.z = point_pos[2];
+                            line.points.push_back(cam_pose_ros);
+                            line.points.push_back(list_point);
+
+                            pt.x = point_pos[0];
+                            pt.y = 0.0;
+                            pt.z = point_pos[2];
+                            cloud_.points.push_back(pt);
+                    }
                 }
+
+                }
+                
                 pc2_msg_ = std::make_shared<sensor_msgs::msg::PointCloud2>();
                 pcl::toROSMsg(cloud_, *pc2_msg_);
-
                 pc2_msg_->header.frame_id = "map";
                 pc2_msg_->header.stamp = node->now();
                 point_cloud_->publish(pc2_msg_);
-                //cond = false;
                 line_node->publish(line);
             }
 
-
-            publi(cam, odometry_pub_, node);
         },
         "raw", custom_qos);
 
