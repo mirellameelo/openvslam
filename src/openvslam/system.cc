@@ -12,6 +12,7 @@
 #include "openvslam/publish/map_publisher.h"
 #include "openvslam/publish/frame_publisher.h"
 #include "openvslam/data/landmark.h"
+#include "openvslam/data/keyframe.h"
 #include <thread>
 
 #include <spdlog/spdlog.h>
@@ -352,7 +353,9 @@ void system::resume_other_threads() const {
     }
 }
 
+
 std::vector<openvslam::data::landmark*> system::print(){
+    
     std::vector<openvslam::data::landmark*> a = map_db_->get_local_landmarks();
     //auto c = a[0];
     //if (!a.empty()){

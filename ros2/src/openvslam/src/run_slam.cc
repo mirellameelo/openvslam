@@ -18,19 +18,18 @@
 #include <rclcpp/rclcpp.hpp>
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <nav_msgs/msg/odometry.hpp>
+#include <visualization_msgs/msg/marker.hpp>
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
-
-
+#include <sensor_msgs/msg/point_cloud2.hpp>
+#include <geometry_msgs/msg/point.hpp>
 
 #include <tf2_ros/transform_listener.h>
-#include <sensor_msgs/msg/point_cloud2.hpp>
+
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/conversions.h>
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
-
-
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -47,17 +46,35 @@
 #endif
 
 
+std::vector<std::tuple<int, int>> find_line(int x1, int y1, int x2, int y2) 
+{ 
+    int m_new = 2 * (y2 - y1); 
+    int slope_error_new = m_new - (x2 - x1); 
+    std::vector<std::tuple<int, int>> grid_line;
+    for (int x = x1, y = y1; x <= x2; x++) 
+    { 
+        grid_line.push_back(std::make_tuple(x, y));
+        //std::cout << "(" << x << "," << y << ")\n"; 
+  
+        slope_error_new += m_new; 
+        if (slope_error_new >= 0) 
+        { 
+            y++; 
+            slope_error_new  -= 2 * (x2 - x1); 
+        } 
+    } 
+    return grid_line;
+} 
 
 
-
-auto publi(auto cam_pose_, auto odometry_pub_, auto node){
+void publi(auto cam_pose_, auto odometry_pub_, auto node){
     Eigen::Matrix3d rotation_matrix = cam_pose_.block(0, 0, 3, 3);
     Eigen::Vector3d translation_vector = cam_pose_.block(0, 3, 3, 1);
 
     tf2::Matrix3x3 tf_rotation_matrix(rotation_matrix(0, 0), rotation_matrix(0, 1), rotation_matrix(0, 2),
                                       rotation_matrix(1, 0), rotation_matrix(1, 1), rotation_matrix(1, 2),
                                       rotation_matrix(2, 0), rotation_matrix(2, 1), rotation_matrix(2, 2));
-
+    
     tf2::Vector3 tf_translation_vector(translation_vector(0), translation_vector(1), translation_vector(2));
 
     //Coordinate transformation matrix from orb coordinate system to ros coordinate system
@@ -73,6 +90,8 @@ auto publi(auto cam_pose_, auto odometry_pub_, auto node){
     tf_translation_vector = -(tf_rotation_matrix*tf_translation_vector);
 
     tf2::Transform transform_tf(tf_rotation_matrix, tf_translation_vector);
+
+    //RETORNAR ESTE CARINHA AQUI: tf_translation_vector
 
     // Create odometry message and update it with current camera pose
     nav_msgs::msg::Odometry odom_msg_;
@@ -90,6 +109,8 @@ auto publi(auto cam_pose_, auto odometry_pub_, auto node){
     odometry_pub_->publish(odom_msg_);
 }
 
+
+bool cond = true;
 
 void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::string& vocab_file_path,
                     const std::string& mask_img_path, const bool eval_log, const std::string& map_db_path){
@@ -117,40 +138,75 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
     auto point_cloud_ = node->create_publisher<sensor_msgs::msg::PointCloud2>("point_cloud");
     sensor_msgs::msg::PointCloud2::SharedPtr pc2_msg_;
     pcl::PointCloud<pcl::PointXYZRGB> cloud_;
+    // line
+    auto line_node = node->create_publisher<visualization_msgs::msg::Marker>("line");
     // cria um topico, canal de envio de msg
     auto odometry_pub_ = node->create_publisher<nav_msgs::msg::Odometry>("pose", 1);
 
     const auto tp_0 = std::chrono::steady_clock::now();
     
+    visualization_msgs::msg::Marker line;
+    line.header.frame_id = "map";
+    line.type = line.LINE_LIST;
+    line.action = line.ADD;
+    // marker scale
+    line.scale.x = 0.003;
+    // marker color
+    line.color.a = 1.0;
+    line.color.r = 1.0;
+    line.color.g = 1.0;
+
     // run the SLAM as subscriber
     image_transport::Subscriber sub = image_transport::create_subscription(
         node.get(), "/video/image_raw", [&](const sensor_msgs::msg::Image::ConstSharedPtr& msg) {
-        auto local_map_points = SLAM.print();
-        int y;
-        if(!local_map_points.empty()){
-            cloud_.clear();
-            for (y =0;  y < local_map_points.size();  y++){
-                Eigen::Matrix<double, 3, 1> c = local_map_points[y]->get_pos_in_world();
-                pcl::PointXYZRGB pt;
-                pt.x = c[0];
-                pt.y = 0.0;
-                pt.z = c[2];
-                cloud_.points.push_back(pt);
-            }
-            pc2_msg_ = std::make_shared<sensor_msgs::msg::PointCloud2>();
-            pcl::toROSMsg(cloud_, *pc2_msg_);
-            pc2_msg_->header.frame_id = "map";
-            pc2_msg_->header.stamp = node->now();
-            point_cloud_->publish(pc2_msg_);
-        }
 
 
             const auto tp_1 = std::chrono::steady_clock::now();
             const auto timestamp = std::chrono::duration_cast<std::chrono::duration<double>>(tp_1 - tp_0).count();
-
             // input the current frame and estimate the camera pose
             auto cam = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
+            Eigen::Vector3d cam_pose_xyz = cam.block(0, 3, 3, 1);
+            auto local_map_points = SLAM.print();
 
+            
+            geometry_msgs::msg::Point list_point;
+            geometry_msgs::msg::Point cam_pose_ros;
+            cam_pose_ros.x = cam_pose_xyz(0);
+            cam_pose_ros.y = 0.0;
+            cam_pose_ros.z = cam_pose_xyz(2);
+
+            int y;
+
+            if(local_map_points.size() > 100 && cond == true){
+                cloud_.clear();
+                line.points.clear();
+                // CLEAR LINE
+                for (y =0;  y < local_map_points.size();  y++){
+                //     //auto f = all_map_points[y]->get_observations();
+                     pcl::PointXYZRGB pt;
+                    
+                     Eigen::Matrix<double, 3, 1> point_pos = local_map_points[y]->get_pos_in_world();
+                //     // std::vector<std::tuple<int, int>> line = find_line(cam_pos_scaled(0), cam_pos_scaled(2), c_scaled[0], c_scaled[2]);
+                    list_point.x = -point_pos[0];
+                    list_point.y = 0;
+                    list_point.z = point_pos[2];
+                    line.points.push_back(cam_pose_ros);
+                    line.points.push_back(list_point);
+
+                    pt.x = point_pos[0];
+                    pt.y = 0.0;
+                    pt.z = point_pos[2];
+                    cloud_.points.push_back(pt);
+                }
+                pc2_msg_ = std::make_shared<sensor_msgs::msg::PointCloud2>();
+                pcl::toROSMsg(cloud_, *pc2_msg_);
+
+                pc2_msg_->header.frame_id = "map";
+                pc2_msg_->header.stamp = node->now();
+                point_cloud_->publish(pc2_msg_);
+                //cond = false;
+                line_node->publish(line);
+            }
 
 
             publi(cam, odometry_pub_, node);
