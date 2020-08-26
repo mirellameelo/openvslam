@@ -153,38 +153,45 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
             cam_pose_ros.z = cam_pose_xyz[2];
             int y;
             auto all_keyframes = SLAM.get_keyframes();
+
+
             if(!all_keyframes.empty()){
+
                 for(y = 0; y < all_keyframes.size(); y++){
+
+                    //pegar o último KF sempre    
                     if(all_keyframes[y]->id_ == (all_keyframes.size()-1)){
 
-                        // acessar todos os keyframes
                         cloud_.clear();
                         line.points.clear();
-                        // acessar cada landmark visualizado por ele
-                        // get just the last keyframe from all 
-                        std::set<openvslam::data::landmark*> landm = all_keyframes[y]->get_valid_landmarks();
-                        //std::cout << all_keyframes[y]->id_ << std::endl;
-                            
-                        for (std::set<openvslam::data::landmark*>::iterator it=landm.begin(); it!=landm.end(); ++it){
+                        //pegar todos os landmarks válidos desse último KF
+                        //std::set<openvslam::data::landmark*> landmark_vector = all_keyframes[y]->get_valid_landmarks();
+                        std::vector<openvslam::data::landmark*> landmark_vector = all_keyframes[y]->get_landmarks();
+                        //pegar todos os keypoints desse último KF
+                        std::vector<cv::KeyPoint> keypoints_vector = all_keyframes[y]->keypts_;
+                        //para cada landmark, buscar o respectivo keypoint
 
-                            pcl::PointXYZRGB pt;
+                        for(int o = 0; o < landmark_vector.size(); o++){
+                            if(landmark_vector.at(o) != nullptr){
+                                
+                                auto point_pos = landmark_vector.at(o)->get_pos_in_world();
+                                auto pixel = keypoints_vector.at(o).pt;
 
-                            auto point_pos = (*it)->get_pos_in_world();
-                            list_point.x = -point_pos[0];
-                            list_point.y = 0;
-                            list_point.z = point_pos[2];
-                            line.points.push_back(cam_pose_ros);
-                            line.points.push_back(list_point);
+                                pcl::PointXYZRGB pt;
+                                list_point.x = -point_pos[0];
+                                list_point.y = 0;
+                                list_point.z = point_pos[2];
+                                line.points.push_back(cam_pose_ros);
+                                line.points.push_back(list_point);
+                                pt.x = point_pos[0];
+                                pt.y = 0.0;
+                                pt.z = point_pos[2];
+                                cloud_.points.push_back(pt);
+                            }
+                        }
 
-                            pt.x = point_pos[0];
-                            pt.y = 0.0;
-                            pt.z = point_pos[2];
-                            cloud_.points.push_back(pt);
                     }
                 }
-
-                }
-                
                 pc2_msg_ = std::make_shared<sensor_msgs::msg::PointCloud2>();
                 pcl::toROSMsg(cloud_, *pc2_msg_);
                 pc2_msg_->header.frame_id = "map";

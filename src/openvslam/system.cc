@@ -367,10 +367,12 @@ std::vector<openvslam::data::landmark*> system::print(){
 }
 std::vector<openvslam::data::keyframe*> system::get_keyframes(){
 
-    auto keyframe_and_landmarks = map_db_->get_all_keyframes();
+    auto all_keyframes = map_db_->get_all_keyframes();
     //return keyframe_and_landmarks;
-    return keyframe_and_landmarks;
+    return all_keyframes;
 
 }
+
+
 
 } // namespace openvslam
