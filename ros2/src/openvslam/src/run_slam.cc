@@ -24,6 +24,11 @@
 #include <sensor_msgs/msg/point_cloud2.hpp>
 #include <geometry_msgs/msg/point.hpp>
 
+#include <message_filters/subscriber.h>
+#include <message_filters/synchronizer.h>
+#include <message_filters/sync_policies/approximate_time.h>
+#include <message_filters/time_synchronizer.h>
+
 #include <tf2_ros/transform_listener.h>
 
 #include <pcl_conversions/pcl_conversions.h>
@@ -90,6 +95,95 @@ tf2::Vector3 publi(auto cam_pose_, auto odometry_pub_, auto node){
     return tf_translation_vector;
 }
 
+void callback(const sensor_msgs::msg::Image::ConstSharedPtr& left, 
+                const sensor_msgs::msg::Image::ConstSharedPtr& right,
+                std::shared_ptr<rclcpp::Node> node,
+                const cv::Mat mask,
+                const std::chrono::_V2::steady_clock::time_point tp_0,
+                std::shared_ptr<rclcpp::Publisher<sensor_msgs::msg::PointCloud2_<std::allocator<void>>, std::allocator<void>>> point_cloud,
+                std::shared_ptr<rclcpp::Publisher<visualization_msgs::msg::Marker_<std::allocator<void>>, std::allocator<void>>> line_node, 
+                std::shared_ptr<rclcpp::Publisher<nav_msgs::msg::Odometry_<std::allocator<void> >, std::allocator<void>>> odometry_pub_
+                ){
+        
+    pcl::PointCloud<pcl::PointXYZRGB> cloud_;
+    sensor_msgs::msg::PointCloud2::SharedPtr pc2_msg_;
+    geometry_msgs::msg::Point list_point;
+    geometry_msgs::msg::Point cam_pose_ros;
+
+    visualization_msgs::msg::Marker line;
+    line.header.frame_id = "map";
+    line.type = line.LINE_LIST;
+    line.action = line.ADD;
+    // marker scale
+    line.scale.x = 0.003;
+    // marker color
+    line.color.a = 1.0;
+    line.color.r = 1.0;
+    line.color.g = 1.0;
+
+    std::cout << "recebiii" << std::endl;
+    const auto tp_1 = std::chrono::steady_clock::now();
+    const auto timestamp = std::chrono::duration_cast<std::chrono::duration<double>>(tp_1 - tp_0).count();
+    // // input the current frame and estimate the camera pose
+    //auto cam = SLAM->feed_monocular_frame(cv_bridge::toCvShare(left, "bgr8")->image, timestamp, mask);
+
+            
+    // auto cam_pose_xyz = publi(cam, odometry_pub_, node);
+    // cam_pose_ros.x = -cam_pose_xyz[0];
+    // cam_pose_ros.y = 0.0;
+    // cam_pose_ros.z = cam_pose_xyz[2];
+    // int y;
+    //         auto all_keyframes = SLAM.get_keyframes();
+
+
+    //         if(!all_keyframes.empty()){
+
+    //             for(y = 0; y < all_keyframes.size(); y++){
+
+    //                 //pegar o último KF sempre    
+    //                 if(all_keyframes[y]->id_ == (all_keyframes.size()-1)){
+
+    //                     cloud_.clear();
+    //                     line.points.clear();
+    //                     //pegar todos os landmarks válidos desse último KF
+    //                     //std::set<openvslam::data::landmark*> landmark_vector = all_keyframes[y]->get_valid_landmarks();
+    //                     std::vector<openvslam::data::landmark*> landmark_vector = all_keyframes[y]->get_landmarks();
+    //                     //pegar todos os keypoints desse último KF
+    //                     std::vector<cv::KeyPoint> keypoints_vector = all_keyframes[y]->keypts_;
+    //                     //para cada landmark, buscar o respectivo keypoint
+
+    //                     for(int o = 0; o < landmark_vector.size(); o++){
+    //                         if(landmark_vector.at(o) != nullptr){
+                                
+    //                             auto point_pos = landmark_vector.at(o)->get_pos_in_world();
+    //                             auto pixel = keypoints_vector.at(o).pt;
+
+    //                             pcl::PointXYZRGB pt;
+    //                             list_point.x = -point_pos[0];
+    //                             list_point.y = 0;
+    //                             list_point.z = point_pos[2];
+    //                             line.points.push_back(cam_pose_ros);
+    //                             line.points.push_back(list_point);
+    //                             pt.x = point_pos[0];
+    //                             pt.y = 0.0;
+    //                             pt.z = point_pos[2];
+    //                             cloud_.points.push_back(pt);
+    //                         }
+    //                     }
+
+    //                 }
+    //             }
+    //             pc2_msg_ = std::make_shared<sensor_msgs::msg::PointCloud2>();
+    //             pcl::toROSMsg(cloud_, *pc2_msg_);
+    //             pc2_msg_->header.frame_id = "map";
+    //             pc2_msg_->header.stamp = node->now();
+    //             point_cloud_->publish(pc2_msg_);
+    //             line_node->publish(line);
+    //         }
+
+        }
+
+
 void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::string& vocab_file_path,
                     const std::string& mask_img_path, const bool eval_log, const std::string& map_db_path){
     // load the mask image
@@ -107,101 +201,34 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
     #endif
 
     // initialize this node
-    auto node = std::make_shared<rclcpp::Node>("run_slam");
-    rmw_qos_profile_t custom_qos = rmw_qos_profile_default;
-    custom_qos.depth = 1;
-
+    std::shared_ptr<rclcpp::Node> node = std::make_shared<rclcpp::Node>("run_slam");
+    //auto node = rclcpp::Node::make_shared("talker");
+   // rmw_qos_profile_t custom_qos = rmw_qos_profile_default;
+   // custom_qos.depth = 1;
 
     // cria um topico, canal de envio de msg
-    auto point_cloud_ = node->create_publisher<sensor_msgs::msg::PointCloud2>("point_cloud");
-    sensor_msgs::msg::PointCloud2::SharedPtr pc2_msg_;
-    pcl::PointCloud<pcl::PointXYZRGB> cloud_;
+    std::shared_ptr<rclcpp::Publisher<sensor_msgs::msg::PointCloud2_<std::allocator<void>>, std::allocator<void>>> point_cloud_ = 
+                                                node->create_publisher<sensor_msgs::msg::PointCloud2>("point_cloud");
     // line
-    auto line_node = node->create_publisher<visualization_msgs::msg::Marker>("line");
+    std::shared_ptr<rclcpp::Publisher<visualization_msgs::msg::Marker_<std::allocator<void>>, std::allocator<void>>> line_node = 
+                                                node->create_publisher<visualization_msgs::msg::Marker>("line");
     // cria um topico, canal de envio de msg
-    auto odometry_pub_ = node->create_publisher<nav_msgs::msg::Odometry>("pose", 1);
+    std::shared_ptr<rclcpp::Publisher<nav_msgs::msg::Odometry_<std::allocator<void>>, std::allocator<void>>> odometry_pub_ = 
+                                                node->create_publisher<nav_msgs::msg::Odometry>("pose", 1);
 
-    const auto tp_0 = std::chrono::steady_clock::now();
+    const std::chrono::_V2::steady_clock::time_point tp_0 = std::chrono::steady_clock::now();
     
-    visualization_msgs::msg::Marker line;
-    line.header.frame_id = "map";
-    line.type = line.LINE_LIST;
-    line.action = line.ADD;
-    // marker scale
-    line.scale.x = 0.003;
-    // marker color
-    line.color.a = 1.0;
-    line.color.r = 1.0;
-    line.color.g = 1.0;
 
     // run the SLAM as subscriber
-    image_transport::Subscriber sub = image_transport::create_subscription(
-        node.get(), "/video/image_raw", [&](const sensor_msgs::msg::Image::ConstSharedPtr& msg) {
+    // image_transport::Subscriber sub = image_transport::create_subscription(
+    //     node.get(), "/video/image_raw", [&](const sensor_msgs::msg::Image::ConstSharedPtr& msg) {},
+    //     "raw", custom_qos);
 
+    message_filters::Subscriber<sensor_msgs::msg::Image> image_1(node, "/video/image_raw");
+    message_filters::Subscriber<sensor_msgs::msg::Image> image_2(node, "segmented");
+    message_filters::TimeSynchronizer<sensor_msgs::msg::Image, sensor_msgs::msg::Image> sync(image_1, image_2, 10);
+    sync.registerCallback(boost::bind(&callback, _1, _2, node, mask, tp_0, point_cloud_, line_node, odometry_pub_));
 
-            const auto tp_1 = std::chrono::steady_clock::now();
-            const auto timestamp = std::chrono::duration_cast<std::chrono::duration<double>>(tp_1 - tp_0).count();
-            // input the current frame and estimate the camera pose
-            auto cam = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
-
-            
-            geometry_msgs::msg::Point list_point;
-            geometry_msgs::msg::Point cam_pose_ros;
-            auto cam_pose_xyz = publi(cam, odometry_pub_, node);
-            cam_pose_ros.x = -cam_pose_xyz[0];
-            cam_pose_ros.y = 0.0;
-            cam_pose_ros.z = cam_pose_xyz[2];
-            int y;
-            auto all_keyframes = SLAM.get_keyframes();
-
-
-            if(!all_keyframes.empty()){
-
-                for(y = 0; y < all_keyframes.size(); y++){
-
-                    //pegar o último KF sempre    
-                    if(all_keyframes[y]->id_ == (all_keyframes.size()-1)){
-
-                        cloud_.clear();
-                        line.points.clear();
-                        //pegar todos os landmarks válidos desse último KF
-                        //std::set<openvslam::data::landmark*> landmark_vector = all_keyframes[y]->get_valid_landmarks();
-                        std::vector<openvslam::data::landmark*> landmark_vector = all_keyframes[y]->get_landmarks();
-                        //pegar todos os keypoints desse último KF
-                        std::vector<cv::KeyPoint> keypoints_vector = all_keyframes[y]->keypts_;
-                        //para cada landmark, buscar o respectivo keypoint
-
-                        for(int o = 0; o < landmark_vector.size(); o++){
-                            if(landmark_vector.at(o) != nullptr){
-                                
-                                auto point_pos = landmark_vector.at(o)->get_pos_in_world();
-                                auto pixel = keypoints_vector.at(o).pt;
-
-                                pcl::PointXYZRGB pt;
-                                list_point.x = -point_pos[0];
-                                list_point.y = 0;
-                                list_point.z = point_pos[2];
-                                line.points.push_back(cam_pose_ros);
-                                line.points.push_back(list_point);
-                                pt.x = point_pos[0];
-                                pt.y = 0.0;
-                                pt.z = point_pos[2];
-                                cloud_.points.push_back(pt);
-                            }
-                        }
-
-                    }
-                }
-                pc2_msg_ = std::make_shared<sensor_msgs::msg::PointCloud2>();
-                pcl::toROSMsg(cloud_, *pc2_msg_);
-                pc2_msg_->header.frame_id = "map";
-                pc2_msg_->header.stamp = node->now();
-                point_cloud_->publish(pc2_msg_);
-                line_node->publish(line);
-            }
-
-        },
-        "raw", custom_qos);
 
     rclcpp::executors::SingleThreadedExecutor exec;
     exec.add_node(node);
@@ -257,6 +284,17 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg, const std::str
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
 
 int main(int argc, char* argv[]) {
 

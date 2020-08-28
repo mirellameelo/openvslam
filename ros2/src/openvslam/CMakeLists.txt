@@ -135,7 +135,11 @@ find_package(geometry_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(visualization_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(message_filters REQUIRED)
+find_package(sensor_msgs REQUIRED)
 find_package(Boost REQUIRED COMPONENTS system)
+find_package(std_msgs REQUIRED)
+
 
 set(dependencies
   rclcpp
@@ -149,6 +153,8 @@ set(dependencies
   sensor_msgs
   visualization_msgs
   pcl_conversions
+  message_filters
+  std_msgs
 )
 
 # thread library
@@ -240,7 +246,8 @@ include_directories(
 link_libraries(
         ${rclcpp_LIBRARIES}
         ${OpenVSLAM_LIB}
-	${Boost_SYSTEM_LIBRARY}
+	    ${Boost_SYSTEM_LIBRARY}
+
 	)
 
 add_subdirectory(src)
