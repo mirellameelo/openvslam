@@ -145,7 +145,7 @@ Packages of **vision_opencv** and **image_common** are self-contained.
 ```bh
     # Clone the repository
     cd $HOME
-    git clone -b ros2 --single-branch https://github.com/mirellameelo/openvslam.git
+    git clone -b ros2-base --single-branch https://github.com/mirellameelo/openvslam.git
     
     #Build Vision openCV and Image Common packages
     source /opt/ros/dashing/setup.bash
