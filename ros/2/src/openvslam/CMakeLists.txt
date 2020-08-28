@@ -12,7 +12,6 @@ endif()
 get_filename_component(DEFAULT_OpenVSLAM_DIR ${PROJECT_SOURCE_DIR} DIRECTORY)
 get_filename_component(DEFAULT_OpenVSLAM_DIR ${DEFAULT_OpenVSLAM_DIR} DIRECTORY)
 get_filename_component(DEFAULT_OpenVSLAM_DIR ${DEFAULT_OpenVSLAM_DIR} DIRECTORY)
-get_filename_component(DEFAULT_OpenVSLAM_DIR ${DEFAULT_OpenVSLAM_DIR} DIRECTORY)
 
 set(OpenVSLAM_ROOT ${DEFAULT_OpenVSLAM_DIR} CACHE STRING "Root directory of OpenVSLAM")
 message(STATUS "Root directory of OpenVSLAM: ${OpenVSLAM_ROOT}")
@@ -131,6 +130,26 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(image_transport REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(visualization_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system)
+
+set(dependencies
+  rclcpp
+  cv_bridge
+  image_transport
+  rcutils
+  OpenCV
+  nav_msgs
+  geometry_msgs
+  tf2_ros
+  sensor_msgs
+  visualization_msgs
+  pcl_conversions
+)
 
 # thread library
 find_package(Threads REQUIRED)
@@ -185,6 +204,8 @@ if(USE_SOCKET_PUBLISHER)
     include_directories(${SIOCLIENT_INCLUDE_DIR} ${PROTOBUF_INCLUDE_DIRS})
 endif()
 
+
+
 #################
 # BoW framework #
 #################
@@ -211,6 +232,25 @@ message(STATUS "BoW framework: ${BOW_FRAMEWORK} (found in ${BOW_INCLUDE_DIRS})")
 # Build #
 #########
 
+include_directories(
+        ${rclcpp_INCLUDE_DIRS}
+        ${OpenVSLAM_SRC_DIR}
+        )
+
+link_libraries(
+        ${rclcpp_LIBRARIES}
+        ${OpenVSLAM_LIB}
+	${Boost_SYSTEM_LIBRARY}
+	)
+
 add_subdirectory(src)
+
+install(TARGETS
+  run_slam
+  run_localization
+DESTINATION lib/${PROJECT_NAME})
+
+install (DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME})
 
 ament_package()
