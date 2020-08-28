@@ -15,17 +15,6 @@
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
 
-// ROS PACKAGES
-#include <nav_msgs/msg/odometry.hpp>
-//#include "std_msgs/msg/string.hpp"
-#include "geometry_msgs/msg/pose.hpp"
-#include <tf2_ros/transform_listener.h>
-#include <sensor_msgs/msg/point_cloud2.hpp>
-#include <pcl_conversions/pcl_conversions.h>
-#include <pcl/conversions.h>
-#include <pcl/point_cloud.h>
-#include <pcl/point_types.h>
-
 #include <opencv2/core/core.hpp>
 #include <opencv2/opencv.hpp>
 #include <spdlog/spdlog.h>
@@ -38,51 +27,6 @@
 #ifdef USE_GOOGLE_PERFTOOLS
 #include <gperftools/profiler.h>
 #endif
-
-auto mytime(auto tp_1, auto tp_0){
-    const auto timestamp = std::chrono::duration_cast<std::chrono::duration<double>>(tp_1 - tp_0).count();
-    return timestamp;
-}
-
-auto publi(auto cam_pose_, auto odometry_pub_, auto node){
-    Eigen::Matrix3d rotation_matrix = cam_pose_.block(0, 0, 3, 3);
-    Eigen::Vector3d translation_vector = cam_pose_.block(0, 3, 3, 1);
-
-    tf2::Matrix3x3 tf_rotation_matrix(rotation_matrix(0, 0), rotation_matrix(0, 1), rotation_matrix(0, 2),
-                                      rotation_matrix(1, 0), rotation_matrix(1, 1), rotation_matrix(1, 2),
-                                      rotation_matrix(2, 0), rotation_matrix(2, 1), rotation_matrix(2, 2));
-
-    tf2::Vector3 tf_translation_vector(translation_vector(0), translation_vector(1), translation_vector(2));
-
-    //Coordinate transformation matrix from orb coordinate system to ros coordinate system
-    tf2::Matrix3x3 tf_open_to_ros (0, 0, 1,
-                                 -1, 0, 0,
-                                 0,-1, 0);
-
-    //Transform actual coordinate system to ros coordinate system on camera coordinates
-    tf_rotation_matrix = tf_open_to_ros*tf_rotation_matrix;
-    tf_translation_vector = tf_open_to_ros*tf_translation_vector;
-
-    tf_rotation_matrix = tf_rotation_matrix.transpose();
-    tf_translation_vector = -(tf_rotation_matrix*tf_translation_vector);
-
-    tf2::Transform transform_tf(tf_rotation_matrix, tf_translation_vector);
-
-    // Create odometry message and update it with current camera pose
-    nav_msgs::msg::Odometry odom_msg_;
-    odom_msg_.header.stamp = node->now();
-    odom_msg_.header.frame_id = "map";
-    odom_msg_.child_frame_id = "base_link_frame";
-    odom_msg_.pose.pose.orientation.x = transform_tf.getRotation().getX();
-    odom_msg_.pose.pose.orientation.y = transform_tf.getRotation().getY();
-    odom_msg_.pose.pose.orientation.z = transform_tf.getRotation().getZ();
-    odom_msg_.pose.pose.orientation.w = transform_tf.getRotation().getW();
-
-    odom_msg_.pose.pose.position.x = transform_tf.getOrigin().getX()*5;
-    odom_msg_.pose.pose.position.y = transform_tf.getOrigin().getY()*5;
-    odom_msg_.pose.pose.position.z = transform_tf.getOrigin().getZ()*5;
-    odometry_pub_->publish(odom_msg_);
-}
 
 void mono_localization(const std::shared_ptr<openvslam::config>& cfg, const std::string& vocab_file_path,
                        const std::string& mask_img_path, const std::string& map_db_path, const bool mapping) {
@@ -119,53 +63,24 @@ void mono_localization(const std::shared_ptr<openvslam::config>& cfg, const std:
     rmw_qos_profile_t custom_qos = rmw_qos_profile_default;
     custom_qos.depth = 1;
 
-    auto odometry_pub_ = node->create_publisher<nav_msgs::msg::Odometry>("odometry", 1);
-    auto point_cloud_ = node->create_publisher<sensor_msgs::msg::PointCloud2>("point_cloud");
-    sensor_msgs::msg::PointCloud2::SharedPtr pc2_msg_;
-    pcl::PointCloud<pcl::PointXYZRGB> cloud_;
-    std::ifstream file("/home/mirellameelo/openvslam/ros2/maps/xyz.txt");
-    std::string line; 
-    while (std::getline(file, line))
-    {
-        std::stringstream ss(line);
-        double a, b, c;
-        if (ss >> a >> b >> c)
-        {
-            pcl::PointXYZRGB pt;
-            pt.x = a*5;
-            pt.y = b*5;
-            pt.z = c*5;
-            cloud_.points.push_back(pt);
-        // Add a, b, and c to their respective arrays
-        }
-    }
-
-    rclcpp::executors::SingleThreadedExecutor exec;
-    exec.add_node(node);
-    
-
     // run the SLAM as subscriber
     image_transport::Subscriber sub = image_transport::create_subscription(
-        node.get(), "/video/image_raw", [&](const sensor_msgs::msg::Image::ConstSharedPtr& msg) {
+        node.get(), "camera/image_raw", [&](const sensor_msgs::msg::Image::ConstSharedPtr& msg) {
             const auto tp_1 = std::chrono::steady_clock::now();
-            auto timestamp = mytime(tp_1, tp_0);
+            const auto timestamp = std::chrono::duration_cast<std::chrono::duration<double>>(tp_1 - tp_0).count();
+
             // input the current frame and estimate the camera pose
-            auto cam = SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
+            SLAM.feed_monocular_frame(cv_bridge::toCvShare(msg, "bgr8")->image, timestamp, mask);
+
             const auto tp_2 = std::chrono::steady_clock::now();
+
             const auto track_time = std::chrono::duration_cast<std::chrono::duration<double>>(tp_2 - tp_1).count();
             track_times.push_back(track_time);
-
-            pc2_msg_ = std::make_shared<sensor_msgs::msg::PointCloud2>();
-            pcl::toROSMsg(cloud_, *pc2_msg_);
-            pc2_msg_->header.frame_id = "map";
-            pc2_msg_->header.stamp = node->now();
-            point_cloud_->publish(pc2_msg_);
-            publi(cam, odometry_pub_, node);
-
         },
         "raw", custom_qos);
 
-    rclcpp::WallRate pub_rate(10);
+    rclcpp::executors::SingleThreadedExecutor exec;
+    exec.add_node(node);
 
     std::thread thread([&]() {
         exec.spin();
@@ -204,10 +119,6 @@ void mono_localization(const std::shared_ptr<openvslam::config>& cfg, const std:
     // shutdown the SLAM process
     SLAM.shutdown();
 
-    SLAM.save_map_database(map_db_path);
-    SLAM.save_keyframe_trajectory("/home/mirellameelo/openvslam/ros2/maps/KF_trajectory.txt", "TUM");
-    SLAM.save_json_file("/home/mirellameelo/openvslam/ros2/maps/xyz.txt");
-
     if (track_times.size()) {
         std::sort(track_times.begin(), track_times.end());
         const auto total_track_time = std::accumulate(track_times.begin(), track_times.end(), 0.0);
@@ -217,12 +128,12 @@ void mono_localization(const std::shared_ptr<openvslam::config>& cfg, const std:
 }
 
 int main(int argc, char* argv[]) {
-    #ifdef USE_STACK_TRACE_LOGGER
-        google::InitGoogleLogging(argv[0]);
-        google::InstallFailureSignalHandler();
-    #endif
-
+#ifdef USE_STACK_TRACE_LOGGER
+    google::InitGoogleLogging(argv[0]);
+    google::InstallFailureSignalHandler();
+#endif
     rclcpp::init(argc, argv);
+
     // create options
     popl::OptionParser op("Allowed options");
     auto help = op.add<popl::Switch>("h", "help", "produce help message");
