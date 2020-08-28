@@ -176,9 +176,9 @@ Packages of **vision_opencv** and **image_common** are self-contained.
     c. vocabulary.dbow2 file
 
 ```bh
-    cd $HOME/openvslam/build
-    
     # video and config files
+    cd $HOME/openvslam
+    mkdir videos && cd videos
     FILE_ID="1d8kADKWBptEqTF7jEVhKatBEdN7g0ikY"
     curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${FILE_ID}" > /dev/null
     CODE="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
@@ -186,6 +186,8 @@ Packages of **vision_opencv** and **image_common** are self-contained.
     unzip aist_living_lab_1.zip
     
     # vocabulary
+    cd $HOME/openvslam
+    mkdir Vocabulary && cd Vocabulary
     FILE_ID="1wUPb328th8bUqhOk-i8xllt5mgRW4n84"
     curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${FILE_ID}" > /dev/null
     CODE="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
@@ -193,9 +195,10 @@ Packages of **vision_opencv** and **image_common** are self-contained.
     unzip orb_vocab.zip
 ```
 
-2. Open 3 terminals and source **vision_opencv**, **image_common** and **openvslam** setup files in each terminal:
+2. Open 2 terminals and source **vision_opencv**, **image_common** and **openvslam** setup files in each terminal:
 
 ```bh
+    source /opt/ros/dashing/setup.bash
     source $HOME/openvslam/ros2/install/setup.bash
 ```
 
@@ -204,23 +207,19 @@ Packages of **vision_opencv** and **image_common** are self-contained.
     ros2 run publisher video -m $HOME/openvslam/build/aist_living_lab_1/video.mp4
 ```
 
-**Terminal 2**: republish the video
+**Terminal 2**: run_slam mode
 ```bh
-    ros2 run image_transport republish raw in:=/video/image_raw raw out:=/camera/image_raw
-```
-
-**Terminal 3**: run_slam mode
-```bh
-     ros2 run openvslam run_slam -v $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/build/aist_living_lab_1/config.yaml 
+     ros2 run openvslam run_slam -v $HOME/openvslam/Vocabulary/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/videos/aist_living_lab_1/config.yaml 
      # OR to save the map
-     ros2 run openvslam run_slam -v $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/build/aist_living_lab_1/config.yaml --eval-log --map-db $HOME/openvslam/ros2/mymap.msg
+     ros2 run openvslam run_slam -v $HOME/openvslam/Vocabulary/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/videos/aist_living_lab_1/config.yaml --eval-log --map-db $HOME/openvslam/ros2/mymap.msg
 ```
 
 # Running with a USB camera
 
-1. Open 3 terminals and source **vision_opencv**, **image_common** and **openvslam** setup files in each terminal:
+1. Open 2 terminals and source **vision_opencv**, **image_common** and **openvslam** setup files in each terminal:
 
 ```bh
+    source /opt/ros/dashing/setup.bash
     source $HOME/openvslam/ros2/install/setup.bash
 ```
 
@@ -229,18 +228,13 @@ Packages of **vision_opencv** and **image_common** are self-contained.
     ros2 run image_tools cam2image -t camera 
 ```
 
-**Terminal 2**: republish the video
-```bh
-    ros2 run image_transport republish raw in:=/camera raw out:=/camera/image_raw
-```
-
-**Terminal 3**: run_slam mode or run_localization mode
+**Terminal 2**: run_slam mode or run_localization mode
 ```bh
      # SLAM MODE
-     ros2 run openvslam run_slam -v $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c <CONFIG_PATH>/config.yaml 
+     ros2 run openvslam run_slam -v $HOME/openvslam/Vocabulary/orb_vocab/orb_vocab.dbow2 -c <CONFIG_PATH>/config.yaml 
      # OR to save the map
-     ros2 run openvslam run_slam -v $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c <CONFIG_PATH>/config.yaml --eval-log --map-db $HOME/openvslam/ros2/map.msg
+     ros2 run openvslam run_slam -v $HOME/openvslam/Vocabulary/orb_vocab/orb_vocab.dbow2 -c <CONFIG_PATH>/config.yaml --eval-log --map-db $HOME/openvslam/ros2/map.msg
 
      # localization mode (once you alread have a map.msg)
-     ros2 run openvslam run_localization -v  $HOME/openvslam/build/orb_vocab/orb_vocab.dbow2 -c <CONFIG_PATH>/config.yaml --map-db $HOME/openvslam/ros2/map.msg
+     ros2 run openvslam run_localization -v  $HOME/openvslam/Vocabulary/orb_vocab/orb_vocab.dbow2 -c <CONFIG_PATH>/config.yaml --map-db $HOME/openvslam/ros2/map.msg
 ```
