@@ -175,34 +175,35 @@ void callback(const sensor_msgs::msg::Image::ConstSharedPtr& left,
 
                                 if(color[0] == 0)
                                     cv::circle(result, cv::Point( pixel.x, pixel.y ), 10.0, cv::Scalar( 0, 255, 0 ), 1, 8 );
-                                else
+                                else{
                                     cv::circle(result, cv::Point( pixel.x, pixel.y ), 10.0, cv::Scalar( 0, 0, 255 ), 1, 8 );
+                                    pcl::PointXYZRGB pt;
+                                    list_point.x = -point_pos[0];
+                                    list_point.y = 0;
+                                    list_point.z = point_pos[2];
+                                    line.points.push_back(cam_pose_ros);
+                                    line.points.push_back(list_point);
+                                    pt.x = point_pos[0];
+                                    pt.y = 0.0;
+                                    pt.z = point_pos[2];
+                                    cloud_.points.push_back(pt);
+                                }
                                 cv::imshow("oi", result);
                                 cv::waitKey(1);
 
-                                pcl::PointXYZRGB pt;
-                                list_point.x = -point_pos[0];
-                                list_point.y = 0;
-                                list_point.z = point_pos[2];
-                                line.points.push_back(cam_pose_ros);
-                                line.points.push_back(list_point);
-                                pt.x = point_pos[0];
-                                pt.y = 0.0;
-                                pt.z = point_pos[2];
-                                cloud_.points.push_back(pt);
 
 
                             }
                         }
+                        pc2_msg_ = std::make_shared<sensor_msgs::msg::PointCloud2>();
+                        pcl::toROSMsg(cloud_, *pc2_msg_);
+                        pc2_msg_->header.frame_id = "map";
+                        pc2_msg_->header.stamp = node->now();
+                        point_cloud_->publish(pc2_msg_);
+                        line_node->publish(line);
                     }
                 }
 
-                pc2_msg_ = std::make_shared<sensor_msgs::msg::PointCloud2>();
-                pcl::toROSMsg(cloud_, *pc2_msg_);
-                pc2_msg_->header.frame_id = "map";
-                pc2_msg_->header.stamp = node->now();
-                point_cloud_->publish(pc2_msg_);
-                line_node->publish(line);
             }
 
         }
