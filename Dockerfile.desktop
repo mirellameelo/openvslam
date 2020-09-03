@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM osrf/ros:dashing-desktop
 ENV DEBIAN_FRONTEND noninteractive
 
 # install dependencies via apt
@@ -44,7 +44,7 @@ RUN set -x && \
   rm -rf /var/lib/apt/lists/*
 
 ARG CMAKE_INSTALL_PREFIX=/usr/local
-ARG NUM_THREADS=1
+ARG NUM_THREADS=8
 
 ENV CPATH=${CMAKE_INSTALL_PREFIX}/include:${CPATH}
 ENV C_INCLUDE_PATH=${CMAKE_INSTALL_PREFIX}/include:${C_INCLUDE_PATH}
@@ -59,11 +59,8 @@ ENV NVIDIA_DRIVER_CAPABILITIES ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPA
 ARG EIGEN3_VERSION=3.3.7
 WORKDIR /tmp
 RUN set -x && \
-  wget -q http://bitbucket.org/eigen/eigen/get/${EIGEN3_VERSION}.tar.bz2 && \
-  tar xf ${EIGEN3_VERSION}.tar.bz2 && \
-  rm -rf ${EIGEN3_VERSION}.tar.bz2 && \
-  mv eigen-eigen-* eigen-${EIGEN3_VERSION} && \
-  cd eigen-${EIGEN3_VERSION} && \
+  git clone -b ${EIGEN3_VERSION} https://gitlab.com/libeigen/eigen.git &&  \
+  cd eigen && \
   mkdir -p build && \
   cd build && \
   cmake \
@@ -202,23 +199,17 @@ RUN set -x && \
   rm -rf *
 ENV Pangolin_DIR=${CMAKE_INSTALL_PREFIX}/lib/cmake/Pangolin
 
-# OpenVSLAM
-COPY . /openvslam/
-WORKDIR /openvslam/
-RUN set -x && \
-  mkdir -p build && \
-  cd build && \
-  cmake \
-    -DBUILD_WITH_MARCH_NATIVE=ON \
-    -DUSE_PANGOLIN_VIEWER=ON \
-    -DUSE_SOCKET_PUBLISHER=OFF \
-    -DUSE_STACK_TRACE_LOGGER=ON \
-    -DBOW_FRAMEWORK=DBoW2 \
-    -DBUILD_TESTS=OFF \
-    .. && \
-  make -j${NUM_THREADS} && \
-  rm -rf CMakeCache.txt CMakeFiles Makefile cmake_install.cmake example src && \
-  chmod -R 777 ./*
-
-WORKDIR /openvslam/build/
-ENTRYPOINT ["/bin/bash"]
+RUN cd /root && \
+    git clone -b ros2-base --single-branch https://github.com/mirellameelo/openvslam.git && \
+    cd openvslam/ros2
+RUN cd /root/openvslam && \
+    mkdir build && \
+    cd build && \
+    cmake -DBUILD_WITH_MARCH_NATIVE=OFF \
+        -DUSE_PANGOLIN_VIEWER=ON \
+        -DUSE_SOCKET_PUBLISHER=OFF \
+        -DUSE_STACK_TRACE_LOGGER=ON \
+        -DBOW_FRAMEWORK=DBoW2 \
+        -DBUILD_TESTS=ON .. && \
+    make && \
+    make install
