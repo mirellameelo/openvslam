@@ -215,5 +215,3 @@ RUN cd /root/openvslam && \
     make install
     
 RUN /bin/bash -c "source /ros_entrypoint.sh && cd $HOME/openvslam/ros2 && colcon build --symlink-install"
-
-ENTRYPOINT [ "/bin/bash", "-c", "source /ros_entrypoint.sh && bash" ]
