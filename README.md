@@ -79,7 +79,7 @@ Packages of **vision_opencv** and **image_common** are self-contained
 
 **Terminal 2**: run it in slam mode or localization mode
 ```bh
-     ros2 run openvslam run_slam -v $HOME/openvslam/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/aist_living_lab_1/config.yaml 
+     ros2 run openvslam run_slam -v $HOME/openvslam/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/videos/aist_living_lab_1/config.yaml 
      # OR to save the map
      ros2 run openvslam run_slam -v $HOME/openvslam/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/videos/aist_living_lab_1/config.yaml --eval-log --map-db $HOME/openvslam/ros2/map.msg
      
