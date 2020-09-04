@@ -90,6 +90,7 @@ Packages of **vision_opencv** and **image_common** are self-contained
 1. Open 2 terminals and setup your environment in each one:
 
 ```bh
+    source /opt/ros/dashing/setup.bash
     source $HOME/openvslam/ros2/install/setup.bash
 ```
 
