@@ -40,7 +40,9 @@ Packages of **vision_opencv** and **image_common** are self-contained
 1. Download:
 
     a. video.mp4 file
+    
     b. config.yaml file
+    
     c. vocabulary.dbow2 file
 
 ```bh
