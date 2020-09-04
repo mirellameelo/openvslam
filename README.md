@@ -9,6 +9,107 @@
 [![Docker Build Status](https://img.shields.io/docker/cloud/build/shinsumicco/openvslam.svg)](https://hub.docker.com/r/shinsumicco/openvslam)
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
 
+
+# Personal notes for running it using ROS2
+
+Tested with ros dashing
+
+Packages of **vision_opencv** and **image_common** are self-contained
+
+
+```bh
+    # Clone the repository
+    cd $HOME
+    git clone -b ros2-base --single-branch https://github.com/mirellameelo/openvslam.git
+
+    # Build openvslam project
+    cd $HOME/openvslam
+    mkdir build && cd build
+    cmake     -DBUILD_WITH_MARCH_NATIVE=OFF     -DUSE_PANGOLIN_VIEWER=ON     -DUSE_SOCKET_PUBLISHER=OFF     -DUSE_STACK_TRACE_LOGGER=ON     -DBOW_FRAMEWORK=DBoW2     -DBUILD_TESTS=ON     ..
+    make -j4
+    sudo make install
+    
+    # Build the packages
+    source /opt/ros/dashing/setup.bash
+    cd $HOME/openvslam/ros2
+    colcon build --symlink-install
+```
+
+## Running with a dataset 
+
+1. Download:
+
+    a. video.mp4 file
+    b. config.yaml file
+    c. vocabulary.dbow2 file
+
+```bh
+    cd $HOME/openvslam
+    mkdir videos && cd videos
+    
+    # video and config files
+    FILE_ID="1d8kADKWBptEqTF7jEVhKatBEdN7g0ikY"
+    curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${FILE_ID}" > /dev/null
+    CODE="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
+    curl -sLb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${CODE}&id=${FILE_ID}" -o aist_living_lab_1.zip
+    unzip aist_living_lab_1.zip
+    
+    cd $HOME/openvslam
+    # vocabulary
+    FILE_ID="1wUPb328th8bUqhOk-i8xllt5mgRW4n84"
+    curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${FILE_ID}" > /dev/null
+    CODE="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
+    curl -sLb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${CODE}&id=${FILE_ID}" -o orb_vocab.zip
+    unzip orb_vocab.zip && rm orb_vocab.zip
+```
+
+2. Open 2 terminals and setup your environment in each one:
+
+```bh
+    source /opt/ros/dashing/setup.bash
+    source $HOME/openvslam/ros2/install/setup.bash
+```
+
+**Terminal 1**: publish the video
+```bh
+    ros2 run publisher video -m $HOME/openvslam/videos/aist_living_lab_1/video.mp4
+```
+
+**Terminal 2**: run it in slam mode or localization mode
+```bh
+     ros2 run openvslam run_slam -v $HOME/openvslam/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/aist_living_lab_1/config.yaml 
+     # OR to save the map
+     ros2 run openvslam run_slam -v $HOME/openvslam/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/videos/aist_living_lab_1/config.yaml --eval-log --map-db $HOME/openvslam/ros2/map.msg
+     
+     # localization mode (once you alread have a map.msg)
+     ros2 run openvslam run_localization -v  $HOME/openvslam/orb_vocab/orb_vocab.dbow2 -c $HOME/openvslam/videos/aist_living_lab_1/config.yaml --map-db $HOME/openvslam/ros2/map.msg
+```
+
+## Running with a USB camera
+
+1. Open 2 terminals and setup your environment in each one:
+
+```bh
+    source $HOME/openvslam/ros2/install/setup.bash
+```
+
+**Terminal 1**: publish the video
+```bh
+    ros2 run image_tools cam2image -t camera 
+```
+
+**Terminal 2**: run it in slam mode or localization mode
+```bh
+     # SLAM MODE
+     ros2 run openvslam run_slam -v $HOME/openvslam/orb_vocab/orb_vocab.dbow2 -c <CONFIG_PATH>/config.yaml 
+     # OR to save the map
+     ros2 run openvslam run_slam -v $HOME/openvslam/orb_vocab/orb_vocab.dbow2 -c <CONFIG_PATH>/config.yaml --eval-log --map-db $HOME/openvslam/ros2/map.msg
+
+     # localization mode (once you alread have a map.msg)
+     ros2 run openvslam run_localization -v  $HOME/openvslam/orb_vocab/orb_vocab.dbow2 -c <CONFIG_PATH>/config.yaml --map-db $HOME/openvslam/ros2/map.msg
+```
+
+
 ## Overview
 
 [<img src="https://raw.githubusercontent.com/xdspacelab/openvslam/master/docs/img/teaser.png" width="640px">](https://arxiv.org/abs/1910.01122)
