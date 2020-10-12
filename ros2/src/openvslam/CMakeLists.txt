@@ -126,6 +126,7 @@ endif()
 # Find packages #
 #################
 
+find_package( PCL REQUIRED )
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(cv_bridge REQUIRED)
@@ -156,6 +157,8 @@ set(dependencies
   message_filters
   std_msgs
 )
+
+include_directories(${PCL_INCLUDE_DIRS})
 
 # thread library
 find_package(Threads REQUIRED)
